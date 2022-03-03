@@ -1,0 +1,71 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:dolphin_cp",
+            "is_spawnable": true,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:entity_sensor": {
+                "sensor_range": 1,
+                "relative_range": false,
+                "minimum_count": 1,
+                "event_filters": {
+                    "all_of": [{
+                        "test": "is_family",
+                        "subject": "other",
+                        "value": "dolphin_escort"
+                    }]
+                },
+                "event": "minecraft:despawn"
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "waypoint"
+                ]
+            },
+            "minecraft:health": {
+                "max": 1,
+                "value": 1
+            },
+            "minecraft:collision_box": {
+                "height": 1.0,
+                "width": 1.0
+            },
+            "minecraft:buoyant": {
+                "apply_gravity": true,
+                "base_buoyancy": 1.0,
+                "simulate_waves": true,
+                "big_wave_probability": 0.03,
+                "big_wave_speed": 10.0,
+                "drag_down_on_buoyancy_removed": 0,
+                "liquid_blocks": ["water"]
+            },
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            }
+        },
+        "events": {
+            "minecraft:despawn": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.consumable": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                            "quest_book": "query.is_using_item && query.get_equipped_item_name('main_hand') == 'quest_book'"
+                        },
+                        {
+                            "blinking_talisman": "query.is_using_item && query.get_equipped_item_name('main_hand') == 'blinking_talisman'"
+                        }
+                    ]
+                },
+                "quest_book": {
+                    "on_entry": [
+                        "/dialogue open @e[type=meraki:main,c=1] @s quest_menu"
+                    ],
+                    "transitions": [
+                        { "default": "1.0" }
+                    ]
+                },
+                "blinking_talisman": {
+                    "on_entry": [
+                        "/clear @s meraki:blinking_talisman 0 1",
+                        "/particle custom:teleport ~~1~",
+                        "/spreadplayers ~ ~ 0 12 @s"
+                    ],
+                    "on_exit": [
+                        "/give @s meraki:blinking_talisman 1 0",
+                        "/playsound mob.shulker.teleport @a ~~~ 1.0 1.0",
+                        "/particle custom:teleport ~~~"
+                    ],
+                    "transitions": [
+                        { "default": "1.0" }
+                    ]
+                }
+            }
+        }
+    }
+}

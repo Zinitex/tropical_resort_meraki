@@ -1,0 +1,70 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:dummy",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "minecraft:despawn": {
+                "minecraft:health": {
+                    "value": 0
+                }
+            }
+        },
+        "components": {
+            "minecraft:entity_sensor": {
+                "sensor_range": 1,
+                "relative_range": false,
+                "minimum_count": 1,
+                "event_filters": {
+                    "all_of": [{
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "npc"
+                        },
+                        {
+                            "test": "is_mark_variant",
+                            "value": 1,
+                            "subject": "other"
+                        }
+                    ]
+                },
+                "event": "minecraft:despawn"
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "dummy"
+                ]
+            },
+            "minecraft:health": {
+                "max": 1,
+                "value": 1
+            },
+            "minecraft:collision_box": {
+                "height": 1.0,
+                "width": 1.0
+            },
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            }
+        },
+        "events": {
+            "minecraft:despawn": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

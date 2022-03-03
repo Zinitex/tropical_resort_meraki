@@ -1,0 +1,24 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.helicopter.new": {
+			"loop": true,
+			"bones": {
+				"Helicopter": {
+					"scale": 2.5
+				}
+			}
+		},
+		"animation.helicopter.idle": {
+			"loop": true,
+			"bones": {
+				"bone2": {
+					"rotation": ["math.abs(query.life_time * 75)*12.5", 0, 0]
+				},
+				"blades": {
+					"rotation": [0, "math.abs(query.life_time * 75)*12.5", 0]
+				}
+			}
+		}
+	}
+}

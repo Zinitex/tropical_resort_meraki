@@ -1,0 +1,19 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:void",
+            "is_spawnable": false,
+            "is_summonable": false,
+            "is_experimental": false
+        },
+
+        "components": {
+            "minecraft:health": {
+                "value": 1
+            },
+            "minecraft:despawn": {},
+            "minecraft:physics": {}
+        }
+    }
+}

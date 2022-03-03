@@ -1,0 +1,37 @@
+{
+    "format_version": "1.10.0",
+    "particle_effect": {
+        "description": {
+            "identifier": "meraki:patricia",
+            "basic_render_parameters": {
+                "texture": "textures/tropical_resort/bubble/patricia",
+                "material": "particles_alpha"
+            }
+        },
+        "components": {
+            "minecraft:emitter_local_space": {
+                "position": true
+            },
+            "minecraft:emitter_rate_instant": {
+                "num_particles": 1
+            },
+            "minecraft:emitter_lifetime_looping": {
+                "active_time": 1
+            },
+            "minecraft:emitter_shape_point": {},
+            "minecraft:emitter_lifetime_expression": {
+                "expiration_expression": 10
+            },
+            "minecraft:particle_appearance_billboard": {
+                "size": [0.80, 0.175],
+                "facing_camera_mode": "rotate_y",
+                "uv": {
+                    "texture_width": 80,
+                    "texture_height": 16,
+                    "uv": [0, 0],
+                    "uv_size": [80, 16]
+                }
+            }
+        }
+    }
+}

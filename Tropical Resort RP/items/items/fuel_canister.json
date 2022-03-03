@@ -1,0 +1,13 @@
+{
+    "format_version": "1.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "meraki:fuel_canister",
+            "category": "Item"
+        },
+
+        "components": {
+            "minecraft:icon": "fuel_canister"
+        }
+    }
+}

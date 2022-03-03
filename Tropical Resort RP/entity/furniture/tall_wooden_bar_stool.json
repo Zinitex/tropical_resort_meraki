@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:tall_wooden_bar_stool",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/furniture/wooden_bar_stool"
+            },
+            "geometry": {
+                "default": "geometry.tall_bar_stool"
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "wooden_bar_stool",
+                "texture_index": 0
+            }
+        }
+    }
+}

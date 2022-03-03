@@ -1,0 +1,195 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:light_switch",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    "fixfacing", "light_switch",
+                    { "cant_use": "query.is_ignited" }
+                ]
+            },
+            "animations": {
+                "fixfacing": "controller.animation.fixface",
+                "facenorth": "animation.entity.facenorth",
+                "facesouth": "animation.entity.facesouth",
+                "facewest": "animation.entity.facewest",
+                "faceeast": "animation.entity.faceeast",
+                "cant_use": "animation.light_switch_cant_use",
+
+                "light_switch": "controller.animation.light_switch"
+            }
+        },
+        "component_groups": {
+            "switch_on": {
+                "minecraft:is_charged": {},
+                "minecraft:timer": {
+                    "looping": false,
+                    "time": 10.0,
+                    "time_down_event": {
+                        "event": "switch_off"
+                    }
+                }
+            },
+            "facingnotfixed": {
+                "minecraft:is_sheared": {}
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "power_on": {
+                "minecraft:is_baby": {}
+            },
+            "cant_use": {
+                "minecraft:is_ignited": {}
+            }
+        },
+        "components": {
+            "minecraft:knockback_resistance": {},
+            "minecraft:health": {
+                "max": 1,
+                "min": 1,
+                "value": 1
+            },
+            "minecraft:pushable": {
+                "is_pushable": false
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:collision_box": {
+                "height": 0.0,
+                "width": 0.0
+            },
+            "minecraft:custom_hit_test": {
+                "hitboxes": [{
+                    "pivot": [0.325, 0.5, 0.0],
+                    "height": 0.20,
+                    "width": 0.20
+                }]
+            },
+            "minecraft:interact": {
+                "interactions": [{
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "value": "minecraft:is_charged",
+                                        "operator": "not",
+                                        "subject": "self"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "not",
+                                        "subject": "self"
+                                    }
+                                ]
+                            },
+                            "event": "switch_on",
+                            "target": "self"
+                        },
+                        "swing": true,
+                        "interact_text": "Turn On"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "value": "minecraft:is_charged",
+                                        "operator": "not",
+                                        "subject": "self"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals",
+                                        "subject": "self"
+                                    }
+                                ]
+                            },
+                            "event": "cant_use",
+                            "target": "self"
+                        },
+                        "cooldown": 5,
+                        "swing": true,
+                        "interact_text": "Turn On"
+                    }
+                ]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:facingfixed": {
+                "remove": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:despawn": {
+                "add": { "component_groups": ["minecraft:despawn"] }
+            },
+            "switch_on": {
+                "add": {
+                    "component_groups": ["switch_on"]
+                }
+            },
+            "switch_off": {
+                "remove": {
+                    "component_groups": ["switch_on"]
+                }
+            },
+            "all_on": {
+                "add": {
+                    "component_groups": [
+                        "power_on"
+                    ]
+                }
+            },
+            "all_off": {
+                "remove": {
+                    "component_groups": [
+                        "power_on"
+                    ]
+                }
+            },
+            "cant_use": {
+                "add": {
+                    "component_groups": [
+                        "cant_use"
+                    ]
+                }
+            },
+            "remove_cant_use": {
+                "remove": {
+                    "component_groups": [
+                        "cant_use"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:rock",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/decorations/rock"
+            },
+            "geometry": {
+                "default": "geometry.rock"
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "rock",
+                "texture_index": 0
+            }
+        }
+    }
+}

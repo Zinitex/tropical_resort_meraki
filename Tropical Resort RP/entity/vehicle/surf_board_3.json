@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:surf_board_3",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/decorations/surf_board_3"
+            },
+            "geometry": {
+                "default": "geometry.surf_board"
+            },
+            "animations": {
+                "in_water": "animation.surf_board.on_water",
+                "decoration": "animation.surf_board.decoration"
+            },
+            "scripts": {
+                "animate": [
+                    { "in_water": "query.is_in_water" },
+                    { "decoration": "query.is_powered" }
+                ]
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "surf_board_3",
+                "texture_index": 0
+            }
+        }
+    }
+}

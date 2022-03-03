@@ -1,0 +1,128 @@
+{
+    "format_version": "1.17.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:fuel_canister",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    { "collect": "query.is_baby" }
+                ]
+            },
+            "animations": {
+                "collect": "animation.fuel_canister_collect"
+            }
+        },
+        "component_groups": {
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "minecraft:collect": {
+                "minecraft:is_baby": {},
+                "minecraft:transformation": {
+                    "into": "meraki:void",
+                    "delay": 0.5
+                }
+            },
+            "visible": {
+                "minecraft:is_sheared": {}
+            }
+        },
+        "components": {
+            "minecraft:entity_sensor": {
+                "sensor_range": 0.5,
+                "relative_range": false,
+                "minimum_count": 1,
+                "event_filters": {
+                    "all_of": [{
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "player"
+                        },
+                        {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:is_baby",
+                            "operator": "!="
+                        },
+                        {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:is_sheared",
+                            "operator": "=="
+                        }
+                    ]
+                },
+                "event": "minecraft:collect"
+            },
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:scale": {
+                "value": 1.0
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1,
+                "min": 1
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:movement": {
+                "value": 0.0,
+                "max": 0.0
+            },
+            "minecraft:navigation.generic": {},
+            "minecraft:nameable": {
+                "allow_name_tag_renaming": true,
+                "always_show": true
+            }
+        },
+        "events": {
+            "minecraft:collect": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:collect"
+                    ]
+                }
+            },
+            "minecraft:despawn": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:despawn"
+                    ]
+                }
+            },
+            "visible": {
+                "add": {
+                    "component_groups": [
+                        "visible"
+                    ]
+                }
+            },
+            "invisible": {
+                "remove": {
+                    "component_groups": [
+                        "visible"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.gold_ring.resize": {
+			"loop": true,
+			"bones": {
+				"gold_ring": {
+					"position": [0, "math.sin(query.life_time * 75)*2", 0],
+					"scale": 4
+				}
+			}
+		}
+	}
+}

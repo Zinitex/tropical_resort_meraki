@@ -1,0 +1,87 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:chair1",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    "fixfacing"
+                ]
+            },
+            "animations": {
+                "fixfacing": "controller.animation.fixface",
+                "facenorth": "animation.entity.facenorth",
+                "facesouth": "animation.entity.facesouth",
+                "facewest": "animation.entity.facewest",
+                "faceeast": "animation.entity.faceeast"
+            }
+        },
+        "component_groups": {
+            "facingnotfixed": {
+                "minecraft:is_sheared": {}
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:scale": {
+                "value": 0.85
+            },
+            "minecraft:knockback_resistance": {},
+            "minecraft:health": {
+                "max": 1,
+                "min": 1,
+                "value": 1
+            },
+            "minecraft:pushable": {
+                "is_pushable": false
+            },
+            "minecraft:physics": {},
+            "minecraft:rideable": {
+                "seat_count": 1,
+                "family_types": [
+                    "player"
+                ],
+                "seats": {
+                    "position": [0.0, 0.65, 0.0]
+                }
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 1.5
+            },
+            "minecraft:custom_hit_test": {
+                "hitboxes": [{
+                        "pivot": [0, 0.5, 0], //This is the position of the hitbox, you can change the X, Y and Z values.
+                        "width": 0.8,
+                        "height": 0.7
+                    } //And you can add many more hitboxes as you want, just copy-paste the hitbox inside the "hitboxes" array.
+                ]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:facingfixed": {
+                "remove": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:despawn": {
+                "add": { "component_groups": ["minecraft:despawn"] }
+            }
+        }
+    }
+}

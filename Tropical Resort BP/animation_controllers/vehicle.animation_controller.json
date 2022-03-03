@@ -1,0 +1,75 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.vehicle.config": {
+            "states": {
+                "default": {
+                    "transitions": [
+                        { "no_fuel": "!query.is_powered" }
+                    ]
+                },
+                "no_fuel": {
+                    "transitions": [
+                        { "fuel": "query.is_powered" }
+                    ]
+                },
+                "fuel": {
+                    "on_entry": [
+                        "/tag @s add fuel",
+                        "/clear @p[m=!1] meraki:fuel_canister 0 1",
+                        "/title @p actionbar §7Fuel §rhas been filled",
+                        "/scoreboard players set @s fuel 100"
+                    ],
+                    "transitions": [{
+                        "default": "1.0"
+                    }]
+                }
+            }
+        },
+        "controller.animation.vehicle": {
+            "states": {
+                "default": {
+                    "transitions": [
+                        { "disable": "query.has_rider" },
+                        { "enable": "!query.has_rider" }
+                    ]
+                },
+                "disable": {
+                    "on_entry": [
+                        "@s minecraft:has_rider"
+                    ],
+                    "transitions": [
+                        { "default": "!query.has_rider" }
+                    ]
+                },
+                "enable": {
+                    "on_entry": [
+                        "@s minecraft:no_rider"
+                    ],
+                    "transitions": [
+                        { "default": "query.has_rider" }
+                    ]
+                }
+            }
+        },
+        "controller.animation.custom_ride": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "has_rider": "query.has_rider"
+                    }]
+                },
+                "has_rider": {
+                    "on_entry": [
+                        "/execute @s[family=surfboard] ~~~ event entity @p minecraft:is_surfing",
+                        "/execute @s[family=beach_chair] ~~~ event entity @p minecraft:is_relaxing"
+                    ],
+                    "transitions": [
+                        { "default": "!query.has_rider" }
+                    ]
+                }
+            }
+        }
+    }
+}

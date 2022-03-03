@@ -1,0 +1,92 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:lamp",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    "fixfacing", "lamp"
+                ]
+            },
+            "animations": {
+                "fixfacing": "controller.animation.fixface",
+                "facenorth": "animation.entity.facenorth",
+                "facesouth": "animation.entity.facesouth",
+                "facewest": "animation.entity.facewest",
+                "faceeast": "animation.entity.faceeast",
+
+                "lamp": "controller.animation.lamp"
+            }
+        },
+        "component_groups": {
+            "switch_on": {
+                "minecraft:is_charged": {}
+            },
+            "facingnotfixed": {
+                "minecraft:is_sheared": {}
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:knockback_resistance": {},
+            "minecraft:health": {
+                "max": 1,
+                "min": 1,
+                "value": 1
+            },
+            "minecraft:pushable": {
+                "is_pushable": false
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:collision_box": {
+                "height": 0.0,
+                "width": 0.0
+            },
+            "minecraft:custom_hit_test": {
+                "hitboxes": [{
+                    "pivot": [0.0, 0.5, 0.0],
+                    "height": 0.50,
+                    "width": 0.50
+                }]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:facingfixed": {
+                "remove": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:despawn": {
+                "add": { "component_groups": ["minecraft:despawn"] }
+            },
+            "switch_on": {
+                "add": {
+                    "component_groups": ["switch_on"]
+                }
+            },
+            "switch_off": {
+                "remove": {
+                    "component_groups": ["switch_on"]
+                }
+            }
+        }
+    }
+}

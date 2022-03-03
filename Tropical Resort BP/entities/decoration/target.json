@@ -1,0 +1,180 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:target",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    "fixfacing",
+                    { "count": "query.is_baby" }
+                ]
+            },
+            "animations": {
+                "count": "animation.target_count",
+
+                "fixfacing": "controller.animation.fixface",
+                "facenorth": "animation.entity.facenorth",
+                "facesouth": "animation.entity.facesouth",
+                "facewest": "animation.entity.facewest",
+                "faceeast": "animation.entity.faceeast"
+            }
+        },
+        "component_groups": {
+            "minecraft:enable": {
+                "minecraft:is_ignited": {}
+            },
+            "minecraft:can_shoot": {
+                "minecraft:is_charged": {}
+            },
+            "count": {
+                "minecraft:is_baby": {}
+            },
+            "facingnotfixed": {
+                "minecraft:is_sheared": {}
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:knockback_resistance": {},
+            "minecraft:health": {
+                "max": 1,
+                "min": 1,
+                "value": 1
+            },
+            "minecraft:scale": {
+                "value": 1.5
+            },
+            "minecraft:pushable": {
+                "is_pushable": false
+            },
+            "minecraft:physics": {
+                "has_collision": false,
+                "has_gravity": false
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                        "cause": "projectile",
+                        "deals_damage": false,
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "damager",
+                                        "value": "arrow"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_charged",
+                                        "operator": "=="
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_ignited",
+                                        "operator": "=="
+                                    }
+                                ]
+                            },
+                            "event": "count",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:custom_hit_test": {
+                "hitboxes": [{
+                        "pivot": [0.0, 0.5, 0.0],
+                        "height": 1.0,
+                        "width": 1.0
+                    },
+                    {
+                        "pivot": [1.0, 0.5, 0.0],
+                        "height": 1.0,
+                        "width": 1.0
+                    },
+                    {
+                        "pivot": [-1.0, 0.5, 0.0],
+                        "height": 1.0,
+                        "width": 1.0
+                    },
+                    {
+                        "pivot": [0.0, 1.5, 0.0],
+                        "height": 1.0,
+                        "width": 1.0
+                    },
+                    {
+                        "pivot": [1.0, 1.5, 0.0],
+                        "height": 1.0,
+                        "width": 1.0
+                    },
+                    {
+                        "pivot": [-1.0, 1.5, 0.0],
+                        "height": 1.0,
+                        "width": 1.0
+                    },
+                    {
+                        "pivot": [0.0, 2.5, 0.0],
+                        "height": 1.0,
+                        "width": 1.0
+                    },
+                    {
+                        "pivot": [1.0, 2.5, 0.0],
+                        "height": 1.0,
+                        "width": 1.0
+                    },
+                    {
+                        "pivot": [-1.0, 2.5, 0.0],
+                        "height": 1.0,
+                        "width": 1.0
+                    }
+                ]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:facingfixed": {
+                "remove": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:despawn": {
+                "add": { "component_groups": ["minecraft:despawn"] }
+            },
+            "count": {
+                "add": { "component_groups": ["count"] }
+            },
+            "remove_count": {
+                "remove": { "component_groups": ["count"] }
+            },
+            "minecraft:can_shoot": {
+                "add": { "component_groups": ["minecraft:can_shoot"] }
+            },
+            "minecraft:remove_can_shoot": {
+                "remove": { "component_groups": ["minecraft:can_shoot"] }
+            },
+            "minecraft:enable": {
+                "add": { "component_groups": ["minecraft:enable"] }
+            },
+            "minecraft:disable": {
+                "remove": { "component_groups": ["minecraft:enable", "minecraft:can_shoot"] }
+            }
+        }
+    }
+}

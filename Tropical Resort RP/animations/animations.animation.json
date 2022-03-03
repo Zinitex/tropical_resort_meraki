@@ -1,0 +1,54 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.light_switch.on": {
+            "loop": "hold_on_last_frame",
+            "animation_length": 0.5,
+            "bones": {
+                "flick": {
+                    "rotation": {
+                        "0.0": [0, 0, 0],
+                        "0.5": [80, 0, 0]
+                    }
+                }
+            }
+        },
+        "animation.fpp.weapon.hand": {
+            "loop": true,
+            "animation_length": 0.1,
+            "bones": {
+                "weapon": {
+                    "rotation": [47.5, 71, -43],
+                    "position": [-10, 13.4, -13.7],
+                    "scale": 0.5
+                },
+                "leftPants": {
+                    "scale": [1, 0.9, 1]
+                }
+            }
+        },
+        "animation.tpp.weapon.hand": {
+            "loop": true,
+            "animation_length": 0.1,
+            "bones": {
+                "weapon": {
+                    "rotation": [-2.5, 12.5, 3],
+                    "position": [-5, 8, -9],
+                    "scale": 0.75
+                },
+                "leftArm": {
+                    "rotation": [-68.5, 35, 0],
+                    "position": [-1.85, -0.5, -1.1]
+                }
+            }
+        },
+        "animation.custom.throw": {
+            "loop": true,
+            "bones": {
+                "custom": {
+                    "rotation": ["query.target_x_rotation", "-query.target_y_rotation", 0]
+                }
+            }
+        }
+    }
+}

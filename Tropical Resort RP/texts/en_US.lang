@@ -1,0 +1,211 @@
+pack.name=Tropical Resort RP
+pack.description=Resources Pack for Tropical Resort
+
+meraki:ricky.dialogue_line1=<§eRicky§f> Welcome %1 to Tropical Resort, a map by Meraki! We hope you have fun playing the various quests we've designed for you around the island.
+meraki:ricky.dialogue_line2=<§eRicky§f> Talk to the receptionist to get started.
+
+meraki:receptionist.dialogue_line1=<§eReceptionist§f> Hello %1.
+meraki:receptionist.dialogue_line2=<§eReceptionist§f> Our staff is working hard on getting the entire resort ready for your stay, but in the meantime, you can go talk to the questmaster to start exploring the island!
+
+meraki:quest_master.dialogue_line1=<§eQuestmaster§f> Take this §eQuest Book§f.
+meraki:quest_master.dialogue_line2=<§eQuestmaster§f> You can use it to view potential quests around the island at any time.
+meraki:quest_master.dialogue_line3=<§eQuestmaster§f> As well as check your progress on any quests you've already started. Awesome, right?
+meraki:quest_master.dialogue_line4=<§eQuestmaster§f> Let's me give you, your first quest.
+
+meraki:archie.dialogue_line1=<§eArchie the Archer§f> Welcome to the archery range! If you look to the chest on your right, you'll find all the necessary materials to craft your first training bow.
+meraki:archie.dialogue_line2=<§eArchie the Archer§f> Can you remember where you saw a crafting table around the island?, You need to craft Training Bow first.
+
+meraki:archie.dialogue_line3=<§eArchie the Archer§f> Nice job! Here, you'll need this ammo.
+
+meraki:archie.dialogue_line4=<§eArchie the Archer§f> When I say GO, targets will begin appearing in the ocean in groups of 3.
+meraki:archie.dialogue_line5=<§eArchie the Archer§f> Shoot down a group of targets to make the next one appear.
+meraki:archie.dialogue_line6=<§eArchie the Archer§f> Once you hit all 12 targets, I'll give you a reward!
+
+meraki:archie.dialogue_line7=<§eArchie the Archer§f> Impressive. You can come here anytime you want
+
+meraki:sarah.dialogue_line1=<§eSarah the Sailor§f> Ahoy!
+meraki:sarah.dialogue_line2=<§eSarah the Sailor§f> Looking for something to do while the staff are getting everything ready? 
+meraki:sarah.dialogue_line3=<§eSarah the Sailor§f> Why don't you go look for 2 twigs and 1 rock? If you can get me those ingredients, I'll make it worth your while.
+
+meraki:sarah.dialogue_line4=<§eSarah the Sailor§f> Wow, you're quick! 
+meraki:sarah.dialogue_line5=<§eSarah the Sailor§f> Alright, now use the crafting table over there to craft yourself a fishing spear. 
+meraki:sarah.dialogue_line6=<§eSarah the Sailor§f> The recipe for a fishing spear is on this map.
+
+meraki:sarah.dialogue_line7=<§eSarah the Sailor§f> Excellent. There's your first fishing spear. Now, listen up.
+meraki:sarah.dialogue_line8=<§eSarah the Sailor§f> Ready to do some fishing? 
+meraki:sarah.dialogue_line9=<§eSarah the Sailor§f> To catch a fish, throw your spear into them while they're in the water and they'll be pulled into your inventory.
+meraki:sarah.dialogue_line10=<§eSarah the Sailor§f> I need you to catch 3 green, 3 yellow, and 3 red fish for me. Can you do that?
+
+meraki:sarah.dialogue_line11=<§eSarah the Sailor§f> Wonderful. I found this surfing board washed up on the beach a few days ago.
+meraki:sarah.dialogue_line12=<§eSarah the Sailor§f> It's still usable, so I want you to have it. You can come back anytime you need more gold coins!
+
+meraki:beach_kid.dialogue_line1=<§eBeach Kid§f> Hey! You're %1! My mom told me about you. Have you seen any sea shells?
+meraki:beach_kid.dialogue_line2=<§eBeach Kid§f> I need 12 more to complete my sandcastle. If you can get them to me, I'll make it worth your while.
+
+meraki:beach_kid.dialogue_line3=<§eBeach Kid§f> Woah, you really got them! Thanks.
+meraki:beach_kid.dialogue_line4=<§eBeach Kid§f> Here, I found this key in the sand. I think it unlocks something in the secret cavern below the island.
+
+meraki:daniella.dialogue_line1=<§eDaniella§f> Do you like dolphins? I really love dolphins, but I'm really tired and can't escort them to safety.
+meraki:daniella.dialogue_line2=<§eDaniella§f> Could you take your surfboard and escort the dolphins to their destination?
+meraki:daniella.dialogue_line3=<§eDaniella§f> It looks like the dolphin likes you!
+
+meraki:barman.dialogue_line1=<§eBarman§f> Thank goodness, someone came! Look, I need to run to the ocean to get some corals for my wife.
+meraki:barman.dialogue_line2=<§eBarman§f> It's our anniversary and I forgot! I'll need someone to take care of the bar while I'm gone. Can you do that for me?
+
+meraki:sam.dialogue_line1=<§eSurfer Sam§f> Whoa there! That's a nice board, where'd you get it? Oh well anyway, would you like to try Ring Surfing?
+meraki:sam.dialogue_line2=<§eSurfer Sam§f> All you gotta do is pass through all the rings in the ocean within 1 minute and 30 seconds. If you do it, I'll give you a reward. What do you say?
+meraki:sam.dialogue_line3=<§eSurfer Sam§f> Wow, you're a natural! You just let me know if you need any more gold coins and I'll let you go again
+
+meraki:beach_boy.dialogue_line1=<§eBeach Boy§f> It looks like you're ready to try the jetskis. Go on then, try it out.
+meraki:beach_boy.dialogue_line2=<§eBeach Boy§f> If you run out of fuel, look in the basement, there should be more there!
+
+meraki:barman.dialogue_line4=<§eBarman§f> You again! Shouldn't you be at the bar!? Oh, it doesn't matter. I'm ruined! I can't find a pink coral for my wife, and I've only got a few hours left. Please, help me!”
+meraki:barman.dialogue_line5=<§eBarman§f> You… you found it! Thank you so much. I don't have much, but here, take it.
+
+meraki:patricia.dialogue_line1=<§ePatricia§f> Hey %1. The pool party was supposed to start yesterday, but it looks like we're 200 gold coins short.
+meraki:patricia.dialogue_line2=<§ePatricia§f> I don't have any on me right now, so if you manage to collect 200 gold coins, I can start the pool party right away.
+meraki:patricia.dialogue_line3=<§ePatricia§f> Party time!
+
+meraki:heli.dialogue_line1=<§eBarman§f> Well, well, well, you did it! You've completed all the quests! I'm Herman, the owner of the resort.
+meraki:heli.dialogue_line2=<§eBarman§f> I think you've earned yourself a reward! If you can find the key, the helicopter's all yours. I think I left it with Patricia by the pool…
+meraki:heli.dialogue_line3=<§eBarman§f> Oh, you're back. Um. I traded the key with Sarah the Sailor earlier today. She gave me this necklace, isn't it great?
+meraki:heli.dialogue_line4=<§eBarman§f> Ahoy! You're looking for the key? Hm. I seem to have lost it in the ocean, but I think the Barman found it while looking for coral for his wife.
+meraki:heli.dialogue_line5=<§eBarman§f> Oh, this? You can have it, of course. Here.
+meraki:heli.dialogue_line6=<§eBarman§f> The key! Great job. Now, just a second…
+meraki:heli.dialogue_line7=<§eBarman§f> Oh. It looks like we're out of fuel. Don't happen to have any on ya, do you?
+meraki:heli.dialogue_line8=<§eBarman§f> There you go. Enjoy the ride!
+
+meraki:npc_dialogue.reject=<§e%1§f> §cIt looks like you're not ready for this quest yet. Come back later when you've done a bit more around the island!
+
+entity.meraki:fuel_canister.name=Fuel Canister
+entity.meraki:gold_ring.name=Golden Ring
+entity.meraki:light_switch.name=Light Switch
+entity.meraki:poolband.name=Poolband
+entity.meraki:rock.name=Rock
+entity.meraki:seashells.name=Seashells
+entity.meraki:surf_board_1.name=Surfboard
+entity.meraki:surf_board_2.name=Surfboard
+entity.meraki:surf_board_3.name=Surfboard
+entity.meraki:surf_board_4.name=Surfboard
+entity.meraki:target.name=Target
+entity.meraki:twig.name=Twig
+entity.meraki:bar_stool.name=Bar Stool
+entity.meraki:beach_chair.name=Beach Chair
+entity.meraki:chair1.name=Chair
+entity.meraki:chair2.name=Chair
+entity.meraki:chair3.name=Chair
+entity.meraki:luxury_sofa.name=Luxury Sofa
+entity.meraki:sofa.name=Sofa
+entity.meraki:tall_wooden_bar_stool.name=Tall Wooden Bar Stool
+entity.meraki:wooden_bar_stool.name=Wooden Bar Stool
+entity.meraki:wooden_sofa.name=Wooden Sofa
+entity.meraki:helicopter.name=Helicopter
+entity.meraki:jetski1.name=Red Jetski
+entity.meraki:jetski2.name=Blue Jetski
+entity.meraki:red_fish.name=Spawn Red Fish
+entity.meraki:yellow_fish.name=Spawn Yellow Fish
+entity.meraki:green_fish.name=Spawn Green Fish
+entity.meraki:lamp.name=Place Lamp
+entity.meraki:customer.name=Customer
+entity.meraki:ghost.name=Ghost
+entity.meraki:dolphin.name=Dolphin Pet
+entity.meraki:dolphin_cp.name=Dolphin Checkpoint
+
+item.spawn_egg.entity.meraki:red_fish.name=Spawn Red Fish
+item.spawn_egg.entity.meraki:yellow_fish.name=Spawn Yellow Fish
+item.spawn_egg.entity.meraki:green_fish.name=Spawn Green Fish
+item.spawn_egg.entity.meraki:fuel_canister.name=Place Fuel Canister
+item.spawn_egg.entity.meraki:gold_ring.name=Place Golden Ring
+item.spawn_egg.entity.meraki:light_switch.name=Place Light Switch
+item.spawn_egg.entity.meraki:poolband.name=Spawn Poolband
+item.spawn_egg.entity.meraki:rock.name=Place Rock
+item.spawn_egg.entity.meraki:seashells.name=Place Seashells
+item.spawn_egg.entity.meraki:surf_board_1.name=Spawn Cyan Surfboard
+item.spawn_egg.entity.meraki:surf_board_2.name=Spawn Red Surfboard
+item.spawn_egg.entity.meraki:surf_board_3.name=Spawn Purple Surfboard
+item.spawn_egg.entity.meraki:surf_board_4.name=Spawn White Surfboard
+item.spawn_egg.entity.meraki:target.name=Place Target
+item.spawn_egg.entity.meraki:twig.name=Place Twig
+item.spawn_egg.entity.meraki:bar_stool.name=Place Bar Stool
+item.spawn_egg.entity.meraki:beach_chair.name=Place Beach Chair
+item.spawn_egg.entity.meraki:chair1.name=Place Chair
+item.spawn_egg.entity.meraki:chair2.name=Place Chair
+item.spawn_egg.entity.meraki:chair3.name=Place Chair
+item.spawn_egg.entity.meraki:luxury_sofa.name=Place Luxury Sofa
+item.spawn_egg.entity.meraki:single_luxury_sofa.name=Place Single Luxury Sofa
+item.spawn_egg.entity.meraki:sofa.name=Place Sofa
+item.spawn_egg.entity.meraki:wooden_bar_stool.name=Place Wooden Bar Stool
+item.spawn_egg.entity.meraki:tall_wooden_bar_stool.name=Place Tall Wooden Bar Stool
+item.spawn_egg.entity.meraki:wooden_sofa.name=Place Wooden Sofa
+item.spawn_egg.entity.meraki:helicopter.name=Spawn Helicopter
+item.spawn_egg.entity.meraki:jetski1.name=Spawn Red Jetski
+item.spawn_egg.entity.meraki:jetski2.name=Spawn Blue Jetski
+item.spawn_egg.entity.meraki:lamp.name=Place Lamp
+item.spawn_egg.entity.meraki:customer.name=Spawn Customer
+item.spawn_egg.entity.meraki:ghost.name=Spawn Ghost
+item.spawn_egg.entity.meraki:dolphin.name=Spawn Dolphin Pet
+item.spawn_egg.entity.meraki:dolphin_cp.name=Place Dolphin Checkpoint
+
+action.hint.exit.meraki:poolband=§7Press "Shift" to Exit
+action.hint.exit.meraki:jetski1=§7Press "Shift" to Exit
+action.hint.exit.meraki:jetski2=§7Press "Shift" to Exit
+action.hint.exit.meraki:helicopter=§7Press "Shift" to Exit
+action.hint.exit.meraki:chair1=§7Press "Shift" to Exit
+action.hint.exit.meraki:chair2=§7Press "Shift" to Exit
+action.hint.exit.meraki:chair3=§7Press "Shift" to Exit
+action.hint.exit.meraki:beach_chair=§7Press "Shift" to Exit
+action.hint.exit.meraki:sofa=§7Press "Shift" to Exit
+action.hint.exit.meraki:luxury_sofa=§7Press "Shift" to Exit
+action.hint.exit.meraki:single_luxury_sofa=§7Press "Shift" to Exit
+action.hint.exit.meraki:bar_stool=§7Press "Shift" to Exit
+action.hint.exit.meraki:wooden_bar_stool=§7Press "Shift" to Exit
+action.hint.exit.meraki:tall_wooden_bar_stool=§7Press "Shift" to Exit
+action.hint.exit.meraki:surf_board_1=§7Press "Shift" to Exit
+action.hint.exit.meraki:surf_board_2=§7Press "Shift" to Exit
+action.hint.exit.meraki:surf_board_3=§7Press "Shift" to Exit
+action.hint.exit.meraki:surf_board_4=§7Press "Shift" to Exit
+
+item.trident.name=Fishing Spear
+item.meraki:fuel_canister.name=Fuel Canister
+item.meraki:basement_key.name=Basement Key
+item.meraki:quest_book.name=Quest Book
+item.meraki:apple.name=Apple
+item.meraki:apple_juice.name=Apple Juice
+item.meraki:coconut_juice.name=Coconut Juice
+item.meraki:coconut_water.name=Coconut Water
+item.meraki:glass_of_water.name=Glass of Water
+item.meraki:lemonade.name=Lemonade
+item.meraki:mango.name=Mango
+item.meraki:mango_juice.name=Mango Juice
+item.meraki:mixed_lemonade.name=Mixed Lemonade
+item.meraki:orange.name=Orange
+item.meraki:orange_juice.name=Orange Juice
+item.meraki:peach.name=Peach
+item.meraki:peach_juice.name=Peach Juice
+item.meraki:gold_coin.name=Gold Coin
+item.meraki:gold_ring.name=Gold Ring
+item.meraki:rock.name=Rock
+item.meraki:seashells.name=Seashells
+item.meraki:twig.name=Twig
+item.meraki:mystic_key.name=Mystic Key
+item.meraki:blinking_talisman.name=Blinking Talisman
+
+item.meraki:red_fish.name=Red Fish
+item.meraki:yellow_fish.name=Yellow Fish
+item.meraki:green_fish.name=Green Fish
+
+item.spawn_egg.entity.meraki:archie.name=Spawn NPC Archie
+item.spawn_egg.entity.meraki:quest_master.name=Spawn NPC Quest Master
+item.spawn_egg.entity.meraki:main.name=Spawn NPC Main
+item.spawn_egg.entity.meraki:receptionist.name=Spawn NPC Receptionist
+item.spawn_egg.entity.meraki:ricky.name=Spawn NPC Ricky
+item.spawn_egg.entity.meraki:beach_kid.name=Spawn NPC Beach Kid
+item.spawn_egg.entity.meraki:sarah.name=Spawn NPC Sarah
+
+entity.meraki:archie.name=Archie
+entity.meraki:quest_master.name=Quest Master
+entity.meraki:main.name=  
+entity.meraki:receptionist.name=Receptionist
+entity.meraki:ricky.name=Ricky
+entity.meraki:beach_kid.name=Beach Kid
+entity.meraki:sarah.name=Sarah

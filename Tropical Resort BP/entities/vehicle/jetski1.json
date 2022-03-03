@@ -1,0 +1,285 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:jetski1",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    "vehicle.config",
+                    {
+                        "vehicle.show_fuel": "query.has_rider && query.is_powered"
+                    },
+                    {
+                        "vehicle.on_travel": "query.modified_move_speed && query.ground_speed && query.has_rider"
+                    }
+                ]
+            },
+            "animations": {
+                "vehicle.config": "controller.animation.vehicle.config",
+                "vehicle.show_fuel": "animation.vehicle.show_fuel",
+                "vehicle.on_travel": "animation.vehicle.travel"
+            }
+        },
+        "component_groups": {
+            "minecraft:has_fuel": {
+                "minecraft:input_ground_controlled": {},
+                "minecraft:is_charged": {}
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "drop_normal": {
+                "minecraft:spawn_entity": {
+                    "entities": [{
+                        "min_wait_time": 0,
+                        "max_wait_time": 0,
+                        "single_use": true,
+                        "spawn_item": "meraki:jetski1_spawn_egg",
+                        "num_to_spawn": 1
+                    }]
+                }
+            },
+            "drop_fuel": {
+                "minecraft:timer": {
+                    "time": 0.0,
+                    "looping": false,
+                    "time_down_event": {
+                        "event": "minecraft:drop_normal",
+                        "target": "self"
+                    }
+                },
+                "minecraft:spawn_entity": {
+                    "entities": [{
+                        "min_wait_time": 0,
+                        "max_wait_time": 0,
+                        "single_use": true,
+                        "spawn_item": "meraki:fuel_canister",
+                        "num_to_spawn": 1
+                    }]
+                }
+            },
+            "on_land": {
+                "minecraft:rideable": {
+                    "rider_can_interact": true,
+                    "seat_count": 1,
+                    "controlling_seat": 0,
+                    "seats": [{
+                        "position": [0, 0.5, -0.28]
+                    }],
+                    "interact_text": "action.interact.ride.minecart",
+                    "crouching_skip_interact": true,
+                    "family_types": ["player"]
+                }
+            },
+            "on_water": {
+                "minecraft:rideable": {
+                    "rider_can_interact": true,
+                    "seat_count": 1,
+                    "controlling_seat": 0,
+                    "seats": [{
+                        "position": [0, 0.8, -0.28]
+                    }],
+                    "interact_text": "action.interact.ride.minecart",
+                    "crouching_skip_interact": true,
+                    "family_types": ["player"]
+                }
+            }
+        },
+        "components": {
+            "minecraft:environment_sensor": {
+                "triggers": [{
+                        "filters": {
+                            "test": "is_underwater",
+                            "value": false
+                        },
+                        "event": "on_land"
+                    },
+                    {
+                        "filters": {
+                            "test": "is_underwater",
+                            "value": true
+                        },
+                        "event": "on_water"
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                        "on_damage": {
+                            "event": "minecraft:has_fuel",
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_charged",
+                                        "operator": "not"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "domain": "hand",
+                                        "subject": "other",
+                                        "value": "meraki:fuel_canister"
+                                    }
+                                ]
+                            }
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "event": "minecraft:drop_normal",
+                            "filters": {
+                                "all_of": [{
+                                        "test": "rider_count",
+                                        "subject": "self",
+                                        "value": 0
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "fuel",
+                                        "operator": "not"
+                                    }
+                                ]
+                            }
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "event": "minecraft:drop_fuel",
+                            "filters": {
+                                "all_of": [{
+                                        "test": "rider_count",
+                                        "subject": "self",
+                                        "value": 0
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "fuel",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    }
+                                ]
+                            }
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:behavior.rise_to_liquid_level": {
+                "priority": 0,
+                "liquid_y_offset": 0.25,
+                "rise_delta": 0.01,
+                "sink_delta": 0.0
+            },
+            "minecraft:underwater_movement": {
+                "value": 0.105
+            },
+            "minecraft:navigation.walk": {
+                "can_sink": false
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:movement": {
+                "value": 0.025
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:collision_box": {
+                "width": 1.0,
+                "height": 0.5
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            }
+        },
+        "events": {
+            "on_water": {
+                "add": {
+                    "component_groups": [
+                        "on_water"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "on_land"
+                    ]
+                }
+            },
+            "on_land": {
+                "add": {
+                    "component_groups": [
+                        "on_land"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "on_water"
+                    ]
+                }
+            },
+            "minecraft:has_fuel": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:has_fuel"
+                    ]
+                }
+            },
+            "minecraft:ran_out_fuel": {
+                "remove": {
+                    "component_groups": [
+                        "minecraft:has_fuel"
+                    ]
+                }
+            },
+            "minecraft:despawn": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:despawn"
+                    ]
+                }
+            },
+            "minecraft:drop_normal": {
+                "add": {
+                    "component_groups": [
+                        "drop_normal",
+                        "minecraft:despawn"
+                    ]
+                }
+            },
+            "minecraft:drop_fuel": {
+                "add": {
+                    "component_groups": [
+                        "drop_fuel"
+                    ]
+                }
+            }
+        }
+    }
+}

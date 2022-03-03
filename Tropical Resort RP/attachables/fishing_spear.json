@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "meraki:fishing_spear",
+            "item": {
+                "meraki:fishing_spear": "query.owner_identifier == 'minecraft:player'"
+            },
+            "materials": {
+                "default": "entity_alphatest",
+                "enchanted": "entity_alphatest_glint"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/decorations/fishing_spear",
+                "enchanted": "textures/misc/enchanted_item_glint"
+            },
+            "geometry": {
+                "default": "geometry.fishing_spear"
+            },
+            "animations": {
+                "fpp": "animation.fpp.weapon.hand",
+                "tpp": "animation.tpp.weapon.hand"
+            },
+            "scripts": {
+                "animate": [
+                    { "fpp": "c.is_first_person" },
+                    { "tpp": "!c.is_first_person" }
+                ]
+            },
+            "render_controllers": ["controller.render.item_default"]
+        }
+    }
+}

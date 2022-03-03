@@ -1,0 +1,180 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:helicopter",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    "vehicle.gear.controller",
+                    {
+                        "slow_down": "query.is_on_ground"
+                    },
+                    {
+                        "helicopter.fly": "query.has_rider && query.modified_move_speed && query.can_fly"
+                    },
+                    {
+                        "helicopter.fly_speed": "query.has_rider && query.modified_move_speed && query.can_fly && !query.is_on_ground"
+                    }
+                ]
+            },
+            "animations": {
+                "vehicle.gear.controller": "controller.animation.vehicle.gear",
+                "vehicle.gear_default": "animation.vehicle.gear_default",
+                "vehicle.gear": "animation.helicopter.gear",
+                "slow_down": "animation.slow_down",
+                "helicopter.fly": "animation.helicopter.fly",
+                "helicopter.fly_speed": "animation.helicopter.fly_speed"
+            }
+        },
+        "component_groups": {
+            "meraki:gear_base": {
+                "minecraft:movement": {
+                    "value": 0.25
+                }
+            },
+            "meraki:gear_1": {
+                "minecraft:movement": {
+                    "value": 0.35
+                }
+            },
+            "meraki:gear_2": {
+                "minecraft:movement": {
+                    "value": 0.5
+                }
+            },
+            "meraki:gear_3": {
+                "minecraft:movement": {
+                    "value": 0.7
+                }
+            },
+            "meraki:fly": {
+                "minecraft:can_fly": {}
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 2.0,
+                "width": 2.0
+            },
+            "minecraft:nameable": {},
+            "minecraft:health": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:movement": {
+                "value": {
+                    "range_min": 0.25,
+                    "range_max": 0.25
+                }
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:physics": {},
+            "minecraft:persistent": {},
+            "minecraft:is_stackable": {},
+            "minecraft:tick_world": {},
+            "minecraft:breathable": {
+                "inhale_time": 0.0,
+                "suffocate_time": 0,
+                "total_supply": 2
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "vehicle",
+                    "helicopter"
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:rideable": {
+                "rider_can_interact": true,
+                "seat_count": 2,
+                "controlling_seat": 1,
+                "seats": [{
+                    "position": [0.0, 1.8, 1.0]
+                }],
+                "interact_text": "Ride",
+                "crouching_skip_interact": true,
+                "family_types": [
+                    "player"
+                ]
+            },
+            "minecraft:is_tamed": {},
+            "minecraft:behavior.player_ride_tamed": {},
+            "minecraft:interact": {
+                "interactions": [{
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [{
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "domain": "hand",
+                                    "subject": "other",
+                                    "value": "meraki:spray_can"
+                                },
+                                {
+                                    "test": "rider_count",
+                                    "value": 0
+                                }
+                            ]
+                        },
+                        "event": "minecraft:paint",
+                        "target": "self"
+                    },
+                    "interact_text": "Change Color",
+                    "hurt_item": 1,
+                    "play_sounds": "drop.slot"
+                }]
+            },
+            "minecraft:input_ground_controlled": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "meraki:fly"
+                    ]
+                }
+            },
+            "meraki:gear_switch_1": {
+                "add": {
+                    "component_groups": ["meraki:gear_1"]
+                }
+            },
+            "meraki:gear_switch_2": {
+                "add": {
+                    "component_groups": ["meraki:gear_2"]
+                },
+                "remove": {
+                    "component_groups": ["meraki:gear_1"]
+                }
+            },
+            "meraki:gear_switch_3": {
+                "add": {
+                    "component_groups": ["meraki:gear_3"]
+                },
+                "remove": {
+                    "component_groups": ["meraki:gear_2"]
+                }
+            },
+            "meraki:gear_switch_base": {
+                "add": {
+                    "component_groups": ["meraki:gear_base"]
+                },
+                "remove": {
+                    "component_groups": ["meraki:gear_3"]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:ghost",
+            "materials": { "default": "entity_alphablend" },
+            "textures": {
+                "default": "textures/tropical_resort/entity/ghost"
+            },
+            "geometry": {
+                "default": "geometry.ghost"
+            },
+            "animations": {
+                "look_at_target_default": "animation.humanoid.look_at_target.default",
+                "idle": "animation.ghost.idle"
+            },
+            "scripts": {
+                "animate": [
+                    "look_at_target_default",
+                    "idle"
+                ]
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "spawn_egg",
+                "texture_index": 47
+            }
+        }
+    }
+}

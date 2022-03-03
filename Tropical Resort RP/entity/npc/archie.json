@@ -1,0 +1,44 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:archie",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/npc/steve/archie_archer"
+            },
+            "animations": {
+                "bubble": "animation.display.bubble",
+                "move": "animation.humanoid.move",
+                "bob": "animation.humanoid.bob",
+                "look_at_target_default": "animation.humanoid.look_at_target.default",
+                "move_con": "controller.animation.humanoid.move",
+                "name": "animation.display.npc"
+            },
+            "scripts": {
+                "pre_animation": [
+                    "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+                    "variable.tcos1 = -variable.tcos0;"
+                ],
+                "scale": "0.9375",
+                "animate": [
+                    "name",
+                    "bob",
+                    "move_con",
+                    "look_at_target_default",
+                    { "bubble": "query.is_baby" }
+                ]
+            },
+            "particle_effects": {
+                "name": "meraki:archie",
+                "bubble": "meraki:bubble"
+            },
+            "geometry": {
+                "default": "geometry.npc_normal"
+            },
+            "render_controllers": ["controller.render.default"]
+        }
+    }
+}

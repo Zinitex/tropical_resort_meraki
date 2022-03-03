@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:chair2",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/furniture/chair2"
+            },
+            "geometry": {
+                "default": "geometry.chair"
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "chair",
+                "texture_index": 0
+            }
+        }
+    }
+}

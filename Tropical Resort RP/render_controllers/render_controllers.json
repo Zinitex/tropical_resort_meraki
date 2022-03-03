@@ -1,0 +1,81 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.animation": {
+            "arrays": {
+                "textures": {
+                    "array.anim_frame": [
+                        "texture.anim_1",
+                        "texture.anim_2",
+                        "texture.anim_3"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [{
+                "*": "Material.default"
+            }],
+            "textures": ["array.anim_frame[query.life_time]"]
+        },
+        "controller.render.color": {
+            "arrays": {
+                "textures": {
+                    "Array.skins": [
+                        "Texture.color_1",
+                        "Texture.color_2",
+                        "Texture.color_3"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [{
+                "*": "Material.default"
+            }],
+            "textures": [
+                "Array.skins[query.skin_id]"
+            ]
+        },
+        "controller.render.villager_skin_base": {
+            "arrays": {
+                "textures": {
+                    "Array.skins": [
+                        "Texture.base1",
+                        "Texture.base2",
+                        "Texture.base3",
+                        "Texture.base4",
+                        "Texture.base5",
+                        "Texture.base6"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [{
+                "*": "Material.default"
+            }],
+            "textures": [
+                "Array.skins[query.skin_id]"
+            ]
+        },
+        "controller.render.villager_skin_biome": {
+            "arrays": {
+                "textures": {
+                    "Array.skins": [
+                        "Texture.skin1",
+                        "Texture.skin2",
+                        "Texture.skin3",
+                        "Texture.skin4",
+                        "Texture.skin5",
+                        "Texture.skin6"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [{
+                "*": "Material.default"
+            }],
+            "textures": [
+                "Array.skins[query.skin_id]"
+            ]
+        }
+    }
+}

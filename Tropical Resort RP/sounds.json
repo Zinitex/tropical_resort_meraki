@@ -1,0 +1,22 @@
+{
+    "entity_sounds": {
+        "entities": {
+            "meraki:customer": {
+                "volume": 1.0,
+                "pitch": [0.8, 1.2],
+                "events": {
+                    "hurt": {
+                        "sound": "mob.cat.hit",
+                        "volume": 0.0
+                    },
+                    "death": {
+                        "sound": "mob.ocelot.death",
+                        "volume": 0.0
+                    },
+                    "saddle": "mob.villager.yes",
+                    "fizz": "mob.villager.no"
+                }
+            }
+        }
+    }
+}

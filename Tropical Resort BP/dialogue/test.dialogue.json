@@ -1,0 +1,100 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [{
+            "scene_tag": "quest_menu",
+            "npc_name": "Quest Menu",
+            "text": "Hi",
+            "on_open_commands": [
+                "/replaceitem entity @initiator slot.weapon.mainhand 0 air",
+                "/playsound mob.villager.idle @initiator"
+            ],
+            "on_close_commands": [
+                "/replaceitem entity @initiator slot.weapon.mainhand 0 meraki:quest_book"
+            ],
+            "buttons": [{
+                    "name": "Check Quest",
+                    "commands": [
+                        "/tag @initiator add book",
+                        "/execute @e[type=meraki:main,scores={q1=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e A Warm Welcome\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a A Warm Welcome\"}]}",
+                        "/execute @e[type=meraki:main] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§7 None\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q2=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Cliffside Archery Range\"}]}",
+                        "/execute @e[type=meraki:main,scores={q2=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Cliffside Archery Range\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c A Warm Welcome\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a A Warm Welcome\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q3=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Fisherman’s Quest\"}]}",
+                        "/execute @e[type=meraki:main,scores={q3=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Fisherman’s Quest\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c A Warm Welcome\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a A Warm Welcome\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q4=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Shell Hunter\"}]}",
+                        "/execute @e[type=meraki:main,scores={q4=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Shell Hunter\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c A Warm Welcome\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a A Warm Welcome\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q5=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Basement Spooks\"}]}",
+                        "/execute @e[type=meraki:main,scores={q5=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Basement Spooks\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=0,q9=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c A Warm Welcome,§c Ring Surfing,§7 Mystic Key\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=1,q9=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a A Warm Welcome,§c Ring Surfing,§7 Mystic Key\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=0,q9=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c A Warm Welcome,§a Ring Surfing,§7 Mystic Key\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=1,q9=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a A Warm Welcome,§a Ring Surfing,§7 Mystic Key\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q6=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Into the Secret Cavern\"}]}",
+                        "/execute @e[type=meraki:main,scores={q6=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Into the Secret Cavern\"}]}",
+                        "/execute @e[type=meraki:main,scores={q4=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c Shell Hunter,§7 Basement Key\"}]}",
+                        "/execute @e[type=meraki:main,scores={q4=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a Shell Hunter,§7 Basement Key\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q7=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Dolphin Escort\"}]}",
+                        "/execute @e[type=meraki:main,scores={q7=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Dolphin Escort\"}]}",
+                        "/execute @e[type=meraki:main,scores={q3=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c Fisherman’s Quest\"}]}",
+                        "/execute @e[type=meraki:main,scores={q3=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a Fisherman’s Quest\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q8=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Bartender Simulator\"}]}",
+                        "/execute @e[type=meraki:main,scores={q8=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Bartender Simulator\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c A Warm Welcome\"}]}",
+                        "/execute @e[type=meraki:main,scores={q1=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a A Warm Welcome\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q9=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Ring Surfing\"}]}",
+                        "/execute @e[type=meraki:main,scores={q9=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Ring Surfing\"}]}",
+                        "/execute @e[type=meraki:main,scores={q3=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c Fisherman’s Quest\"}]}",
+                        "/execute @e[type=meraki:main,scores={q3=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a Fisherman’s Quest\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q10=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Jetski Tutorial\"}]}",
+                        "/execute @e[type=meraki:main,scores={q10=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Jetski Tutorial\"}]}",
+                        "/execute @e[type=meraki:main,scores={q3=0,q9=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c Fisherman’s Quest, §cRing Surfing\"}]}",
+                        "/execute @e[type=meraki:main,scores={q3=1,q9=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a Fisherman’s Quest, §cRing Surfing\"}]}",
+                        "/execute @e[type=meraki:main,scores={q3=0,q9=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c Fisherman’s Quest, §aRing Surfing\"}]}",
+                        "/execute @e[type=meraki:main,scores={q3=1,q9=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a Fisherman’s Quest, §aRing Surfing\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q11=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Deep Dive\"}]}",
+                        "/execute @e[type=meraki:main,scores={q11=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Deep Dive\"}]}",
+                        "/execute @e[type=meraki:main,scores={q7=0,q8=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c Dolphin Escort, §cBartender Simulator\"}]}",
+                        "/execute @e[type=meraki:main,scores={q7=1,q8=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a Dolphin Escort, §cBartender Simulator\"}]}",
+                        "/execute @e[type=meraki:main,scores={q7=0,q8=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c Dolphin Escort, §aBartender Simulator\"}]}",
+                        "/execute @e[type=meraki:main,scores={q7=1,q8=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a Dolphin Escort, §aBartender Simulator\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q12=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e Pool Party Setup\"}]}",
+                        "/execute @e[type=meraki:main,scores={q12=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a Pool Party Setup\"}]}",
+                        "/execute @e[type=meraki:main,scores={q8=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c Bartender Simulator\"}]}",
+                        "/execute @e[type=meraki:main,scores={q8=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§a Bartender Simulator\"}]}",
+
+                        "/execute @e[type=meraki:main,scores={q13=0}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§e How to Fly A Helicopter\"}]}",
+                        "/execute @e[type=meraki:main,scores={q13=1}] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"§a How to Fly A Helicopter\"}]}",
+                        "/execute @e[type=meraki:main] ~~~ tellraw @a[tag=book] {\"rawtext\":[{\"text\":\"     Prerequisite:§c Complete all quest\"}]}",
+                        "/tag @initiator remove book"
+
+                    ]
+                },
+                {
+                    "name": "Claim Reward",
+                    "commands": [
+                        "/tp @initiator -20 4 -20"
+                    ]
+                }
+            ]
+        }]
+    }
+}

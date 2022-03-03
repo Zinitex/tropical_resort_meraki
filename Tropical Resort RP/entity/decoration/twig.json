@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:twig",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/decorations/twig"
+            },
+            "geometry": {
+                "default": "geometry.twig"
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "twig",
+                "texture_index": 0
+            }
+        }
+    }
+}

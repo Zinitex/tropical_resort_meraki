@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:beach_chair",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/furniture/beach_chair"
+            },
+            "geometry": {
+                "default": "geometry.beach_chair"
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "beach_chair",
+                "texture_index": 0
+            }
+        }
+    }
+}

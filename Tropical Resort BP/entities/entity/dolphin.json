@@ -1,0 +1,253 @@
+{
+    "format_version": "1.13.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:dolphin",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "in_land": {
+                "minecraft:physics": {
+                    "has_collision": true,
+                    "has_gravity": true
+                },
+                "minecraft:environment_sensor": {
+                    "triggers": [{
+                        "filters": {
+                            "all_of": [{
+                                "test": "is_underwater",
+                                "operator": "==",
+                                "value": true
+                            }]
+                        },
+                        "event": "on_water"
+                    }]
+                }
+            },
+            "minecraft:normal": {
+                "minecraft:variant": {
+                    "value": 0
+                }
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "minecraft:move": {
+                "minecraft:is_baby": {},
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 0,
+                    "reselect_targets": true,
+                    "target_search_height": 1000,
+                    "within_radius": 1000,
+                    "must_see": false,
+                    "entity_types": [{
+                        "filters": [{
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "waypoint"
+                        }],
+                        "max_dist": 1000
+                    }]
+                },
+                "minecraft:attack": {
+                    "damage": 0
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 0,
+                    "require_complete_path": true,
+                    "track_target": true
+                },
+                "minecraft:follow_range": {
+                    "value": 1000,
+                    "max": 1000
+                }
+            },
+            "minecraft:to_move": {
+                "minecraft:transformation": {
+                    "into": "meraki:dolphin<minecraft:move>"
+                }
+            },
+            "minecraft:to_stay": {
+                "minecraft:transformation": {
+                    "into": "meraki:dolphin<minecraft:entity_spawned>"
+                }
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "dolphin_escort"
+                ]
+            },
+            "minecraft:buoyant": {
+                "apply_gravity": true,
+                "base_buoyancy": 1.0,
+                "simulate_waves": true,
+                "big_wave_probability": 0.03,
+                "big_wave_speed": 10.0,
+                "drag_down_on_buoyancy_removed": 0,
+                "liquid_blocks": ["water"]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:collision_box": {
+                "width": 0.6,
+                "height": 0.3
+            },
+            "minecraft:health": {
+                "value": 10,
+                "max": 10
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [{
+                    "filters": { "test": "in_lava", "subject": "self", "operator": "==", "value": true },
+                    "cause": "lava",
+                    "damage_per_tick": 4
+                }]
+            },
+            "minecraft:scale": {
+                "value": 1.0
+            },
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": false
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0,
+                "breathes_air": false,
+                "breathes_water": true
+            },
+            "minecraft:movement": {
+                "value": 0.13
+            },
+            "minecraft:underwater_movement": {
+                "value": 0.35
+            },
+            "minecraft:navigation.generic": {
+                "is_amphibious": false,
+                "can_path_over_water": false,
+                "can_swim": true,
+                "can_walk": false,
+                "can_breach": false,
+                "can_sink": false
+            },
+            "minecraft:movement.sway": {
+                "sway_amplitude": 0.0
+            },
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:behavior.swim_idle": {
+                "priority": 5
+            },
+            "minecraft:flocking": {
+                "in_water": true,
+                "match_variants": false,
+                "use_center_of_mass": false,
+                "low_flock_limit": 4,
+                "high_flock_limit": 8,
+                "goal_weight": 2.0,
+                "loner_chance": 0.1,
+                "influence_radius": 3.0,
+                "breach_influence": 7.0,
+                "separation_weight": 0.65,
+                "separation_threshold": 0.15,
+                "cohesion_weight": 2.25,
+                "cohesion_threshold": 1.5,
+                "innner_cohesion_threshold": 1.5,
+                "min_height": 4.0,
+                "max_height": 4.0
+            },
+            "minecraft:nameable": {},
+            "minecraft:environment_sensor": {
+                "triggers": [{
+                    "filters": {
+                        "all_of": [{
+                            "test": "is_underwater",
+                            "operator": "!=",
+                            "value": true
+                        }]
+                    },
+                    "event": "on_land"
+                }]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": []
+                }
+            },
+            "on_land": {
+                "add": {
+                    "component_groups": [
+                        "in_land"
+                    ]
+                }
+            },
+            "on_water": {
+                "remove": {
+                    "component_groups": [
+                        "in_land"
+                    ]
+                }
+            },
+            "minecraft:move": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:move"
+                    ]
+                }
+            },
+            "minecraft:despawn": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:despawn"
+                    ]
+                }
+            },
+            "minecraft:to_move": {
+                "sequence": [{
+                    "filters": [{
+                        "all_of": [{
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:is_baby",
+                            "operator": "not"
+                        }]
+                    }],
+                    "add": {
+                        "component_groups": [
+                            "minecraft:to_move"
+                        ]
+                    }
+                }]
+            },
+            "minecraft:to_stay": {
+                "sequence": [{
+                    "filters": [{
+                        "all_of": [{
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:is_baby",
+                            "operator": "equals"
+                        }]
+                    }],
+                    "add": {
+                        "component_groups": [
+                            "minecraft:to_stay"
+                        ]
+                    }
+                }]
+            }
+        }
+    }
+}

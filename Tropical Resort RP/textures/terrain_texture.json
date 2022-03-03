@@ -1,0 +1,27 @@
+{
+    "texture_name": "atlas.terrain",
+    "padding": 8,
+    "num_mip_levels": 4,
+    "texture_data": {
+        "black_1": { "textures": "textures/tropical_resort/blocks/black_1" },
+        "black_2": { "textures": "textures/tropical_resort/blocks/black_2" },
+        "black_3": { "textures": "textures/tropical_resort/blocks/black_3" },
+        "black_4": { "textures": "textures/tropical_resort/blocks/black_4" },
+        "black_5": { "textures": "textures/tropical_resort/blocks/black_5" },
+        "black_6": { "textures": "textures/tropical_resort/blocks/black_6" },
+        "black_7": { "textures": "textures/tropical_resort/blocks/black_7" },
+        "black_8": { "textures": "textures/tropical_resort/blocks/black_8" },
+
+        "silver_1": { "textures": "textures/tropical_resort/blocks/silver_1" },
+        "silver_2": { "textures": "textures/tropical_resort/blocks/silver_2" },
+        "silver_3": { "textures": "textures/tropical_resort/blocks/silver_3" },
+        "silver_4": { "textures": "textures/tropical_resort/blocks/silver_4" },
+        "silver_5": { "textures": "textures/tropical_resort/blocks/silver_5" },
+        "silver_6": { "textures": "textures/tropical_resort/blocks/silver_6" },
+        "silver_7": { "textures": "textures/tropical_resort/blocks/silver_7" },
+        "silver_8": { "textures": "textures/tropical_resort/blocks/silver_8" },
+        "silver": { "textures": "textures/blocks/concrete_silver" },
+        "gray": { "textures": "textures/blocks/concrete_gray" }
+
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:fuel_canister",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/decorations/fuel_canister"
+            },
+            "geometry": {
+                "default": "geometry.fuel_canister"
+            },
+            "animations": {
+                "idle": "animation.fuel_canister.idle",
+                "collect": "animation.fuel_canister.collect"
+            },
+            "scripts": {
+                "animate": [
+                    "idle",
+                    { "collect": "query.is_baby" }
+                ]
+            },
+            "render_controllers": [{ "controller.render.default": "query.is_sheared" }],
+            "spawn_egg": {
+                "texture": "fuel_canister",
+                "texture_index": 0
+            }
+        }
+    }
+}

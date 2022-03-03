@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:lamp",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "anim_1": "textures/tropical_resort/decorations/lamp_1",
+                "anim_2": "textures/tropical_resort/decorations/lamp_2",
+                "anim_3": "textures/tropical_resort/decorations/lamp_3"
+            },
+            "geometry": {
+                "default": "geometry.lamp"
+            },
+            "render_controllers": ["controller.render.animation"]
+        }
+    }
+}

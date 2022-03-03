@@ -1,0 +1,76 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.two_states": {
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "on": "query.is_powered && query.all_animations_finished"
+                    }],
+                    "blend_transition": 0.3
+                },
+                "on": {
+                    "animations": [
+                        "on"
+                    ],
+                    "transitions": [{
+                        "default": "!query.is_powered && query.all_animations_finished"
+                    }],
+                    "blend_transition": 0.3
+                }
+            }
+        },
+        "controller.animation.drone": {
+            "states": {
+                "default": {
+                    "animations": [
+                        "despawn"
+                    ],
+                    "transitions": [{
+                        "spawn": "query.is_ignited && query.all_animations_finished"
+                    }],
+                    "blend_transition": 0.3
+                },
+                "spawn": {
+                    "animations": [
+                        "spawn"
+                    ],
+                    "transitions": [{
+                            "default": "!query.is_ignited && query.all_animations_finished"
+                        },
+                        {
+                            "on": "query.is_powered && query.all_animations_finished"
+                        }
+                    ],
+                    "blend_transition": 0.3
+                },
+                "off": {
+                    "animations": [
+                        "off"
+                    ],
+                    "transitions": [{
+                            "default": "!query.is_ignited && query.all_animations_finished"
+                        },
+                        {
+                            "on": "query.is_powered && query.all_animations_finished"
+                        }
+                    ],
+                    "blend_transition": 0.3
+                },
+                "on": {
+                    "animations": [
+                        "on"
+                    ],
+                    "transitions": [{
+                            "default": "!query.is_ignited && query.all_animations_finished"
+                        },
+                        {
+                            "off": "!query.is_powered && query.all_animations_finished"
+                        }
+                    ],
+                    "blend_transition": 0.3
+                }
+            }
+        }
+    }
+}

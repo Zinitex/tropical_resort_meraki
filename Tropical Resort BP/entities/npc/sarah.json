@@ -1,0 +1,539 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:sarah",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    { "dialogue_1": "query.skin_id == 1" },
+                    { "dialogue_2": "query.skin_id == 2" },
+                    { "dialogue_3": "query.skin_id == 3" },
+                    { "dialogue_4": "query.skin_id == 4" },
+                    { "count_rock": "query.skin_id == 5" },
+                    { "count_twig": "query.skin_id == 6" },
+                    { "red_fish": "query.skin_id == 7" },
+                    { "yellow_fish": "query.skin_id == 8" },
+                    { "green_fish": "query.skin_id == 9" },
+                    { "reject": "query.skin_id == 10" }
+                ]
+            },
+            "animations": {
+                "dialogue_1": "animation.sarah_dialogue_1",
+                "dialogue_2": "animation.sarah_dialogue_2",
+                "dialogue_3": "animation.sarah_dialogue_3",
+                "dialogue_4": "animation.sarah_dialogue_4",
+                "count_rock": "animation.sarah_count_rock",
+                "count_twig": "animation.sarah_count_twig",
+                "red_fish": "animation.sarah_count_red_fish",
+                "yellow_fish": "animation.sarah_count_yellow_fish",
+                "green_fish": "animation.sarah_count_green_fish",
+                "reject": "animation.npc_reject"
+            }
+        },
+        "component_groups": {
+            "minecraft:quest_id1": {
+                "minecraft:variant": { "value": 1 }
+            },
+            "minecraft:quest_id2": {
+                "minecraft:variant": { "value": 2 }
+            },
+            "minecraft:quest_id3": {
+                "minecraft:variant": { "value": 3 }
+            },
+            "minecraft:reset_quest": {
+                "minecraft:variant": { "value": 0 }
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "minecraft:dialogue1": {
+                "minecraft:skin_id": {
+                    "value": 1
+                }
+            },
+            "minecraft:dialogue2": {
+                "minecraft:skin_id": {
+                    "value": 2
+                }
+            },
+            "minecraft:dialogue3": {
+                "minecraft:skin_id": {
+                    "value": 3
+                }
+            },
+            "minecraft:dialogue4": {
+                "minecraft:skin_id": {
+                    "value": 4
+                }
+            },
+            "minecraft:count_rock": {
+                "minecraft:skin_id": {
+                    "value": 5
+                }
+            },
+            "minecraft:count_twig": {
+                "minecraft:skin_id": {
+                    "value": 6
+                }
+            },
+            "minecraft:count_red_fish": {
+                "minecraft:skin_id": {
+                    "value": 7
+                }
+            },
+            "minecraft:count_yellow_fish": {
+                "minecraft:skin_id": {
+                    "value": 8
+                }
+            },
+            "minecraft:count_green_fish": {
+                "minecraft:skin_id": {
+                    "value": 9
+                }
+            },
+            "minecraft:need_rock": {
+                "minecraft:is_sheared": {}
+            },
+            "minecraft:need_twig": {
+                "minecraft:is_ignited": {}
+            },
+
+            "minecraft:need_red_fish": {
+                "minecraft:is_saddled": {}
+            },
+            "minecraft:need_yellow_fish": {
+                "minecraft:is_chested": {}
+            },
+            "minecraft:need_green_fish": {
+                "minecraft:is_charged": {}
+            },
+
+            "minecraft:reject": {
+                "minecraft:skin_id": {
+                    "value": 10
+                }
+            },
+            "minecraft:reset_dialogue": {
+                "minecraft:skin_id": {
+                    "value": 0
+                }
+            },
+            "minecraft:quest": {
+                "minecraft:is_baby": {}
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "npc"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.5,
+                "height": 1.8
+            },
+            "minecraft:scale": {
+                "value": 1.0
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1,
+                "min": 1
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 7,
+                "look_distance": 6.0,
+                "probability": 100.0
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:navigation.generic": {},
+            "minecraft:nameable": {
+                "allow_name_tag_renaming": true,
+                "always_show": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:interact": {
+                "interactions": [{
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "value": "meraki:red_fish",
+                                        "subject": "other"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_saddled",
+                                        "operator": "equals"
+                                    }
+                                ]
+                            },
+                            "event": "minecraft:count_red_fish",
+                            "target": "self"
+                        },
+                        "cooldown": 0.5,
+                        "use_item": true,
+                        "interact_text": "Click to Talk"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "value": "meraki:yellow_fish",
+                                        "subject": "other"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_chested",
+                                        "operator": "equals"
+                                    }
+                                ]
+                            },
+                            "event": "minecraft:count_yellow_fish",
+                            "target": "self"
+                        },
+                        "cooldown": 0.5,
+                        "use_item": true,
+                        "interact_text": "Click to Talk"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "value": "meraki:green_fish",
+                                        "subject": "other"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_charged",
+                                        "operator": "equals"
+                                    }
+                                ]
+                            },
+                            "event": "minecraft:count_green_fish",
+                            "target": "self"
+                        },
+                        "cooldown": 0.5,
+                        "use_item": true,
+                        "interact_text": "Click to Talk"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "value": "meraki:twig",
+                                        "subject": "other"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_ignited",
+                                        "operator": "equals"
+                                    }
+                                ]
+                            },
+                            "event": "minecraft:count_twig",
+                            "target": "self"
+                        },
+                        "cooldown": 0.5,
+                        "use_item": true,
+                        "interact_text": "Click to Talk"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "value": "meraki:rock",
+                                        "subject": "other"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_sheared",
+                                        "operator": "equals"
+                                    }
+                                ]
+                            },
+                            "event": "minecraft:count_rock",
+                            "target": "self"
+                        },
+                        "cooldown": 0.5,
+                        "use_item": true,
+                        "interact_text": "Click to Talk"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "is_variant",
+                                        "subject": "self",
+                                        "value": 1
+                                    }
+                                ]
+                            },
+                            "event": "minecraft:dialogue1",
+                            "target": "self"
+                        },
+                        "cooldown": 0.5,
+                        "interact_text": "Click to Talk"
+                    }
+                ]
+            }
+        },
+        "events": {
+            "minecraft:fisherman1": {
+                "add": { "component_groups": ["minecraft:quest", "minecraft:quest_id1"] }
+            },
+            "minecraft:remove_quest": {
+                "remove": { "component_groups": ["minecraft:quest"] }
+            },
+
+            "minecraft:despawn": {
+                "add": { "component_groups": ["minecraft:despawn"] }
+            },
+            "minecraft:dialogue1": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:dialogue1"
+                    ]
+                }
+            },
+            "minecraft:dialogue2": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:dialogue2"
+                    ]
+                }
+            },
+            "minecraft:dialogue3": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:dialogue3"
+                    ]
+                }
+            },
+            "minecraft:dialogue4": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:dialogue4"
+                    ]
+                }
+            },
+            "minecraft:count_rock": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:count_rock"
+                    ]
+                }
+            },
+            "minecraft:count_twig": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:count_twig"
+                    ]
+                }
+            },
+            "minecraft:count_red_fish": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:count_red_fish"
+                    ]
+                }
+            },
+            "minecraft:count_yellow_fish": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:count_yellow_fish"
+                    ]
+                }
+            },
+            "minecraft:count_green_fish": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:count_green_fish"
+                    ]
+                }
+            },
+            "minecraft:need_rock": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:need_rock"
+                    ]
+                }
+            },
+            "minecraft:need_twig": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:need_twig"
+                    ]
+                }
+            },
+            "minecraft:need_red_fish": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:need_red_fish"
+                    ]
+                }
+            },
+            "minecraft:need_yellow_fish": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:need_yellow_fish"
+                    ]
+                }
+            },
+            "minecraft:need_green_fish": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:need_green_fish"
+                    ]
+                }
+            },
+            "minecraft:remove_need_red_fish": {
+                "remove": {
+                    "component_groups": [
+                        "minecraft:need_red_fish"
+                    ]
+                }
+            },
+            "minecraft:remove_need_yellow_fish": {
+                "remove": {
+                    "component_groups": [
+                        "minecraft:need_yellow_fish"
+                    ]
+                }
+            },
+            "minecraft:remove_need_green_fish": {
+                "remove": {
+                    "component_groups": [
+                        "minecraft:need_green_fish"
+                    ]
+                }
+            },
+            "minecraft:remove_need_rock": {
+                "remove": {
+                    "component_groups": [
+                        "minecraft:need_rock"
+                    ]
+                }
+            },
+            "minecraft:remove_need_twig": {
+                "remove": {
+                    "component_groups": [
+                        "minecraft:need_twig"
+                    ]
+                }
+            },
+            "minecraft:reject": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:reject"
+                    ]
+                }
+            },
+            "minecraft:reset_dialogue": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:reset_dialogue"
+                    ]
+                }
+            },
+            "minecraft:reset_quest": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:reset_quest"
+                    ]
+                }
+            }
+        }
+    }
+}

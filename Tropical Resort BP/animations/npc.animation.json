@@ -1,0 +1,392 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.ricky_dialogue_1": {
+            "animation_length": 5.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:ricky.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a"
+                ],
+                "5.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:ricky.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a",
+                    "/event entity @e[type=meraki:receptionist] minecraft:warm_welcome",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 2",
+                    "/execute @a ~~~ playsound random.orb @s ~~~",
+                    "@s minecraft:remove_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.receptionist_dialogue_1": {
+            "animation_length": 5.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:receptionist.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.35"
+                ],
+                "5.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:receptionist.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.35",
+                    "/event entity @e[type=meraki:quest_master] minecraft:warm_welcome",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 3",
+                    "/execute @a ~~~ playsound random.orb @s ~~~",
+                    "@s minecraft:remove_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.quest_master_dialogue_1": {
+            "animation_length": 25.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:quest_master.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a"
+                ],
+                "2.0": [
+                    "/give @a meraki:quest_book",
+                    "/playsound random.pop @a",
+                    "/title @a actionbar §a+1 Quest Book"
+                ],
+                "7.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:quest_master.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a"
+                ],
+                "17.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:quest_master.dialogue_line3\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 0"
+                ],
+                "25.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:quest_master.dialogue_line4\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/event entity @e[type=meraki:archie] minecraft:archery_range1",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 4",
+                    "/execute @a ~~~ playsound random.orb @s ~~~",
+                    "@s minecraft:remove_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.archie_dialogue_1": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a",
+                    "/title @a actionbar §a+3 Sticks | +3 Strings",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 5",
+                    "/give @a stick 3",
+                    "/give @a string 3",
+                    "@s minecraft:remove_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.archie_dialogue_2": {
+            "animation_length": 30.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line3\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/give @a minecraft:arrow 128",
+                    "/playsound mob.villager.idle @a"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line4\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a"
+                ],
+                "20.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line5\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a"
+                ],
+                "30.0": [
+                    "/tag @e[type=meraki:main] add archery_quest",
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line6\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 7",
+                    "/function target_start",
+                    "@s minecraft:remove_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.archie_dialogue_3": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line7\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 9",
+                    "/event entity @e[type=meraki:sarah] minecraft:fisherman1",
+                    "@s minecraft:remove_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sarah_dialogue_1": {
+            "animation_length": 16.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "5.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "15.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line3\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 10",
+                    "/scoreboard players set @s twig 0",
+                    "/scoreboard players set @s rock 0",
+                    "@s minecraft:need_rock",
+                    "@s minecraft:need_twig",
+                    "@s minecraft:reset_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sarah_count_rock": {
+            "animation_length": 0.5,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players add @s rock 1",
+                    "/playsound random.orb @a",
+                    "/execute @s ~~~ /titleraw @a actionbar {\"rawtext\":[{\"text\":\"Twig \"},{\"score\":{\"name\":\"@s\",\"objective\":\"twig\"}},{\"text\":\"/2 | Rock \"},{\"score\":{\"name\":\"@s\",\"objective\":\"rock\"}},{\"text\":\"/1\"}]}",
+                    "/execute @s[scores={rock=1}] ~~~ event entity @s minecraft:remove_need_rock"
+                ],
+                "0.1": [
+                    "/execute @s[scores={twig=2,rock=1}] ~~~ event entity @s minecraft:dialogue2"
+                ],
+                "0.4": [
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sarah_count_twig": {
+            "animation_length": 0.5,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players add @s twig 1",
+                    "/playsound random.orb @a",
+                    "/execute @s ~~~ /titleraw @a actionbar {\"rawtext\":[{\"text\":\"Twig \"},{\"score\":{\"name\":\"@s\",\"objective\":\"twig\"}},{\"text\":\"/2 | Rock \"},{\"score\":{\"name\":\"@s\",\"objective\":\"rock\"}},{\"text\":\"/1\"}]}",
+                    "/execute @s[scores={twig=2}] ~~~ event entity @s minecraft:remove_need_twig"
+                ],
+                "0.1": [
+                    "/execute @s[scores={twig=2,rock=1}] ~~~ event entity @s minecraft:dialogue2"
+                ],
+                "0.4": [
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sarah_dialogue_2": {
+            "animation_length": 15.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players reset @s twig",
+                    "/scoreboard players reset @s rock",
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line4\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "5.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line5\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "15.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line6\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 12",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sarah_dialogue_3": {
+            "animation_length": 30.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line7\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line8\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "20.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line9\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "30.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line10\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 13",
+                    "/scoreboard players set @s green_fish 0",
+                    "/scoreboard players set @s yellow_fish 0",
+                    "/scoreboard players set @s red_fish 0",
+                    "@s minecraft:need_red_fish",
+                    "@s minecraft:need_yellow_fish",
+                    "@s minecraft:need_green_fish",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sarah_count_red_fish": {
+            "animation_length": 0.5,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players add @s red_fish 1",
+                    "/playsound random.orb @a",
+                    "/execute @s ~~~ /titleraw @a actionbar {\"rawtext\":[{\"text\":\"Red Fish \"},{\"score\":{\"name\":\"@s\",\"objective\":\"red_fish\"}},{\"text\":\"/3 | Yellow Fish \"},{\"score\":{\"name\":\"@s\",\"objective\":\"yellow_fish\"}},{\"text\":\"/3 | Green Fish \"},{\"score\":{\"name\":\"@s\",\"objective\":\"green_fish\"}},{\"text\":\"/3\"}]}",
+                    "/execute @s[scores={red_fish=3}] ~~~ event entity @s minecraft:remove_need_red_fish"
+                ],
+                "0.1": [
+                    "/execute @s[scores={red_fish=3,yellow_fish=3,green_fish=3}] ~~~ event entity @s minecraft:dialogue4"
+                ],
+                "0.4": [
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sarah_count_yellow_fish": {
+            "animation_length": 0.5,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players add @s yellow_fish 1",
+                    "/playsound random.orb @a",
+                    "/execute @s ~~~ /titleraw @a actionbar {\"rawtext\":[{\"text\":\"Red Fish \"},{\"score\":{\"name\":\"@s\",\"objective\":\"red_fish\"}},{\"text\":\"/3 | Yellow Fish \"},{\"score\":{\"name\":\"@s\",\"objective\":\"yellow_fish\"}},{\"text\":\"/3 | Green Fish \"},{\"score\":{\"name\":\"@s\",\"objective\":\"green_fish\"}},{\"text\":\"/3\"}]}",
+                    "/execute @s[scores={yellow_fish=3}] ~~~ event entity @s minecraft:remove_need_yellow_fish"
+                ],
+                "0.1": [
+                    "/execute @s[scores={red_fish=3,yellow_fish=3,green_fish=3}] ~~~ event entity @s minecraft:dialogue4"
+                ],
+                "0.4": [
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sarah_count_green_fish": {
+            "animation_length": 0.5,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players add @s green_fish 1",
+                    "/playsound random.orb @a",
+                    "/execute @s ~~~ /titleraw @a actionbar {\"rawtext\":[{\"text\":\"Red Fish \"},{\"score\":{\"name\":\"@s\",\"objective\":\"red_fish\"}},{\"text\":\"/3 | Yellow Fish \"},{\"score\":{\"name\":\"@s\",\"objective\":\"yellow_fish\"}},{\"text\":\"/3 | Green Fish \"},{\"score\":{\"name\":\"@s\",\"objective\":\"green_fish\"}},{\"text\":\"/3\"}]}",
+                    "/execute @s[scores={green_fish=3}] ~~~ event entity @s minecraft:remove_need_green_fish"
+                ],
+                "0.1": [
+                    "/execute @s[scores={red_fish=3,yellow_fish=3,green_fish=3}] ~~~ event entity @s minecraft:dialogue4"
+                ],
+                "0.4": [
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sarah_dialogue_4": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line11\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/scoreboard players reset @s green_fish",
+                    "/scoreboard players reset @s yellow_fish",
+                    "/scoreboard players reset @s red_fish",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line12\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 15",
+                    "@s minecraft:remove_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.beach_kid_dialogue_1": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:beach_kid.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.5"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:beach_kid.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.5",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 16",
+                    "/scoreboard players set @s seashells 0",
+                    "@s minecraft:reset_quest",
+                    "@s minecraft:need_seashells",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.beach_kid_count_seashells": {
+            "animation_length": 0.5,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players add @s seashells 1",
+                    "/playsound random.orb @a",
+                    "/execute @s ~~~ /titleraw @a actionbar {\"rawtext\":[{\"text\":\"Seashells \"},{\"score\":{\"name\":\"@s\",\"objective\":\"seashells\"}},{\"text\":\"/12\"}]}",
+                    "/execute @s[scores={seashells=12}] ~~~ event entity @s minecraft:remove_need_seashells"
+                ],
+                "0.1": [
+                    "/execute @s[scores={seashells=12}] ~~~ event entity @s minecraft:dialogue2"
+                ],
+                "0.4": [
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.beach_kid_dialogue_2": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:beach_kid.dialogue_line3\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.5"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:beach_kid.dialogue_line4\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.5",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 0",
+                    "/scoreboard players reset @s seashells",
+                    "/give @p meraki:basement_key",
+                    "@s minecraft:remove_quest",
+                    "@s remove_need_seashells",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.npc_reject": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/title @p actionbar §cIt looks like you're not ready for this quest yet.",
+                    "/playsound mob.villager.no @p",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        }
+    }
+}

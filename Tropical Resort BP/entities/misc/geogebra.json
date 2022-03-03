@@ -1,0 +1,127 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:geogebra",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    "geogebra",
+                    { "geogebra_change": "query.is_baby" }
+                ]
+            },
+            "animations": {
+                "geogebra": "controller.animation.geogebra",
+                "geogebra_change": "animation.geogebra_change"
+            }
+        },
+        "component_groups": {
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "light": {
+                "minecraft:is_sheared": {}
+            },
+            "geogebra_change": {
+                "minecraft:is_baby": {}
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "dummy"
+                ]
+            },
+            "minecraft:health": {
+                "max": 1,
+                "value": 1,
+                "min": 1
+            },
+            "minecraft:collision_box": {
+                "height": 1.0,
+                "width": 1.0
+            },
+            "minecraft:physics": {
+                "has_collision": true,
+                "has_gravity": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            }
+        },
+        "events": {
+            "minecraft:despawn": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:despawn"
+                    ]
+                }
+            },
+            "geogebra_change": {
+                "add": {
+                    "component_groups": [
+                        "geogebra_change"
+                    ]
+                }
+            },
+            "reset": {
+                "remove": {
+                    "component_groups": [
+                        "geogebra_change"
+                    ]
+                }
+            },
+            "geogebra_off": {
+                "add": {
+                    "component_groups": [
+                        "light"
+                    ]
+                }
+            },
+            "geogebra_on": {
+                "remove": {
+                    "component_groups": [
+                        "light"
+                    ]
+                }
+            },
+            "change": {
+                "sequence": [{
+                        "filters": {
+                            "all_of": [{
+                                "test": "has_component",
+                                "value": "minecraft:is_sheared",
+                                "subject": "self",
+                                "operator": "equals"
+                            }]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "light"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [{
+                                "test": "has_component",
+                                "value": "minecraft:is_sheared",
+                                "subject": "self",
+                                "operator": "not"
+                            }]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "light"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

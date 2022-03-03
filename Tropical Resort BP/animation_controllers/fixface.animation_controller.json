@@ -1,0 +1,69 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.fixface": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                            "fix_to_north": "v.spawn_rotation = Math.mod(Math.round(q.body_y_rotation / 90) * 90 + 360, 360);return q.is_sheared && v.spawn_rotation == 180;"
+                        },
+                        {
+                            "fix_to_east": "q.is_sheared && v.spawn_rotation == 270"
+                        },
+                        {
+                            "fix_to_south": "q.is_sheared && v.spawn_rotation == 0"
+                        },
+                        {
+                            "fix_to_west": "q.is_sheared && v.spawn_rotation == 90"
+                        }
+                    ]
+                },
+                "fix_to_north": {
+                    "animations": [
+                        "facenorth"
+                    ],
+                    "transitions": [{
+                        "default": "q.any_animation_finished"
+                    }],
+                    "on_exit": [
+                        "@s minecraft:facingfixed"
+                    ]
+                },
+                "fix_to_east": {
+                    "animations": [
+                        "faceeast"
+                    ],
+                    "transitions": [{
+                        "default": "q.any_animation_finished"
+                    }],
+                    "on_exit": [
+                        "@s minecraft:facingfixed"
+                    ]
+                },
+                "fix_to_south": {
+                    "animations": [
+                        "facesouth"
+                    ],
+                    "transitions": [{
+                        "default": "q.any_animation_finished"
+                    }],
+                    "on_exit": [
+                        "@s minecraft:facingfixed"
+                    ]
+                },
+                "fix_to_west": {
+                    "animations": [
+                        "facewest"
+                    ],
+                    "transitions": [{
+                        "default": "q.any_animation_finished"
+                    }],
+                    "on_exit": [
+                        "@s minecraft:facingfixed"
+                    ]
+                }
+            }
+        }
+    }
+}

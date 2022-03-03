@@ -1,0 +1,157 @@
+{
+    "format_version": "1.17.0",
+    "animations": {
+        "animation.vehicle.travel": {
+            "loop": true,
+            "animation_length": 5,
+            "timeline": {
+                "0": [
+                    "/scoreboard players remove @s fuel 1",
+                    "/execute @s[scores={fuel=0}] ~ ~ ~ title @p actionbar §c§lOut of fuel"
+                ]
+            }
+        },
+        "animation.vehicle.show_fuel": {
+            "loop": true,
+            "animation_length": 1,
+            "timeline": {
+                "0.9": [
+                    "/execute @s[scores={fuel=90..100}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§e\\u258B\\u258B\\u258B§a\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
+                    "/execute @s[scores={fuel=80..89}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§e\\u258B\\u258B\\u258B§a\\u258B\\u258B\\u258B\\u258B§8\\u258B\"}]}",
+                    "/execute @s[scores={fuel=70..79}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§e\\u258B\\u258B\\u258B§a\\u258B\\u258B\\u258B§8\\u258B\\u258B\"}]}",
+                    "/execute @s[scores={fuel=60..69}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§e\\u258B\\u258B\\u258B§a\\u258B\\u258B§8\\u258B\\u258B\\u258B\"}]}",
+                    "/execute @s[scores={fuel=50..59}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§e\\u258B\\u258B\\u258B§a\\u258B§8\\u258B\\u258B\\u258B\\u258B\"}]}",
+                    "/execute @s[scores={fuel=40..49}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§e\\u258B\\u258B\\u258B§8\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
+                    "/execute @s[scores={fuel=30..39}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§e\\u258B\\u258B§8\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
+                    "/execute @s[scores={fuel=20..29}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§e\\u258B§8\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
+                    "/execute @s[scores={fuel=10..19}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§8\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
+                    "/execute @s[scores={fuel=1..9}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B§8\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
+                    "/execute @s[scores={fuel=0}] ~ ~ ~ title @p actionbar §c§lOut of fuel",
+                    "/execute @s[scores={fuel=0}] ~ ~ ~ event entity @s minecraft:ran_out_fuel",
+                    "/execute @s[scores={fuel=..80},tag=fuel] ~ ~ ~ tag @s remove fuel"
+                ]
+            }
+        },
+        "animation.checkpoint1": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=3,tag=ring_surfing,tag=!checkpoint1] add checkpoint1",
+                    "/stopsound @a[r=10] note.pling",
+                    "/playsound note.pling @a[r=10] ~~~ 10 1.0",
+                    "/tag @s add checkpoint1",
+                    "@s check_remove"
+                ]
+            }
+        },
+        "animation.checkpoint2": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=3,tag=ring_surfing,tag=checkpoint1] add checkpoint2",
+                    "/tag @a[r=3] remove checkpoint1",
+                    "/stopsound @a[r=10] note.pling",
+                    "/playsound note.pling @a[r=10] ~~~ 10 1.1",
+                    "/tag @s add checkpoint2",
+                    "@s check_remove"
+                ]
+            }
+        },
+        "animation.checkpoint3": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=3,tag=ring_surfing,tag=checkpoint2] add checkpoint3",
+                    "/tag @a[r=3] remove checkpoint2",
+                    "/stopsound @a[r=10] note.pling",
+                    "/playsound note.pling @a[r=10] ~~~ 10 1.2",
+                    "/tag @s add checkpoint3",
+                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint1] minecraft:despawn",
+                    "@s check_remove"
+                ]
+            }
+        },
+        "animation.checkpoint4": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=3,tag=ring_surfing,tag=checkpoint3] add checkpoint4",
+                    "/tag @a[r=3] remove checkpoint3",
+                    "/stopsound @a[r=10] note.pling",
+                    "/playsound note.pling @a[r=10] ~~~ 10 1.3",
+                    "/tag @s add checkpoint4",
+                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint2] minecraft:despawn",
+                    "@s check_remove"
+                ]
+            }
+        },
+        "animation.checkpoint5": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=3,tag=ring_surfing,tag=checkpoint4] add checkpoint5",
+                    "/tag @a[r=3] remove checkpoint4",
+                    "/stopsound @a[r=10] note.pling",
+                    "/playsound note.pling @a[r=10] ~~~ 10 1.4",
+                    "/tag @s add checkpoint5",
+                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint3] minecraft:despawn",
+                    "@s check_remove"
+                ]
+            }
+        },
+        "animation.checkpoint6": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=3,tag=ring_surfing,tag=checkpoint5] add checkpoint6",
+                    "/tag @a[r=3] remove checkpoint5",
+                    "/stopsound @a[r=10] note.pling",
+                    "/playsound note.pling @a[r=10] ~~~ 10 1.5",
+                    "/tag @s add checkpoint6",
+                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint4] minecraft:despawn",
+                    "@s check_remove"
+                ]
+            }
+        },
+        "animation.checkpoint7": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=3,tag=ring_surfing,tag=checkpoint6] add checkpoint7",
+                    "/tag @a[r=3] remove checkpoint6",
+                    "/stopsound @a[r=10] note.pling",
+                    "/playsound note.pling @a[r=10] ~~~ 10 1.6",
+                    "/tag @s add checkpoint7",
+                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint5] minecraft:despawn",
+                    "@s check_remove"
+                ]
+            }
+        },
+        "animation.checkpoint8": {
+            "loop": true,
+            "animation_length": 5.1,
+            "timeline": {
+                "0.0": [
+                    "/tag @a[r=3] remove checkpoint7",
+                    "/stopsound @a[r=10] note.pling",
+                    "/playsound random.levelup @a[r=10] ~~~ 10 0.5",
+                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint6] minecraft:despawn"
+                ],
+                "2.5": [
+                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint7] minecraft:despawn"
+                ],
+                "5.0": [
+                    "@s minecraft:despawn",
+                    "@s check_remove"
+                ]
+            }
+        }
+    }
+}

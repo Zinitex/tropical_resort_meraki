@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:helicopter",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/vehicle/helicopter"
+            },
+            "animations": {
+                "has_rider": "animation.helicopter.idle"
+            },
+            "scripts": {
+                "scale": "2.5",
+                "animate": [
+                    { "has_rider": "query.has_rider" }
+                ]
+            },
+            "geometry": {
+                "default": "geometry.helicopter"
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "helicopter",
+                "texture_index": 0
+            }
+        }
+    }
+}

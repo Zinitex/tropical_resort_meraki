@@ -1,0 +1,107 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:seashells",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    "fixfacing"
+                ]
+            },
+            "animations": {
+                "fixfacing": "controller.animation.fixface",
+                "facenorth": "animation.entity.facenorth",
+                "facesouth": "animation.entity.facesouth",
+                "facewest": "animation.entity.facewest",
+                "faceeast": "animation.entity.faceeast"
+            }
+        },
+        "component_groups": {
+            "facingnotfixed": {
+                "minecraft:is_sheared": {}
+            },
+            "drop": {
+                "minecraft:spawn_entity": {
+                    "entities": [{
+                        "min_wait_time": 0,
+                        "max_wait_time": 0,
+                        "single_use": true,
+                        "spawn_item": "meraki:seashells",
+                        "num_to_spawn": 1
+                    }]
+                },
+                "minecraft:instant_despawn": {}
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                        "on_damage": {
+                            "event": "drop",
+                            "filters": {
+                                "all_of": [{
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                }]
+                            }
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:knockback_resistance": {},
+            "minecraft:health": {
+                "max": 1,
+                "min": 1,
+                "value": 1
+            },
+            "minecraft:pushable": {
+                "is_pushable": false
+            },
+            "minecraft:physics": {},
+            "minecraft:collision_box": {
+                "height": 0.0,
+                "width": 0.0
+            },
+            "minecraft:custom_hit_test": {
+                "hitboxes": [{
+                    "pivot": [0, 0.25, 0.0],
+                    "height": 0.5,
+                    "width": 0.5
+                }]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:facingfixed": {
+                "remove": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:despawn": {
+                "add": { "component_groups": ["minecraft:despawn"] }
+            },
+            "drop": {
+                "add": {
+                    "component_groups": [
+                        "drop"
+                    ]
+                }
+            }
+        }
+    }
+}

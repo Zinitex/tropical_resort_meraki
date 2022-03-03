@@ -1,0 +1,19 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "meraki:mango_juice"
+        },
+        "tags": ["crafting_table"],
+        "ingredients": [{
+                "item": "meraki:mango"
+            },
+            {
+                "item": "meraki:glass_of_water"
+            }
+        ],
+        "result": {
+            "item": "meraki:mango_juice"
+        }
+    }
+}

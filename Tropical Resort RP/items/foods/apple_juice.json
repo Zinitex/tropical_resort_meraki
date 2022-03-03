@@ -1,0 +1,13 @@
+{
+    "format_version": "1.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "meraki:apple_juice",
+            "category": "Item"
+        },
+
+        "components": {
+            "minecraft:icon": "apple_juice"
+        }
+    }
+}

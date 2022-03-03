@@ -1,0 +1,144 @@
+{
+    "format_version": [
+        1,
+        1,
+        0
+    ],
+    "silver_1": {
+        "textures": {
+            "up": "silver_1",
+            "down": "silver",
+            "side": "silver"
+        },
+        "sound": "stone"
+    },
+    "silver_2": {
+        "textures": {
+            "up": "silver_2",
+            "down": "silver",
+            "side": "silver"
+        },
+        "sound": "stone"
+    },
+    "silver_3": {
+        "textures": {
+            "up": "silver_3",
+            "down": "silver",
+            "side": "silver"
+        },
+        "sound": "stone"
+    },
+    "silver_4": {
+        "textures": {
+            "up": "silver_4",
+            "down": "silver",
+            "side": "silver"
+        },
+        "sound": "stone"
+    },
+    "silver_5": {
+        "textures": {
+            "up": "silver_5",
+            "down": "silver",
+            "side": "silver"
+        },
+        "sound": "stone"
+    },
+    "silver_6": {
+        "textures": {
+            "up": "silver_6",
+            "down": "silver",
+            "side": "silver"
+        },
+        "sound": "stone"
+    },
+    "silver_7": {
+        "textures": {
+            "up": "silver_7",
+            "down": "silver",
+            "side": "silver"
+        },
+        "sound": "stone"
+    },
+    "silver_8": {
+        "textures": {
+            "up": "silver_8",
+            "down": "silver",
+            "side": "silver"
+        },
+        "sound": "stone"
+    },
+    "black_1": {
+        "textures": {
+            "up": "black_1",
+            "down": "gray",
+            "side": "gray"
+        },
+        "sound": "stone"
+    },
+    "black_2": {
+        "textures": {
+            "up": "black_2",
+            "down": "gray",
+            "side": "gray"
+        },
+        "sound": "stone"
+    },
+    "black_3": {
+        "textures": {
+            "up": "black_3",
+            "down": "gray",
+            "side": "gray"
+        },
+        "sound": "stone"
+    },
+    "black_4": {
+        "textures": {
+            "up": "black_4",
+            "down": "gray",
+            "side": "gray"
+        },
+        "sound": "stone"
+    },
+    "black_5": {
+        "textures": {
+            "up": "black_5",
+            "down": "gray",
+            "side": "gray"
+        },
+        "sound": "stone"
+    },
+    "black_6": {
+        "textures": {
+            "up": "black_6",
+            "down": "gray",
+            "side": "gray"
+        },
+        "sound": "stone"
+    },
+    "black_7": {
+        "textures": {
+            "up": "black_7",
+            "down": "gray",
+            "side": "gray"
+        },
+        "sound": "stone"
+    },
+    "black_8": {
+        "textures": {
+            "up": "black_8",
+            "down": "gray",
+            "side": "gray"
+        },
+        "sound": "stone"
+    },
+
+    "crimson_button": {
+        "textures": "gold_block",
+        "sound": "glass"
+    },
+    "stone_button": {
+        "textures": "gold_block",
+        "sound": "glass"
+    }
+}

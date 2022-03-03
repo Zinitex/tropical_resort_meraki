@@ -1,0 +1,25 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.vehicle.gear": {
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "gear_switch_up": "query.ground_speed > 1 && query.has_rider"
+                    }],
+                    "animations": [
+                        "vehicle.gear_default"
+                    ]
+                },
+                "gear_switch_up": {
+                    "transitions": [{
+                        "default": "query.ground_speed < 1 || !query.has_rider"
+                    }],
+                    "animations": [
+                        "vehicle.gear"
+                    ]
+                }
+            }
+        }
+    }
+}

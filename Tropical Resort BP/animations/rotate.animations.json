@@ -1,0 +1,40 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.entity.rotate90": {
+            "timeline": {
+                "0.0": "/tp ~ ~+0.01 ~ ~+45 ~",
+                "0.2": "/tp ~ ~+0.01~"
+            },
+            "animation_length": 0.4
+        },
+        "animation.entity.facenorth": {
+            "timeline": {
+                "0.0": "/tp ~ ~+0.01 ~ 180 ~",
+                "0.2": "/tp ~ ~+0.01~"
+            },
+            "animation_length": 0.4
+        },
+        "animation.entity.facewest": {
+            "timeline": {
+                "0.0": "/tp ~ ~+0.01 ~ 90 ~",
+                "0.2": "/tp ~ ~+0.01~"
+            },
+            "animation_length": 0.4
+        },
+        "animation.entity.facesouth": {
+            "timeline": {
+                "0.0": "/tp ~ ~+0.01 ~ 0 ~",
+                "0.2": "/tp ~ ~+0.01~"
+            },
+            "animation_length": 0.4
+        },
+        "animation.entity.faceeast": {
+            "timeline": {
+                "0.0": "/tp ~ ~+0.01 ~ -90 ~",
+                "0.2": "/tp ~ ~+0.01~"
+            },
+            "animation_length": 0.4
+        }
+    }
+}

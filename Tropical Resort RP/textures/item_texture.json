@@ -1,0 +1,132 @@
+{
+    "texture_data": {
+        "red_fish": {
+            "textures": "textures/tropical_resort/items/red_fish"
+        },
+        "yellow_fish": {
+            "textures": "textures/tropical_resort/items/yellow_fish"
+        },
+        "green_fish": {
+            "textures": "textures/tropical_resort/items/green_fish"
+        },
+
+        "poolband": {
+            "textures": "textures/tropical_resort/items/poolband"
+        },
+        "helicopter": {
+            "textures": "textures/tropical_resort/items/helicopter"
+        },
+        "red_jetski": {
+            "textures": "textures/tropical_resort/items/red_jetski"
+        },
+        "blue_jetski": {
+            "textures": "textures/tropical_resort/items/blue_jetski"
+        },
+
+        "bar_stool": {
+            "textures": "textures/tropical_resort/items/bar_stool"
+        },
+        "beach_chair": {
+            "textures": "textures/tropical_resort/items/beach_chair"
+        },
+        "chair": {
+            "textures": "textures/tropical_resort/items/chair"
+        },
+        "light_switch": {
+            "textures": "textures/tropical_resort/items/light_switch"
+        },
+        "luxury_sofa": {
+            "textures": "textures/tropical_resort/items/luxury_sofa"
+        },
+        "sofa": {
+            "textures": "textures/tropical_resort/items/sofa"
+        },
+        "wooden_bar_stool": {
+            "textures": "textures/tropical_resort/items/wooden_bar_stool"
+        },
+        "wooden_sofa": {
+            "textures": "textures/tropical_resort/items/wooden_sofa"
+        },
+
+        "surf_board_1": {
+            "textures": "textures/tropical_resort/items/surf_board_1"
+        },
+        "surf_board_2": {
+            "textures": "textures/tropical_resort/items/surf_board_2"
+        },
+        "surf_board_3": {
+            "textures": "textures/tropical_resort/items/surf_board_3"
+        },
+        "surf_board_4": {
+            "textures": "textures/tropical_resort/items/surf_board_4"
+        },
+
+        "basement_key": {
+            "textures": "textures/tropical_resort/items/basement_key"
+        },
+        "fuel_canister": {
+            "textures": "textures/tropical_resort/items/fuel_canister"
+        },
+        "quest_book": {
+            "textures": "textures/tropical_resort/items/quest_book"
+        },
+        "gold_coin": {
+            "textures": "textures/tropical_resort/items/gold_coin"
+        },
+        "gold_ring": {
+            "textures": "textures/tropical_resort/items/gold_ring"
+        },
+        "fishing_spear": {
+            "textures": "textures/tropical_resort/items/fishing_spear"
+        },
+        "rock": {
+            "textures": "textures/tropical_resort/items/rock"
+        },
+        "seashells": {
+            "textures": "textures/tropical_resort/items/seashells"
+        },
+        "twig": {
+            "textures": "textures/tropical_resort/items/twig"
+        },
+
+        "apple": {
+            "textures": "textures/tropical_resort/items/apple"
+        },
+        "apple_juice": {
+            "textures": "textures/tropical_resort/items/apple_juice"
+        },
+        "coconut_juice": {
+            "textures": "textures/tropical_resort/items/coconut_juice"
+        },
+        "coconut_water": {
+            "textures": "textures/tropical_resort/items/coconut_water"
+        },
+        "glass_of_water": {
+            "textures": "textures/tropical_resort/items/glass_of_water"
+        },
+        "lemonade": {
+            "textures": "textures/tropical_resort/items/lemonade"
+        },
+        "mango": {
+            "textures": "textures/tropical_resort/items/mango"
+        },
+        "mango_juice": {
+            "textures": "textures/tropical_resort/items/mango_juice"
+        },
+        "mixed_lemonade": {
+            "textures": "textures/tropical_resort/items/mixed_lemonade"
+        },
+        "orange": {
+            "textures": "textures/tropical_resort/items/orange"
+        },
+        "orange_juice": {
+            "textures": "textures/tropical_resort/items/orange_juice"
+        },
+        "peach": {
+            "textures": "textures/tropical_resort/items/peach"
+        },
+        "peach_juice": {
+            "textures": "textures/tropical_resort/items/peach_juice"
+        }
+    }
+}

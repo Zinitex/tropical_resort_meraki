@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:light_switch",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/decorations/light_switch"
+            },
+            "geometry": {
+                "default": "geometry.light_switch"
+            },
+            "animations": {
+                "on": "animation.light_switch.on",
+                "con": "controller.animation.two_states"
+            },
+            "scripts": {
+                "animate": [
+                    "con"
+                ]
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "light_switch",
+                "texture_index": 0
+            }
+        }
+    }
+}

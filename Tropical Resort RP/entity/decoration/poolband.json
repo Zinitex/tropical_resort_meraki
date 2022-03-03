@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:poolband",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "color_1": "textures/tropical_resort/decorations/pool_band_blue",
+                "color_2": "textures/tropical_resort/decorations/pool_band_green",
+                "color_3": "textures/tropical_resort/decorations/pool_band_orange"
+            },
+            "animations": {
+                "in_water": "animation.poolband.in_water"
+            },
+            "scripts": {
+                "animate": [
+                    { "in_water": "query.is_in_water" }
+                ]
+            },
+            "geometry": {
+                "default": "geometry.poolband"
+            },
+            "render_controllers": ["controller.render.color"],
+            "spawn_egg": {
+                "texture": "poolband",
+                "texture_index": 0
+            }
+        }
+    }
+}

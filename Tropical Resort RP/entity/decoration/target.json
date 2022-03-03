@@ -1,0 +1,37 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:target",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/decorations/drone"
+            },
+            "geometry": {
+                "default": "geometry.drone"
+            },
+            "animations": {
+                "spawn": "animation.drone.spawn",
+                "despawn": "animation.drone.despawn",
+                "on": "animation.drone.enable2",
+                "off": "animation.drone.disable2",
+
+                "animation": "controller.animation.drone",
+                "helix": "animation.drone.helix"
+            },
+            "scripts": {
+                "animate": [
+                    "animation",
+                    "helix"
+                ]
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "gold_ring",
+                "texture_index": 0
+            }
+        }
+    }
+}

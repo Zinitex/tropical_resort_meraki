@@ -1,0 +1,234 @@
+{
+    "format_version": "1.16.100",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:poolband",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "drop": {
+                "minecraft:spawn_entity": {
+                    "entities": [{
+                        "min_wait_time": 0,
+                        "max_wait_time": 0,
+                        "single_use": true,
+                        "spawn_item": "meraki:poolband_spawn_egg",
+                        "num_to_spawn": 1
+                    }]
+                },
+                "minecraft:instant_despawn": {}
+            },
+            "can_ride": {
+                "minecraft:rideable": {
+                    "rider_can_interact": true,
+                    "seat_count": 1,
+                    "controlling_seat": 0,
+                    "seats": [{
+                        "position": [0, 0.05, -0.2]
+                    }],
+                    "interact_text": "Ride",
+                    "crouching_skip_interact": true,
+                    "family_types": ["player"]
+                }
+            },
+            "minecraft:color_1": {
+                "minecraft:skin_id": {
+                    "value": 0
+                }
+            },
+            "minecraft:color_2": {
+                "minecraft:skin_id": {
+                    "value": 1
+                }
+            },
+            "minecraft:color_3": {
+                "minecraft:skin_id": {
+                    "value": 2
+                }
+            }
+        },
+        "components": {
+            "minecraft:environment_sensor": {
+                "triggers": [{
+                        "filters": {
+                            "test": "is_underwater",
+                            "value": false
+                        },
+                        "event": "on_land"
+                    },
+                    {
+                        "filters": {
+                            "test": "is_underwater",
+                            "value": true
+                        },
+                        "event": "on_water"
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                        "on_damage": {
+                            "event": "drop",
+                            "filters": {
+                                "all_of": [{
+                                        "test": "rider_count",
+                                        "subject": "self",
+                                        "value": 0
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    }
+                                ]
+                            }
+                        },
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:interact": {
+                "interactions": [{
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [{
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "domain": "hand",
+                                    "subject": "other",
+                                    "value": "minecraft:stick"
+                                },
+                                {
+                                    "test": "rider_count",
+                                    "value": 0
+                                }
+                            ]
+                        },
+                        "event": "minecraft:paint",
+                        "target": "self"
+                    },
+                    "interact_text": "Change Color",
+                    "hurt_item": 1,
+                    "play_sounds": "drop.slot"
+                }]
+            },
+            "minecraft:behavior.rise_to_liquid_level": {
+                "priority": 0,
+                "liquid_y_offset": 0.25,
+                "rise_delta": 0.01,
+                "sink_delta": 0.0
+            },
+            "minecraft:underwater_movement": {
+                "value": 0.025
+            },
+            "minecraft:navigation.walk": {
+                "can_sink": false
+            },
+            "minecraft:input_ground_controlled": {},
+            "minecraft:health": {
+                "value": 1,
+                "max": 1
+            },
+            "minecraft:movement": {
+                "value": 0.025
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:collision_box": {
+                "width": 1.0,
+                "height": 0.5
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "randomize": [{
+                        "weight": 1,
+                        "add": {
+                            "component_groups": [
+                                "minecraft:color_1"
+                            ]
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "add": {
+                            "component_groups": [
+                                "minecraft:color_2"
+                            ]
+                        }
+                    },
+                    {
+                        "weight": 1,
+                        "add": {
+                            "component_groups": [
+                                "minecraft:color_3"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "minecraft:paint": {
+                "sequence": [{
+                        "filters": { "test": "is_skin_id", "value": 0 },
+                        "add": {
+                            "component_groups": [
+                                "minecraft:color_2"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": { "test": "is_skin_id", "value": 1 },
+                        "add": {
+                            "component_groups": [
+                                "minecraft:color_3"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": { "test": "is_skin_id", "value": 2 },
+                        "add": {
+                            "component_groups": [
+                                "minecraft:color_1"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "on_water": {
+                "add": {
+                    "component_groups": [
+                        "can_ride"
+                    ]
+                }
+            },
+            "on_land": {
+                "remove": {
+                    "component_groups": [
+                        "can_ride"
+                    ]
+                }
+            },
+            "drop": {
+                "add": {
+                    "component_groups": [
+                        "drop"
+                    ]
+                }
+            }
+        }
+    }
+}

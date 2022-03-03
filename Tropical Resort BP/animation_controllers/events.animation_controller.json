@@ -1,0 +1,124 @@
+{
+    "format_version": "1.17.0",
+    "animation_controllers": {
+        "controller.animation.geogebra": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                            "light_off": "query.is_sheared"
+                        },
+                        {
+                            "light_on": "!query.is_sheared"
+                        }
+                    ]
+                },
+                "light_off": {
+                    "on_entry": [
+                        "/fill ~1~2~1~-1~3~-1 air",
+                        "/setblock ~~3~ concrete 8",
+                        "/setblock ~-1~3~ meraki:silver_1",
+                        "/setblock ~~3~1 meraki:silver_2",
+                        "/setblock ~1~3~ meraki:silver_3",
+                        "/setblock ~~3~-1 meraki:silver_4",
+                        "/setblock ~-1~3~-1 meraki:silver_5",
+                        "/setblock ~1~3~1 meraki:silver_6",
+                        "/setblock ~1~3~-1 meraki:silver_7",
+                        "/setblock ~-1~3~1 meraki:silver_8"
+                    ],
+                    "transitions": [
+                        { "default": "!query.is_sheared" }
+                    ]
+                },
+                "light_on": {
+                    "on_entry": [
+                        "/fill ~1~2~1~-1~3~-1 stone",
+                        "/setblock ~~3~ concrete 7",
+                        "/setblock ~-1~3~ meraki:black_1",
+                        "/setblock ~~3~1 meraki:black_2",
+                        "/setblock ~1~3~ meraki:black_3",
+                        "/setblock ~~3~-1 meraki:black_4",
+                        "/setblock ~-1~3~-1 meraki:black_5",
+                        "/setblock ~1~3~1 meraki:black_6",
+                        "/setblock ~1~3~-1 meraki:black_7",
+                        "/setblock ~-1~3~1 meraki:black_8"
+
+                    ],
+                    "transitions": [
+                        { "default": "query.is_sheared" }
+                    ]
+                }
+            }
+        },
+        "controller.animation.light_switch": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                            "switch_off": "!query.is_powered"
+                        },
+                        {
+                            "switch_on": "query.is_powered"
+                        }
+                    ]
+                },
+                "switch_off": {
+                    "on_entry": [
+                        "/event entity @e[type=meraki:fuel_canister] invisible",
+                        "/event entity @e[type=meraki:light_switch] all_off",
+                        "/event entity @e[type=meraki:lamp] switch_off",
+                        "/event entity @e[type=meraki:ghost] minecraft:to_attack",
+                        "/playsound random.click @a ~~~ 1.0 0.5",
+                        "/title @a actionbar §l§cLights Off §r§f- All ghosts will attack the player"
+                    ],
+                    "transitions": [
+                        { "default": "query.is_powered" }
+                    ]
+                },
+                "switch_on": {
+                    "on_entry": [
+                        "/event entity @e[type=meraki:fuel_canister] visible",
+                        "/event entity @e[type=meraki:light_switch] all_on",
+                        "/event entity @e[type=meraki:lamp] switch_on",
+                        "/event entity @e[type=meraki:ghost] minecraft:to_scared",
+                        "/playsound random.click @a ~~~ 1.0 0.6",
+                        "/title @a actionbar §l§aLights On §r§f- All ghosts will be frozen for 10 seconds"
+                    ],
+                    "transitions": [
+                        { "default": "!query.is_powered" }
+                    ]
+                }
+            }
+        },
+        "controller.animation.lamp": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                            "switch_off": "!query.is_powered"
+                        },
+                        {
+                            "switch_on": "query.is_powered"
+                        }
+                    ]
+                },
+                "switch_off": {
+                    "on_entry": [
+                        "/setblock ~~~ light_block 5"
+                    ],
+                    "transitions": [
+                        { "default": "query.is_powered" }
+                    ]
+                },
+                "switch_on": {
+                    "on_entry": [
+                        "/setblock ~~~ light_block 10"
+                    ],
+                    "transitions": [
+                        { "default": "!query.is_powered" }
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:jetski2",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/vehicle/jetski2"
+            },
+            "geometry": {
+                "default": "geometry.jetski2"
+            },
+            "animations": {
+                "in_water": "animation.surf_board.on_water"
+            },
+            "scripts": {
+                "animate": [
+                    { "in_water": "query.is_in_water" }
+                ]
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "blue_jetski",
+                "texture_index": 0
+            }
+        }
+    }
+}

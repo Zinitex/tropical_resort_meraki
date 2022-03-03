@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:luxury_sofa",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/furniture/luxury_sofa"
+            },
+            "geometry": {
+                "default": "geometry.luxury_sofa"
+            },
+            "render_controllers": ["controller.render.default"],
+            "spawn_egg": {
+                "texture": "luxury_sofa",
+                "texture_index": 0
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "format_version": "1.10",
+    "minecraft:item": {
+        "description": {
+            "identifier": "meraki:coconut_juice",
+            "category": "Item"
+        },
+
+        "components": {
+            "minecraft:icon": "coconut_juice"
+        }
+    }
+}

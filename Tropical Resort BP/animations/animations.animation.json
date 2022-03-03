@@ -1,0 +1,150 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.basement_spook_respawn": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[type=meraki:ghost] minecraft:despawn",
+                    "/event entity @e[type=meraki:fuel_canister] minecraft:despawn",
+                    "/tag @s add respawn",
+                    "/execute @e[name=checkpoint_basement_spook] ~~~ tp @p[tag=respawn] ~~3~ 270",
+                    "/summon meraki:ghost 2160 71 -107",
+                    "/summon meraki:ghost 2168 71 -122",
+                    "/summon meraki:ghost 2173 71 -136",
+                    "/summon meraki:ghost 2163 71 -137",
+                    "/summon meraki:ghost 2167 71 -106",
+                    "/summon meraki:ghost 2148 71 -108",
+                    "/summon meraki:fuel_canister 2178 71 -121",
+                    "/event entity @e[type=meraki:light_switch] switch_off",
+                    "/tag @a[tag=respawn] remove respawn",
+                    "@s minecraft:reset"
+                ]
+            }
+        },
+        "animation.light_switch_cant_use": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/title @p actionbar §cYou can only turn on one light switch at the same time",
+                    "/playsound mob.villager.no @p",
+                    "@s remove_cant_use"
+                ]
+            }
+        },
+        "animation.fuel_canister_collect": {
+            "animation_length": 0.6,
+            "loop": false,
+            "timeline": {
+                "0.2": [
+                    "/event entity @e[type=meraki:ghost] minecraft:despawn",
+                    "/event entity @e[type=meraki:light_switch] switch_off"
+                ],
+                "0.3": [
+                    "/give @p meraki:fuel_canister",
+                    "/tag @p add fuel_collected",
+                    "/execute @e[name=checkpoint_basement_spook] ~~~ tp @p[tag=fuel_collected] ~-6~3~ 270"
+                ],
+                "0.4": [
+                    "/playsound random.levelup @p[tag=fuel_collected]",
+                    "/title @p[tag=fuel_collected] actionbar §aYou have successfully retrieved the fuel canister",
+                    "/tag @a[tag=fuel_collected] remove fuel_collected"
+                ]
+            }
+        },
+        "animation.fishing_spear": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/give @p meraki:fishing_spear"
+                ]
+            }
+        },
+        "animation.geogebra_change": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @e[type=meraki:geogebra,r=1.5] ~~~ event entity @e[r=3] change",
+                    "/fill ~~4~~~4~ crimson_button 1 replace crimson_button 9",
+                    "/fill ~~4~~~4~ stone_button 1 replace stone_button 9",
+                    "@s reset"
+                ]
+            }
+        },
+        "animation.customer_complete": {
+            "animation_length": 3.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/particle minecraft:heart_particle ~~2.5~",
+                    "/scoreboard players random @s random 1 2",
+                    "/scoreboard players add @e[type=meraki:main] bar_quest 1",
+                    "/execute @e[type=meraki:main,scores={bar_quest=..7}] ~~~ /titleraw @p[x=2143,y=85,z=-84,r=10] actionbar {\"rawtext\":[{\"text\":\"Completed Bar services §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bar_quest\"}},{\"text\":\"§f/§68\"}]}",
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..}] ~~~ execute @p[x=2143,y=85,z=-84,r=10] ~~~ playsound random.levelup @s ~~~ 1.0 0.5",
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..}] ~~~ event entity @e[type=meraki:customer] bar:force_complete",
+
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..},tag=!bartender] ~~~ give @p[x=2143,y=85,z=-84,r=10] meraki:gold_coin 50",
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..},tag=!bartender] ~~~ title @p[x=2143,y=85,z=-84,r=10] actionbar §aBartender Services completed | §a+50 Gold Coins ",
+
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..},tag=bartender] ~~~ give @p[x=2143,y=85,z=-84,r=10] meraki:gold_coin 25",
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..},tag=bartender] ~~~ title @p[x=2143,y=85,z=-84,r=10] actionbar §aBartender Services completed | §a+25 Gold Coins",
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..},tag=!bartender] ~~~ tag @e[type=meraki:main} add bartender ",
+
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..}] ~~~ scoreboard players set @s bar_quest 0"
+                ],
+                "3.0": [
+                    "@s minecraft:despawn",
+                    "@s remove_check"
+                ]
+            }
+        },
+        "animation.target_count": {
+            "loop": true,
+            "animation_length": 0.3,
+            "timeline": {
+                "0.0": [
+                    "@s minecraft:remove_can_shoot",
+                    "/execute @a ~~~ playsound random.orb @s ~~~"
+                ],
+                "0.2": [
+                    "/scoreboard players remove @e[type=meraki:main] target 1",
+                    "/scoreboard players remove @e[type=meraki:main] target_sum 1",
+
+                    "/execute @e[type=meraki:main,scores={target=0}] ~~~ event entity @e[type=meraki:target] minecraft:remove_can_shoot",
+                    "/execute @e[type=meraki:main,scores={target=0}] ~~~ event entity @r[type=meraki:target,c=3] minecraft:can_shoot",
+                    "/execute @e[type=meraki:main,scores={target=0}] ~~~ scoreboard players set @s target 3",
+
+                    "/execute @e[type=meraki:main,scores={target_sum=0},tag=!archer] ~~~ give @p[x=2153,y=81,z=-53,r=5] meraki:gold_coin 50",
+                    "/execute @e[type=meraki:main,scores={target_sum=0},tag=!archer] ~~~ title @p[x=2153,y=81,z=-53,r=5] actionbar §a+50 Gold Coins ",
+
+                    "/execute @e[type=meraki:main,scores={target_sum=0},tag=archer] ~~~ give @p[x=2153,y=81,z=-53,r=5] meraki:gold_coin 25",
+                    "/execute @e[type=meraki:main,scores={target_sum=0},tag=archer] ~~~ title @p[x=2153,y=81,z=-53,r=5] actionbar §a+25 Gold Coins",
+                    "/execute @e[type=meraki:main,scores={target_sum=0},tag=!archer] ~~~ tag @e[type=meraki:main} add archer ",
+
+                    "/execute @e[type=meraki:main,scores={target_sum=0},tag=archery_quest] ~~~ event entity @e[type=meraki:archie] minecraft:archery_range3",
+                    "/execute @e[type=meraki:main,scores={target_sum=0},tag=archery_quest] ~~~ scoreboard players set @s quest_id 8",
+                    "/execute @e[type=meraki:main,scores={target_sum=0},tag=archery_quest] ~~~ tag @s remove archery_quest",
+
+                    "/execute @e[type=meraki:main,scores={target_sum=0}] ~~~ event entity @e[type=meraki:target] minecraft:disable",
+                    "/execute @e[type=meraki:main,scores={target_sum=0}] ~~~ scoreboard players reset @s target_sum",
+                    "/kill @e[type=arrow,r=3]",
+                    "@s remove_count"
+                ]
+            }
+        },
+        "animation.surfboard.take": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[family=surfboard_decoration] minecraft:remove_can_take",
+                    "@s minecraft:remove_take"
+                ]
+            }
+        }
+    }
+}
