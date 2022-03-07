@@ -20,6 +20,25 @@
                 }
             }
         },
+        "controller.animation.door": {
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "open": "query.is_baby"
+                    }],
+                    "blend_transition": 0.3
+                },
+                "open": {
+                    "animations": [
+                        "open"
+                    ],
+                    "transitions": [{
+                        "default": "!query.is_baby"
+                    }],
+                    "blend_transition": 0.3
+                }
+            }
+        },
         "controller.animation.drone": {
             "states": {
                 "default": {

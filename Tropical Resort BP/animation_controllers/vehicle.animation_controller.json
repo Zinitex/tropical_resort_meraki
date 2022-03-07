@@ -62,11 +62,31 @@
                 },
                 "has_rider": {
                     "on_entry": [
+                        "/execute @s[family=surfboard] ~~~ tag @p add is_surfing",
                         "/execute @s[family=surfboard] ~~~ event entity @p minecraft:is_surfing",
                         "/execute @s[family=beach_chair] ~~~ event entity @p minecraft:is_relaxing"
                     ],
                     "transitions": [
                         { "default": "!query.has_rider" }
+                    ]
+                }
+            }
+        },
+        "controller.animation.riding": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "riding": "query.is_riding"
+                    }]
+                },
+                "riding": {
+                    "on_exit": [
+                        "/say gak ride",
+                        "/tag @s remove is_surfing"
+                    ],
+                    "transitions": [
+                        { "default": "!query.is_riding" }
                     ]
                 }
             }

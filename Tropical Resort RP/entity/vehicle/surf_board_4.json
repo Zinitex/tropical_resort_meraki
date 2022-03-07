@@ -13,14 +13,20 @@
                 "default": "geometry.surf_board"
             },
             "animations": {
+                "bubble": "animation.display.bubble",
                 "in_water": "animation.surf_board.on_water",
                 "decoration": "animation.surf_board.decoration"
             },
             "scripts": {
                 "animate": [
                     { "in_water": "query.is_in_water" },
-                    { "decoration": "query.is_powered" }
+                    { "decoration": "query.is_powered" },
+                    { "bubble": "query.is_baby" }
                 ]
+            },
+            "particle_effects": {
+                "name": "meraki:barman",
+                "bubble": "meraki:bubble"
             },
             "render_controllers": ["controller.render.default"],
             "spawn_egg": {

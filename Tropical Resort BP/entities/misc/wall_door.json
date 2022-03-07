@@ -1,0 +1,147 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:wall_door",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    { "teleport": "q.is_powered" },
+                    { "fixfacing": "q.is_sheared && q.is_ignited" },
+                    { "config": "query.is_ignited" }
+                ]
+            },
+            "animations": {
+                "teleport": "animation.secret_cavern.teleport",
+                "fixfacing": "animation.secret_cavern.fix",
+                "door_open": "animation.secret_cavern.open",
+                "config": "controller.animation.secret_cavern"
+            }
+        },
+        "component_groups": {
+            "facingnotfixed": {
+                "minecraft:is_sheared": {}
+            },
+            "minecraft:door_open": {
+                "minecraft:is_baby": {}
+            },
+            "minecraft:secret_cavern": {
+                "minecraft:is_ignited": {}
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "minecraft:teleport_player": {
+                "minecraft:is_charged": {}
+            }
+        },
+        "components": {
+            "minecraft:entity_sensor": {
+                "sensor_range": 5,
+                "relative_range": false,
+                "minimum_count": 1,
+                "event_filters": {
+                    "all_of": [{
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "player"
+                        },
+                        {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:is_baby",
+                            "operator": "equals"
+                        },
+                        {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "value": "teleporter",
+                            "operator": "equals"
+                        }
+                    ]
+                },
+                "event": "minecraft:teleport_player"
+            },
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:scale": {
+                "value": 1.0
+            },
+            "minecraft:physics": {
+                "has_gravity": false,
+                "has_collision": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1,
+                "min": 1
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:movement": {
+                "value": 0.0,
+                "max": 0.0
+            },
+            "minecraft:navigation.generic": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:facingfixed": {
+                "remove": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:secret_cavern": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:secret_cavern"
+                    ]
+                }
+            },
+            "minecraft:door_open": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:door_open"
+                    ]
+                }
+            },
+            "minecraft:despawn": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:despawn"
+                    ]
+                }
+            },
+            "minecraft:teleport_player": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:teleport_player"
+                    ]
+                }
+            },
+            "minecraft:remove_teleport_player": {
+                "remove": {
+                    "component_groups": [
+                        "minecraft:teleport_player"
+                    ]
+                }
+            }
+        }
+    }
+}

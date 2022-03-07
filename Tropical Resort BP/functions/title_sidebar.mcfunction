@@ -23,11 +23,12 @@ execute @e[type=meraki:main,scores={quest_id=16}] ~~~ execute @a ~~~ /titleraw @
 execute @e[type=meraki:main,scores={quest_id=17}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §7Shell Hunter§f\n\n Objectives\n§7 Return to Beach Kid with\n all 12 sea shells.\n\n"}]}
 
 
-execute @e[type=meraki:main,scores={quest_id=18}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §8Basement Spooks§f\n\n Objectives\n§8 Talk to Billy\n\n"}]}
+execute @e[type=meraki:main,scores={quest_id=18}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §8Basement Spooks§f\n\n Objectives\n§8 Talk to Billy in the\n basement \n\n"}]}
 execute @e[type=meraki:main,scores={quest_id=19}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §8Basement Spooks§f\n\n Objectives\n§8 Complete the Maze\n\n"}]}
 
 
-execute @e[type=meraki:main,scores={quest_id=20}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §dInto the Secret Cavern§f\n\n Objectives\n§d Complete the parkour\n\n"}]}
+execute @e[type=meraki:main,scores={quest_id=20}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §dInto the Secret Cavern§f\n\n Objectives\n§d Enter the Portal\n and Complete the parkour\n\n"}]}
+execute @e[type=meraki:main,scores={quest_id=20}] ~~~ execute @p[x=2175,y=32,z=-188,r=5] ~~~ scoreboard players set @e[type=meraki:main] quest_id 21
 execute @e[type=meraki:main,scores={quest_id=21}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §dInto the Secret Cavern§f\n\n Objectives\n§d Solve the Puzzle\n\n"}]}
 
 
@@ -60,8 +61,6 @@ execute @e[type=meraki:main,scores={quest_id=36}] ~~~ execute @a ~~~ /titleraw @
 execute @e[type=meraki:main,scores={quest_id=37}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Visit Patricia at the pool.\n\n"}]}
 execute @e[type=meraki:main,scores={quest_id=38}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Visit Sarah the Sailor.\n\n"}]}
 execute @e[type=meraki:main,scores={quest_id=39}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Visit the Barman.\n\n"}]}
-execute @e[type=meraki:main,scores={quest_id=40}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Go back to Herman at\n the helipad.\n\n"}]}
-execute @e[type=meraki:main,scores={quest_id=41}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Get a fuel at basement.\n\n"}]}
-
-
-
+execute @e[type=meraki:main,scores={quest_id=40}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Go back to Herman at\n the helipad and give \n the Helicopter Key.\n\n"}]}
+execute @e[type=meraki:main,scores={quest_id=41}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Fill the Helicopter with\n fuel or Get a fuel\n from basement.\n\n"}]}
+execute @e[type=meraki:main,scores={quest_id=42}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Fly the Helicopter and\n get out from the resort\n\n"}]}

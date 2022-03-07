@@ -1,0 +1,103 @@
+{
+    "format_version": "1.17.0",
+    "animation_controllers": {
+        "controller.animation.basement_door": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "close": "!query.is_baby"
+                    }]
+                },
+                "close": {
+                    "on_entry": [
+                        "/execute @s ~~~ setblock ~1~~ barrier",
+                        "/execute @s ~~~ setblock ~2~~ barrier",
+                        "/execute @s ~~~ setblock ~-1~~ barrier",
+                        "/execute @s ~~~ setblock ~-2~~ barrier",
+                        "/execute @s ~~~ setblock ~~~-1 barrier",
+                        "/execute @s ~~~ setblock ~~~-2 barrier",
+                        "/execute @s ~~~ setblock ~1~~-1 barrier",
+                        "/execute @s ~~~ setblock ~1~~-2 barrier",
+                        "/execute @s ~~~ setblock ~2~~-1 barrier",
+                        "/execute @s ~~~ setblock ~-1~~-1 barrier",
+                        "/execute @s ~~~ setblock ~-1~~-2 barrier",
+                        "/execute @s ~~~ setblock ~-2~~-1 barrier",
+                        "/execute @s ~~~ setblock ~~~1 barrier",
+                        "/execute @s ~~~ setblock ~~~2 barrier",
+                        "/execute @s ~~~ setblock ~1~~1 barrier",
+                        "/execute @s ~~~ setblock ~1~~2 barrier",
+                        "/execute @s ~~~ setblock ~2~~1 barrier",
+                        "/execute @s ~~~ setblock ~-1~~1 barrier",
+                        "/execute @s ~~~ setblock ~-1~~2 barrier",
+                        "/execute @s ~~~ setblock ~-2~~1 barrier"
+                    ],
+                    "transitions": [
+                        { "open": "query.is_baby" }
+                    ]
+                },
+                "open": {
+                    "animations": [
+                        "door_open"
+                    ],
+                    "transitions": [
+                        { "default": "query.all_animations_finished" }
+                    ]
+                }
+            }
+        },
+        "controller.animation.secret_cavern": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "close": "!query.is_baby"
+                    }]
+                },
+                "close": {
+                    "on_entry": [
+                        "/execute @s ~~~ fill ~~~-3 ~~10~3 barrier",
+                        "/execute @s ~~~ fill ~1~~-3 ~1~10~3 stone"
+                    ],
+                    "transitions": [
+                        { "open": "query.is_baby" }
+                    ]
+                },
+                "open": {
+                    "animations": [
+                        "door_open"
+                    ],
+                    "transitions": [
+                        { "default": "query.all_animations_finished" }
+                    ]
+                }
+            }
+        },
+        "controller.animation.wall_door": {
+            "initial_state": "default",
+            "states": {
+                "default": {
+                    "transitions": [{
+                        "close": "!query.is_baby"
+                    }]
+                },
+                "close": {
+                    "on_entry": [
+                        "/execute @s ~~~ fill ~~~-3 ~~10~3 barrier"
+                    ],
+                    "transitions": [
+                        { "open": "query.is_baby" }
+                    ]
+                },
+                "open": {
+                    "animations": [
+                        "door_open"
+                    ],
+                    "transitions": [
+                        { "default": "query.all_animations_finished" }
+                    ]
+                }
+            }
+        }
+    }
+}

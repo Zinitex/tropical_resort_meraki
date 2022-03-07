@@ -152,6 +152,12 @@
                                         "subject": "self",
                                         "value": "fuel",
                                         "operator": "not"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "jetski_tutorial",
+                                        "operator": "not"
                                     }
                                 ]
                             }
@@ -177,6 +183,12 @@
                                         "test": "is_family",
                                         "subject": "other",
                                         "value": "player"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "jetski_tutorial",
+                                        "operator": "not"
                                     }
                                 ]
                             }

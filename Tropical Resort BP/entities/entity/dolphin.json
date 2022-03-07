@@ -3,9 +3,19 @@
     "minecraft:entity": {
         "description": {
             "identifier": "meraki:dolphin",
-            "is_spawnable": true,
+            "is_spawnable": false,
             "is_summonable": true,
-            "is_experimental": false
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    "detect",
+                    { "anim": "query.is_powered" }
+                ]
+            },
+            "animations": {
+                "detect": "animation.dolphin.detect",
+                "anim": "animation.dolphin_complete"
+            }
         },
         "component_groups": {
             "in_land": {
@@ -31,8 +41,22 @@
                     "value": 0
                 }
             },
+            "minecraft:dolphin_complete": {
+                "minecraft:is_charged": {}
+            },
             "minecraft:despawn": {
                 "minecraft:instant_despawn": {}
+            },
+            "drop": {
+                "minecraft:spawn_entity": {
+                    "entities": [{
+                        "min_wait_time": 0,
+                        "max_wait_time": 0,
+                        "single_use": true,
+                        "spawn_item": "meraki:dolphin_pet_spawn_egg",
+                        "num_to_spawn": 1
+                    }]
+                }
             },
             "minecraft:move": {
                 "minecraft:is_baby": {},
@@ -142,8 +166,8 @@
                 "sway_amplitude": 0.0
             },
             "minecraft:pushable": {
-                "is_pushable": true,
-                "is_pushable_by_piston": true
+                "is_pushable": false,
+                "is_pushable_by_piston": false
             },
             "minecraft:behavior.swim_idle": {
                 "priority": 5
@@ -193,6 +217,13 @@
                     ]
                 }
             },
+            "drop": {
+                "add": {
+                    "component_groups": [
+                        "drop"
+                    ]
+                }
+            },
             "on_water": {
                 "remove": {
                     "component_groups": [
@@ -211,6 +242,13 @@
                 "add": {
                     "component_groups": [
                         "minecraft:despawn"
+                    ]
+                }
+            },
+            "minecraft:dolphin_complete": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:dolphin_complete"
                     ]
                 }
             },

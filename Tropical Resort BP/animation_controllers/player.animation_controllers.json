@@ -15,7 +15,10 @@
                 },
                 "quest_book": {
                     "on_entry": [
-                        "/dialogue open @e[type=meraki:main,c=1] @s quest_menu"
+                        "/tag @s add quest_book",
+                        "/execute @e[type=meraki:main,tag=!on_quest] ~~~ dialogue open @e[type=meraki:dialogue_display,c=1,tag=quest_master] @r[tag=quest_book] quest_menu",
+                        "/execute @e[type=meraki:main,tag=on_quest] ~~~ dialogue open @e[type=meraki:dialogue_display,c=1,tag=quest_master] @r[tag=quest_book] quest_menu_on_quest",
+                        "/tag @s remove quest_book"
                     ],
                     "transitions": [
                         { "default": "1.0" }

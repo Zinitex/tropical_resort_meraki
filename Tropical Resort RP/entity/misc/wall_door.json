@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:wall_door",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/misc/wall_door"
+            },
+            "animations": {
+                "open": "animation.wall_door.open",
+                "door": "controller.animation.door"
+            },
+            "scripts": {
+                "animate": [
+                    "door"
+                ]
+            },
+            "geometry": {
+                "default": "geometry.wall_door"
+            },
+            "render_controllers": ["controller.render.default"]
+        }
+    }
+}

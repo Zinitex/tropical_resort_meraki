@@ -5,7 +5,15 @@
             "identifier": "meraki:main",
             "is_spawnable": true,
             "is_summonable": true,
-            "is_experimental": false
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    "config"
+                ]
+            },
+            "animations": {
+                "config": "animation.title_sidebar.config"
+            }
         },
         "component_groups": {
             "minecraft:despawn": {

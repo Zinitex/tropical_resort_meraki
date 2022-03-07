@@ -7,7 +7,7 @@
                 "default": "entity_alphatest"
             },
             "textures": {
-                "default": "textures/tropical_resort/npc/alex/herman"
+                "default": "textures/tropical_resort/npc/steve/herman"
             },
             "animations": {
                 "bubble": "animation.display.bubble",
@@ -16,7 +16,7 @@
                 "look_at_target_default": "animation.humanoid.look_at_target.default",
                 "move_con": "controller.animation.humanoid.move",
                 "name": "animation.display.npc",
-                "small": "animation.npc.kid"
+                "talk": "animation.npc.talk"
             },
             "scripts": {
                 "pre_animation": [
@@ -29,7 +29,7 @@
                     "bob",
                     "move_con",
                     "look_at_target_default",
-                    "small",
+                    { "talk": "query.skin_id != 0" },
                     { "bubble": "query.is_baby" }
                 ]
             },
@@ -38,7 +38,7 @@
                 "bubble": "meraki:bubble"
             },
             "geometry": {
-                "default": "geometry.npc_slim"
+                "default": "geometry.npc_normal"
             },
             "render_controllers": ["controller.render.default"]
         }

@@ -48,6 +48,11 @@
                             "operator": "!="
                         },
                         {
+                            "test": "has_tag",
+                            "subject": "other",
+                            "value": "basement_spook"
+                        },
+                        {
                             "test": "has_component",
                             "subject": "self",
                             "value": "minecraft:is_sheared",

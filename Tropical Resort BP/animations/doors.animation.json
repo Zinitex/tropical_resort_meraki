@@ -1,0 +1,92 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.basement_door.fix": {
+            "loop": false,
+            "timeline": {
+                "0.0": "/tp ~ ~+0.01 ~ 270 ~",
+                "0.2": [
+                    "/tp ~ ~-0.01~",
+                    "@s minecraft:facingfixed"
+                ]
+            },
+            "animation_length": 0.4
+        },
+        "animation.basement_door.open": {
+            "loop": false,
+            "timeline": {
+                "0.0": [
+                    "/playsound door.small @a[r=14] ~~~"
+                ],
+                "1.5": [
+                    "/execute @s ~~~ setblock ~-1~~ stone_slab 7",
+                    "/execute @s ~~~ setblock ~-2~~ stone_slab 7"
+                ],
+                "2.1": [
+                    "/execute @s ~~~ setblock ~1~~ air",
+                    "/execute @s ~~~ setblock ~2~~ air",
+                    "/execute @s ~~~ setblock ~~~-1 air",
+                    "/execute @s ~~~ setblock ~~~-2 air",
+                    "/execute @s ~~~ setblock ~1~~-1 air",
+                    "/execute @s ~~~ setblock ~1~~-2 air",
+                    "/execute @s ~~~ setblock ~2~~-1 air",
+                    "/execute @s ~~~ setblock ~-1~~-1 air",
+                    "/execute @s ~~~ setblock ~-1~~-2 air",
+                    "/execute @s ~~~ setblock ~-2~~-1 air",
+                    "/execute @s ~~~ setblock ~~~1 stone_slab 15",
+                    "/execute @s ~~~ setblock ~~~2 stone_slab 15",
+                    "/execute @s ~~~ setblock ~1~~1 stone_slab 15",
+                    "/execute @s ~~~ setblock ~1~~2 stone_slab 15",
+                    "/execute @s ~~~ setblock ~2~~1 stone_slab 15",
+                    "/execute @s ~~~ setblock ~-1~~1 stone_slab 15",
+                    "/execute @s ~~~ setblock ~-1~~2 stone_slab 15",
+                    "/execute @s ~~~ setblock ~-2~~1 stone_slab 15",
+                    "@s minecraft:despawn",
+                    "/setblock ~~~ log"
+                ]
+            },
+            "animation_length": 2.2
+        },
+        "animation.secret_cavern.fix": {
+            "loop": false,
+            "timeline": {
+                "0.0": [
+                    "/tp ~ ~+0.01 ~ 90 ~"
+                ],
+                "0.2": [
+                    "/tp ~ ~-0.01~",
+                    "@s minecraft:facingfixed"
+                ]
+            },
+            "animation_length": 0.4
+        },
+        "animation.secret_cavern.open": {
+            "loop": false,
+            "timeline": {
+                "0.0": [
+                    "/playsound door.large @a[r=14] ~~~",
+                    "/execute @s ~~~ fill ~~~-4 ~~10~4 air"
+                ],
+                "3.0": [
+                    "/execute @s ~~~ fill ~~~-4 ~-4~10~-4 barrier",
+                    "/execute @s ~~~ fill ~~~4 ~-4~10~4 barrier",
+                    "/execute @s ~~~ fill ~~~-3 ~~10~3 air",
+                    "/execute @s ~~~ fill ~1~~-3 ~1~10~3 portal 15 destroy",
+                    "/kill @e[type=item,r=20]"
+                ]
+            },
+            "animation_length": 3.1
+        },
+        "animation.secret_cavern.teleport": {
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @p[x=2240,y=69,z=-242,dy=11,dz=7] ~~~ function teleport_cavern",
+                    "/execute @p[x=2129,y=32,z=-185,dy=11,dz=-6] ~~~ function teleport_back",
+                    "@s minecraft:remove_teleport_player"
+                ]
+            },
+            "animation_length": 0.5
+        }
+    }
+}

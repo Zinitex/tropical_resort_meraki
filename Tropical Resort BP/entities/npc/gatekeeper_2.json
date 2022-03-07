@@ -1,0 +1,183 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:gatekeeper_2",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false,
+            "scripts": {
+                "animate": [
+                    { "dialogue_1": "query.skin_id == 1" },
+                    { "reject": "query.skin_id == 10" }
+                ]
+            },
+            "animations": {
+                "dialogue_1": "animation.gatekeeper2",
+                "reject": "animation.gatekeeper_reject2"
+            }
+        },
+        "component_groups": {
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "minecraft:dialogue1": {
+                "minecraft:skin_id": {
+                    "value": 1
+                }
+            },
+            "minecraft:reject": {
+                "minecraft:skin_id": {
+                    "value": 10
+                }
+            },
+            "minecraft:reset_dialogue": {
+                "minecraft:skin_id": {
+                    "value": 0
+                }
+            },
+            "minecraft:quest": {
+                "minecraft:is_baby": {}
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "gatekeeper"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.5,
+                "height": 1.8
+            },
+            "minecraft:scale": {
+                "value": 1.0
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1,
+                "min": 1
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 7,
+                "look_distance": 6.0,
+                "probability": 100.0
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:navigation.generic": {},
+            "minecraft:nameable": {
+                "allow_name_tag_renaming": true,
+                "always_show": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:interact": {
+                "interactions": [{
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "meraki:mystic_key",
+                                        "operator": "not"
+                                    }
+                                ]
+                            },
+                            "event": "minecraft:reject",
+                            "target": "self"
+                        },
+                        "cooldown": 5.0,
+                        "interact_text": "Click to Talk"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "meraki:mystic_key",
+                                        "operator": "equals"
+                                    }
+                                ]
+                            },
+                            "event": "minecraft:dialogue1",
+                            "target": "self"
+                        },
+                        "cooldown": 5.0,
+                        "use_item": true,
+                        "interact_text": "Click to Talk"
+                    }
+                ]
+            }
+        },
+        "events": {
+            "minecraft:can_do_quest": {
+                "add": { "component_groups": ["minecraft:quest"] }
+            },
+            "minecraft:remove_quest": {
+                "remove": { "component_groups": ["minecraft:quest"] }
+            },
+
+            "minecraft:despawn": {
+                "add": { "component_groups": ["minecraft:despawn"] }
+            },
+            "minecraft:dialogue1": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:dialogue1"
+                    ]
+                }
+            },
+            "minecraft:reject": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:reject"
+                    ]
+                }
+            },
+            "minecraft:reset_dialogue": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:reset_dialogue"
+                    ]
+                }
+            }
+        }
+    }
+}

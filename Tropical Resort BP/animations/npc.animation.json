@@ -1,6 +1,78 @@
 {
     "format_version": "1.10.0",
     "animations": {
+        "animation.gatekeeper_reject1": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:gatekeeper.reject1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.gatekeeper1": {
+            "animation_length": 5.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[family=gatekeeper,tag=!quest_complete] minecraft:remove_quest",
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:gatekeeper.dialogue_type1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a"
+                ],
+                "5.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/scoreboard players set @e[type=meraki:main] quest_id 18",
+                    "/execute @e[type=meraki:ground_door] ~~~ playsound tile.piston.out @a[r=14] ~~1~ 1.0 0.5",
+                    "/event entity @e[type=meraki:ground_door,r=20] minecraft:door_open",
+                    "/event entity @e[type=meraki:billy] minecraft:can_do_quest",
+                    "/tag @e[type=meraki:main] add basement_spook",
+                    "/tag @s add quest_complete",
+                    "@s minecraft:remove_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.gatekeeper_reject2": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:gatekeeper.reject2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.gatekeeper2": {
+            "animation_length": 5.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:gatekeeper.dialogue_type2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a"
+                ],
+                "5.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+                    "/tag @e[type=meraki:billy] remove blocked",
+                    "/tag @e[type=meraki:billy] add can_quest",
+                    "/event entity @e[type=meraki:billy] minecraft:can_do_quest",
+
+                    "/scoreboard players set @e[type=meraki:main] quest_id 20",
+                    "/execute @e[type=meraki:wall_door] ~~~ playsound tile.piston.out @a[r=14] ~~1~ 1.0 0.5",
+                    "/event entity @e[type=meraki:wall_door,r=20] minecraft:door_open",
+                    "/tag @s add quest_complete",
+                    "@s minecraft:remove_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
         "animation.ricky_dialogue_1": {
             "animation_length": 5.1,
             "loop": true,
@@ -12,9 +84,10 @@
                 "5.0": [
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:ricky.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a",
-                    "/event entity @e[type=meraki:receptionist] minecraft:warm_welcome",
+                    "/event entity @e[type=meraki:receptionist] minecraft:can_do_quest",
                     "/scoreboard players set @e[type=meraki:main] quest_id 2",
                     "/execute @a ~~~ playsound random.orb @s ~~~",
+                    "/tag @s add quest_complete",
                     "@s minecraft:remove_quest",
                     "@s minecraft:reset_dialogue"
                 ]
@@ -31,9 +104,10 @@
                 "5.0": [
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:receptionist.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.35",
-                    "/event entity @e[type=meraki:quest_master] minecraft:warm_welcome",
+                    "/event entity @e[type=meraki:quest_master] minecraft:can_do_quest",
                     "/scoreboard players set @e[type=meraki:main] quest_id 3",
                     "/execute @a ~~~ playsound random.orb @s ~~~",
+                    "/tag @s add quest_complete",
                     "@s minecraft:remove_quest",
                     "@s minecraft:reset_dialogue"
                 ]
@@ -63,8 +137,10 @@
                 ],
                 "25.0": [
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:quest_master.dialogue_line4\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
-                    "/event entity @e[type=meraki:archie] minecraft:archery_range1",
+                    "/event entity @e[type=meraki:archie] minecraft:can_do_quest",
+                    "/scoreboard players set @e[type=meraki:main] q1 1",
                     "/scoreboard players set @e[type=meraki:main] quest_id 4",
+                    "/tag @s add quest_complete",
                     "/execute @a ~~~ playsound random.orb @s ~~~",
                     "@s minecraft:remove_quest",
                     "@s minecraft:reset_dialogue"
@@ -76,6 +152,10 @@
             "loop": true,
             "timeline": {
                 "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a"
                 ],
@@ -125,9 +205,11 @@
             "timeline": {
                 "0.0": [
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line7\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
-                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
-                    "/scoreboard players set @e[type=meraki:main] quest_id 9",
-                    "/event entity @e[type=meraki:sarah] minecraft:fisherman1",
+                    "/playsound mob.villager.idle @a",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 0",
+                    "/scoreboard players set @e[type=meraki:main] q2 1",
+                    "/tag @s add quest_complete",
+                    "/function check_quest",
                     "@s minecraft:remove_quest",
                     "@s minecraft:reset_dialogue"
                 ]
@@ -138,6 +220,10 @@
             "loop": true,
             "timeline": {
                 "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
                 ],
@@ -151,6 +237,7 @@
                     "/scoreboard players set @e[type=meraki:main] quest_id 10",
                     "/scoreboard players set @s twig 0",
                     "/scoreboard players set @s rock 0",
+                    "@s can_do_quest",
                     "@s minecraft:need_rock",
                     "@s minecraft:need_twig",
                     "@s minecraft:reset_quest",
@@ -314,7 +401,10 @@
                 "10.0": [
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line12\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
-                    "/scoreboard players set @e[type=meraki:main] quest_id 15",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 0",
+                    "/scoreboard players set @e[type=meraki:main] q3 1",
+                    "/tag @s add quest_complete",
+                    "/function check_quest",
                     "@s minecraft:remove_quest",
                     "@s minecraft:reset_dialogue"
                 ]
@@ -325,6 +415,10 @@
             "loop": true,
             "timeline": {
                 "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:beach_kid.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.5"
                 ],
@@ -369,10 +463,27 @@
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:beach_kid.dialogue_line4\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.5",
                     "/scoreboard players set @e[type=meraki:main] quest_id 0",
+                    "/scoreboard players set @e[type=meraki:main] q4 1",
+                    "/tag @s add quest_complete",
+                    "/function check_quest",
                     "/scoreboard players reset @s seashells",
-                    "/give @p meraki:basement_key",
+                    "/give @p meraki:mystic_key",
                     "@s minecraft:remove_quest",
                     "@s remove_need_seashells",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.billy_dialogue_1": {
+            "animation_length": 2.6,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:billy.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.75"
+                ],
+                "2.5": [
+                    "/dialogue open @e[type=meraki:dialogue_display,tag=billy] @p basement_spook",
                     "@s minecraft:reset_dialogue"
                 ]
             }
@@ -384,6 +495,263 @@
                 "0.0": [
                     "/title @p actionbar §cIt looks like you're not ready for this quest yet.",
                     "/playsound mob.villager.no @p",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.daniella_dialogue_1": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:daniella.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.5"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:daniella.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/tag @p add dolphin_escort",
+                    "/summon meraki:dolphin 2317 62 -171",
+                    "/summon meraki:dolphin_cp 2327 62 -113",
+                    "/execute @p ~~~ tp ~~~ facing @e[type=meraki:dolphin]",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.5",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 23",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.barman_dialogue_1": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.7"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.7",
+                    "/ride @r[type=meraki:tall_wooden_bar_stool,x=2145,y=86,z=-86,r=15,c=4] summon_rider meraki:customer",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 25",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.beach_boy_dialogue_1": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:beach_boy.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:beach_boy.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+
+                    "/summon meraki:jetski1 2063 62 -96",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 30",
+                    "/tag @e[x=2063,y=62,z=-96,type=meraki:jetski1,r=5] add jetski_tutorial",
+                    "/event entity @e[x=2063,y=62,z=-96,type=meraki:jetski1,r=5] minecraft:has_fuel",
+                    "/scoreboard players set @e[x=2063,y=62,z=-96,type=meraki:jetski1,r=5] fuel 20",
+
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.sam_dialogue_1": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sam.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sam.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
+
+                    "/event entity @e[family=surfboard_decoration] minecraft:can_take",
+                    "/tag @e[family=surfboard_decoration] add ring_surfing",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 27",
+
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.barman_2_dialogue_1": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line4\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.7",
+
+                    "/scoreboard players set @e[type=meraki:main] quest_id 32",
+                    "@s minecraft:need_coral",
+                    "@s minecraft:can_do_quest",
+
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.barman_2_dialogue_2": {
+            "animation_length": 5.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "@s minecraft:remove_quest",
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line5\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.7"
+                ],
+                "2.5": [
+                    "/give @p meraki:gold_coin 25"
+                ],
+                "5.0": [
+                    "/scoreboard players set @e[type=meraki:main] quest_id 0",
+                    "/scoreboard players set @e[type=meraki:main] q11 1",
+                    "/function check_quest",
+                    "/execute @e[type=meraki:barman_2] ~~~ particle custom:teleport ~~~",
+                    "/execute @e[type=meraki:barman_2] ~~~ playsound mob.shulker.teleport @a[r=14] ~~~ 1.0 1.0",
+                    "@s minecraft:despawn",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.patricia_dialogue_1": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:patricia.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.5"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:patricia.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.5",
+                    "/execute @p ~~~ function check_id",
+
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.final_herman_dialogue_1": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_herman.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5"
+                ],
+                "10.0": [
+                    "/scoreboard players set @e[type=meraki:main] quest_id 37",
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_herman.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5",
+                    "/event entity @e[type=meraki:patricia] minecraft:can_do_quest",
+                    "/tag @e[type=meraki:patricia] add final_quest",
+
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.final_patricia_dialogue_1": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players set @e[type=meraki:main] quest_id 38",
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_patricia.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5",
+                    "/event entity @e[type=meraki:sarah] minecraft:can_do_quest",
+                    "/tag @e[type=meraki:sarah] add final_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.final_sarah_dialogue_1": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players set @e[type=meraki:main] quest_id 39",
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_sarah.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5",
+                    "/event entity @e[type=meraki:barman] minecraft:can_do_quest",
+                    "/tag @e[type=meraki:barman] add final_quest",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.final_barman_dialogue_1": {
+            "animation_length": 0.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players set @e[type=meraki:main] quest_id 40",
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_barman.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5",
+                    "/event entity @e[type=meraki:herman] minecraft:can_do_quest",
+                    "/tag @e[type=meraki:herman] add final_quest",
+                    "/give @p meraki:helicopter_key",
+                    "@s minecraft:reset_dialogue"
+                ]
+            }
+        },
+        "animation.final_herman_dialogue_2": {
+            "animation_length": 10.1,
+            "loop": true,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players set @e[type=meraki:main] quest_id 41",
+                    "/tag @s remove final_quest_2",
+                    "/event entity @e[family=npc] minecraft:remove_quest",
+                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                    "/tag @e[family=another_quest] add blocked",
+
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_herman.dialogue_line3\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5"
+                ],
+                "10.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_herman.dialogue_line4\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5",
+
                     "@s minecraft:reset_dialogue"
                 ]
             }

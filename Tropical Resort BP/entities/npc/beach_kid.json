@@ -77,8 +77,8 @@
                 "value": 1.0
             },
             "minecraft:physics": {
-                "has_gravity": false,
-                "has_collision": false
+                "has_gravity": true,
+                "has_collision": true
             },
             "minecraft:pushable": {
                 "is_pushable": false,
@@ -172,8 +172,14 @@
             }
         },
         "events": {
+            "minecraft:entity_spawned": {
+                "add": { "component_groups": ["minecraft:quest_id1"] }
+            },
             "minecraft:shell_hunter": {
-                "add": { "component_groups": ["minecraft:quest", "minecraft:quest_id1"] }
+                "add": { "component_groups": ["minecraft:quest_id1"] }
+            },
+            "minecraft:can_do_quest": {
+                "add": { "component_groups": ["minecraft:quest"] }
             },
             "minecraft:remove_quest": {
                 "remove": { "component_groups": ["minecraft:quest"] }

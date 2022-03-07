@@ -1,0 +1,19 @@
+{
+    "format_version": "1.16.100",
+    "sound_definitions": {
+        "door.large": {
+            "category": "player",
+            "sounds": [{
+                "name": "sounds/door/large_sliding_door",
+                "volume": 1
+            }]
+        },
+        "door.small": {
+            "category": "player",
+            "sounds": [{
+                "name": "sounds/door/small_sliding_door",
+                "volume": 1
+            }]
+        }
+    }
+}

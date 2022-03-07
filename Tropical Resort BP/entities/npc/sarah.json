@@ -17,10 +17,12 @@
                     { "red_fish": "query.skin_id == 7" },
                     { "yellow_fish": "query.skin_id == 8" },
                     { "green_fish": "query.skin_id == 9" },
-                    { "reject": "query.skin_id == 10" }
+                    { "reject": "query.skin_id == 10" },
+                    { "dialogue_final": "query.skin_id == 100" }
                 ]
             },
             "animations": {
+                "dialogue_final": "animation.final_sarah_dialogue_1",
                 "dialogue_1": "animation.sarah_dialogue_1",
                 "dialogue_2": "animation.sarah_dialogue_2",
                 "dialogue_3": "animation.sarah_dialogue_3",
@@ -67,6 +69,11 @@
             "minecraft:dialogue4": {
                 "minecraft:skin_id": {
                     "value": 4
+                }
+            },
+            "minecraft:dialogue_final": {
+                "minecraft:skin_id": {
+                    "value": 100
                 }
             },
             "minecraft:count_rock": {
@@ -139,8 +146,8 @@
                 "value": 1.0
             },
             "minecraft:physics": {
-                "has_gravity": false,
-                "has_collision": false
+                "has_gravity": true,
+                "has_collision": true
             },
             "minecraft:pushable": {
                 "is_pushable": false,
@@ -193,6 +200,12 @@
                                         "subject": "self",
                                         "value": "minecraft:is_saddled",
                                         "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "final_quest",
+                                        "operator": "not"
                                     }
                                 ]
                             },
@@ -227,6 +240,12 @@
                                         "subject": "self",
                                         "value": "minecraft:is_chested",
                                         "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "final_quest",
+                                        "operator": "not"
                                     }
                                 ]
                             },
@@ -261,6 +280,12 @@
                                         "subject": "self",
                                         "value": "minecraft:is_charged",
                                         "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "final_quest",
+                                        "operator": "not"
                                     }
                                 ]
                             },
@@ -295,6 +320,12 @@
                                         "subject": "self",
                                         "value": "minecraft:is_ignited",
                                         "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "final_quest",
+                                        "operator": "not"
                                     }
                                 ]
                             },
@@ -329,6 +360,12 @@
                                         "subject": "self",
                                         "value": "minecraft:is_sheared",
                                         "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "final_quest",
+                                        "operator": "not"
                                     }
                                 ]
                             },
@@ -357,10 +394,44 @@
                                         "test": "is_variant",
                                         "subject": "self",
                                         "value": 1
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "final_quest",
+                                        "operator": "not"
                                     }
                                 ]
                             },
                             "event": "minecraft:dialogue1",
+                            "target": "self"
+                        },
+                        "cooldown": 0.5,
+                        "interact_text": "Click to Talk"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [{
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_baby",
+                                        "operator": "equals"
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "self",
+                                        "value": "final_quest",
+                                        "operator": "equals"
+                                    }
+                                ]
+                            },
+                            "event": "minecraft:dialogue_final",
                             "target": "self"
                         },
                         "cooldown": 0.5,
@@ -370,8 +441,14 @@
             }
         },
         "events": {
+            "minecraft:entity_spawned": {
+                "add": { "component_groups": ["minecraft:quest_id1"] }
+            },
             "minecraft:fisherman1": {
-                "add": { "component_groups": ["minecraft:quest", "minecraft:quest_id1"] }
+                "add": { "component_groups": ["minecraft:quest_id1"] }
+            },
+            "minecraft:can_do_quest": {
+                "add": { "component_groups": ["minecraft:quest"] }
             },
             "minecraft:remove_quest": {
                 "remove": { "component_groups": ["minecraft:quest"] }
@@ -379,6 +456,13 @@
 
             "minecraft:despawn": {
                 "add": { "component_groups": ["minecraft:despawn"] }
+            },
+            "minecraft:dialogue_final": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:dialogue_final"
+                    ]
+                }
             },
             "minecraft:dialogue1": {
                 "add": {

@@ -15,7 +15,8 @@
                 "bob": "animation.humanoid.bob",
                 "look_at_target_default": "animation.humanoid.look_at_target.default",
                 "move_con": "controller.animation.humanoid.move",
-                "name": "animation.display.npc"
+                "name": "animation.display.npc",
+                "talk": "animation.npc.talk"
             },
             "scripts": {
                 "pre_animation": [
@@ -28,6 +29,7 @@
                     "bob",
                     "move_con",
                     "look_at_target_default",
+                    { "talk": "query.skin_id != 0" },
                     { "bubble": "query.is_baby" }
                 ]
             },

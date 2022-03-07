@@ -3,12 +3,23 @@
     "minecraft:entity": {
         "description": {
             "identifier": "meraki:dolphin_cp",
-            "is_spawnable": true,
-            "is_summonable": true
+            "is_spawnable": false,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    { "anim": "query.is_baby" }
+                ]
+            },
+            "animations": {
+                "anim": "animation.dolphin_cp_complete"
+            }
         },
         "component_groups": {
             "minecraft:despawn": {
                 "minecraft:instant_despawn": {}
+            },
+            "minecraft:dolphin_complete": {
+                "minecraft:is_baby": {}
             }
         },
         "components": {
@@ -23,7 +34,7 @@
                         "value": "dolphin_escort"
                     }]
                 },
-                "event": "minecraft:despawn"
+                "event": "minecraft:dolphin_complete"
             },
             "minecraft:type_family": {
                 "family": [
@@ -63,6 +74,20 @@
                 "add": {
                     "component_groups": [
                         "minecraft:despawn"
+                    ]
+                }
+            },
+            "minecraft:dolphin_complete": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:dolphin_complete"
+                    ]
+                }
+            },
+            "minecraft:remove_dolphin_complete": {
+                "remove": {
+                    "component_groups": [
+                        "minecraft:dolphin_complete"
                     ]
                 }
             }

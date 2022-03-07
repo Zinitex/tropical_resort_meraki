@@ -6,8 +6,17 @@
             "animation_length": 5,
             "timeline": {
                 "0": [
-                    "/scoreboard players remove @s fuel 1",
-                    "/execute @s[scores={fuel=0}] ~ ~ ~ title @p actionbar §c§lOut of fuel"
+                    "/scoreboard players remove @s fuel 1"
+                ]
+            }
+        },
+        "animation.daily": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0": [
+                    "/tag @s remove reward",
+                    "@s minecraft:remove_daily"
                 ]
             }
         },
@@ -27,8 +36,15 @@
                     "/execute @s[scores={fuel=10..19}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§8\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
                     "/execute @s[scores={fuel=1..9}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B§8\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
                     "/execute @s[scores={fuel=0}] ~ ~ ~ title @p actionbar §c§lOut of fuel",
+                    "/execute @e[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ title @p actionbar You have successfully completed the jetski test",
+                    "/execute @e[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ playsound random.levelup @p",
+                    "/execute @s[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ event entity @s minecraft:drop_normal",
+                    "/execute @s[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ scoreboard players set @e[type=meraki:main] quest_id 0",
+                    "/execute @s[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ scoreboard players set @e[type=meraki:main] q10 1",
+                    "/execute @s[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ tag @e[type=meraki:beach_boy] add quest_complete",
+                    "/execute @s[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ function check_quest",
                     "/execute @s[scores={fuel=0}] ~ ~ ~ event entity @s minecraft:ran_out_fuel",
-                    "/execute @s[scores={fuel=..80},tag=fuel] ~ ~ ~ tag @s remove fuel"
+                    "/execute @s[scores={fuel=..90},tag=fuel] ~ ~ ~ tag @s remove fuel"
                 ]
             }
         },
@@ -37,6 +53,7 @@
             "animation_length": 0.1,
             "timeline": {
                 "0.0": [
+                    "/summon meraki:gold_ring 2042 63 -4 cp3",
                     "/tag @a[r=3,tag=ring_surfing,tag=!checkpoint1] add checkpoint1",
                     "/stopsound @a[r=10] note.pling",
                     "/playsound note.pling @a[r=10] ~~~ 10 1.0",
@@ -50,6 +67,7 @@
             "animation_length": 0.1,
             "timeline": {
                 "0.0": [
+                    "/summon meraki:gold_ring 2098 63 -3 cp4",
                     "/tag @a[r=3,tag=ring_surfing,tag=checkpoint1] add checkpoint2",
                     "/tag @a[r=3] remove checkpoint1",
                     "/stopsound @a[r=10] note.pling",
@@ -64,6 +82,7 @@
             "animation_length": 0.1,
             "timeline": {
                 "0.0": [
+                    "/summon meraki:gold_ring 2158 63 -3 cp5",
                     "/tag @a[r=3,tag=ring_surfing,tag=checkpoint2] add checkpoint3",
                     "/tag @a[r=3] remove checkpoint2",
                     "/stopsound @a[r=10] note.pling",
@@ -79,6 +98,7 @@
             "animation_length": 0.1,
             "timeline": {
                 "0.0": [
+                    "/summon meraki:gold_ring 2207 63 -2 cp6",
                     "/tag @a[r=3,tag=ring_surfing,tag=checkpoint3] add checkpoint4",
                     "/tag @a[r=3] remove checkpoint3",
                     "/stopsound @a[r=10] note.pling",
@@ -94,6 +114,8 @@
             "animation_length": 0.1,
             "timeline": {
                 "0.0": [
+                    "/tp @e[type=meraki:sam] 2244 63 -109",
+                    "/summon meraki:gold_ring 2251 63 -39 cp7",
                     "/tag @a[r=3,tag=ring_surfing,tag=checkpoint4] add checkpoint5",
                     "/tag @a[r=3] remove checkpoint4",
                     "/stopsound @a[r=10] note.pling",
@@ -109,6 +131,7 @@
             "animation_length": 0.1,
             "timeline": {
                 "0.0": [
+                    "/summon meraki:gold_ring 2251 63 -101 cp8",
                     "/tag @a[r=3,tag=ring_surfing,tag=checkpoint5] add checkpoint6",
                     "/tag @a[r=3] remove checkpoint5",
                     "/stopsound @a[r=10] note.pling",
@@ -136,18 +159,29 @@
         },
         "animation.checkpoint8": {
             "loop": true,
-            "animation_length": 5.1,
+            "animation_length": 10.1,
             "timeline": {
                 "0.0": [
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sam.dialogue_line3\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
                     "/tag @a[r=3] remove checkpoint7",
                     "/stopsound @a[r=10] note.pling",
                     "/playsound random.levelup @a[r=10] ~~~ 10 0.5",
                     "/event entity @e[type=meraki:gold_ring,tag=checkpoint6] minecraft:despawn"
                 ],
                 "2.5": [
-                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint7] minecraft:despawn"
+                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint7] minecraft:despawn",
+                    "/event entity @e[family=surfboard_decoration,tag=ring_sufing] minecraft:despawn"
                 ],
-                "5.0": [
+                "10.0": [
+                    "/scoreboard players set @e[type=meraki:main] quest_id 0",
+                    "/scoreboard players set @e[type=meraki:main] q9 1",
+                    "/tag @e[type=meraki:sam] add quest_complete",
+                    "/tag @a remove ring_surfing",
+                    "/function check_quest",
+                    "/execute @e[type=meraki:sam] ~~~ particle custom:teleport ~~~",
+                    "/execute @e[type=meraki:sam] ~~~ playsound mob.shulker.teleport @a[r=14] ~~~ 1.0 1.0",
+                    "/tp @e[type=meraki:sam] 2033 63 -94",
                     "@s minecraft:despawn",
                     "@s check_remove"
                 ]

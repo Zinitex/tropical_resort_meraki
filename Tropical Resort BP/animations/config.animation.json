@@ -1,0 +1,62 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.title_sidebar.config": {
+            "loop": true,
+            "animation_length": 1.0,
+            "timeline": {
+                "0.0": [
+                    "/function title_sidebar"
+                ]
+            }
+        },
+        "animation.dolphin.detect": {
+            "loop": true,
+            "animation_length": 1.0,
+            "timeline": {
+                "0.0": [
+                    "/execute @s ~~~ execute @p[r=10,tag=dolphin_escort,tag=is_surfing] ~~~ event entity @e[type=meraki:dolphin] minecraft:to_move",
+                    "/execute @s ~~~ execute @p[r=15,rm=10,tag=dolphin_escort,tag=is_surfing] ~~~ function dolphin_run"
+                ]
+            }
+        },
+        "animation.dolphin_complete": {
+            "loop": true,
+            "animation_length": 3.1,
+            "timeline": {
+                "0.0": [
+                    "/playsound mob.dolphin.jump @a[r=7]",
+                    "/playsound mob.dolphin.play @a[r=7]"
+                ],
+                "1.40": [
+                    "@s drop",
+                    "/playsound mob.dolphin.splash @a[r=7]"
+                ],
+                "3.0": [
+                    "/tag @a[tag=dolphin_escort] remove dolphin_escort",
+                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:daniella.dialogue_line3\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/scoreboard players set @e[type=meraki:main] quest_id 0",
+                    "/scoreboard players set @e[type=meraki:main] q7 1",
+                    "/tag @e[type=meraki:daniella] add quest_complete",
+                    "/function check_quest",
+                    "@s minecraft:despawn"
+                ]
+            }
+        },
+        "animation.dolphin_cp_complete": {
+            "loop": true,
+            "animation_length": 0.1,
+            "timeline": {
+                "0.0": [
+                    "/scoreboard players add @s random 1",
+                    "/execute @s[scores={random=1}] ~~~ tp @s 2350 63 -54",
+                    "/execute @s[scores={random=2}] ~~~ tp @s 2272 63 -72",
+                    "/execute @s[scores={random=3}] ~~~ tp @s 2252 63 -105",
+                    "/execute @s[scores={random=4}] ~~~ event entity @e[type=meraki:dolphin] minecraft:dolphin_complete",
+                    "/execute @s[scores={random=4}] ~~~ event entity @s minecraft:despawn",
+                    "@s minecraft:remove_dolphin_complete"
+                ]
+            }
+        }
+    }
+}

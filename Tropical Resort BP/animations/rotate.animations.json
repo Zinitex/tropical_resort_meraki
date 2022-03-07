@@ -35,6 +35,26 @@
                 "0.2": "/tp ~ ~+0.01~"
             },
             "animation_length": 0.4
+        },
+        "animation.entity.face_1": {
+            "timeline": {
+                "0.0": [
+                    "/tp ~ ~+0.01 ~ 0 ~"
+                ],
+                "0.2": "/tp ~ ~-0.01~",
+                "0.3": "@s minecraft:facingfixed"
+            },
+            "animation_length": 0.4
+        },
+        "animation.entity.face_2": {
+            "timeline": {
+                "0.0": [
+                    "/tp ~ ~+0.01 ~ -90 ~"
+                ],
+                "0.2": "/tp ~ ~-0.01~",
+                "0.3": "@s minecraft:facingfixed"
+            },
+            "animation_length": 0.4
         }
     }
 }

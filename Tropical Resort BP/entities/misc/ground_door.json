@@ -1,0 +1,89 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:ground_door",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    { "fixfacing": "q.is_sheared" },
+                    "config"
+                ]
+            },
+            "animations": {
+                "fixfacing": "animation.basement_door.fix",
+                "door_open": "animation.basement_door.open",
+                "config": "controller.animation.basement_door"
+            }
+        },
+        "component_groups": {
+            "facingnotfixed": {
+                "minecraft:is_sheared": {}
+            },
+            "minecraft:door_open": {
+                "minecraft:is_baby": {}
+            },
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1,
+                "min": 1
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:damage_sensor": {
+                "triggers": [{
+                    "cause": "all",
+                    "deals_damage": false
+                }]
+            },
+            "minecraft:movement": {
+                "value": 0.0,
+                "max": 0.0
+            },
+            "minecraft:navigation.generic": {}
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:facingfixed": {
+                "remove": {
+                    "component_groups": ["facingnotfixed"]
+                }
+            },
+            "minecraft:door_open": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:door_open"
+                    ]
+                }
+            },
+            "minecraft:despawn": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

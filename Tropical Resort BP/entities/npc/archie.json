@@ -66,7 +66,7 @@
         "components": {
             "minecraft:type_family": {
                 "family": [
-                    "npc"
+                    "npc", "another_quest"
                 ]
             },
             "minecraft:collision_box": {
@@ -77,8 +77,8 @@
                 "value": 1.0
             },
             "minecraft:physics": {
-                "has_gravity": false,
-                "has_collision": false
+                "has_gravity": true,
+                "has_collision": true
             },
             "minecraft:pushable": {
                 "is_pushable": false,
@@ -192,19 +192,24 @@
             }
         },
         "events": {
+            "minecraft:entity_spawned": {
+                "add": { "component_groups": ["minecraft:quest_id1"] }
+            },
             "minecraft:archery_range1": {
-                "add": { "component_groups": ["minecraft:quest", "minecraft:quest_id1"] }
+                "add": { "component_groups": ["minecraft:quest_id1"] }
             },
             "minecraft:archery_range2": {
-                "add": { "component_groups": ["minecraft:quest", "minecraft:quest_id2"] }
+                "add": { "component_groups": ["minecraft:quest_id2"] }
             },
             "minecraft:archery_range3": {
-                "add": { "component_groups": ["minecraft:quest", "minecraft:quest_id3"] }
+                "add": { "component_groups": ["minecraft:quest_id3"] }
+            },
+            "minecraft:can_do_quest": {
+                "add": { "component_groups": ["minecraft:quest"] }
             },
             "minecraft:remove_quest": {
                 "remove": { "component_groups": ["minecraft:quest"] }
             },
-
             "minecraft:despawn": {
                 "add": { "component_groups": ["minecraft:despawn"] }
             },

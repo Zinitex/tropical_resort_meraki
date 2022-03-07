@@ -1,127 +1,105 @@
 {
-	"format_version": "1.8.0",
-	"animations": {
-		"animation.display.npc": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0": {
-					"effect": "name",
-					"locator": "name"
-				}
-			}
-		},
-		"animation.display.bubble": {
-			"loop": true,
-			"animation_length": 2,
-			"particle_effects": {
-				"0.0": {
-					"effect": "bubble",
-					"locator": "bubble"
-				}
-			}
-		},
-		"animation.npc.kid": {
-			"loop": true,
-			"bones": {
-				"bone": {
-					"scale": 0.75
-				}
-			}
-		},
-		"animation.bubble.apple_juice": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0": {
-					"effect": "apple_juice",
-					"locator": "bar"
-				}
-			}
-		},
-		"animation.bubble.coconut_juice": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0": {
-					"effect": "coconut_juice",
-					"locator": "bar"
-				}
-			}
-		},
-		"animation.bubble.coconut_water": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0": {
-					"effect": "coconut_water",
-					"locator": "bar"
-				}
-			}
-		},
-		"animation.bubble.lemonade": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0": {
-					"effect": "lemonade",
-					"locator": "bar"
-				}
-			}
-		},
-		"animation.bubble.mango_juice": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0": {
-					"effect": "mango_juice",
-					"locator": "bar"
-				}
-			}
-		},
-		"animation.bubble.mixed_lemonade": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0": {
-					"effect": "mixed_lemonade",
-					"locator": "bar"
-				}
-			}
-		},
-		"animation.bubble.orange_juice": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0": {
-					"effect": "orange_juice",
-					"locator": "bar"
-				}
-			}
-		},
-		"animation.bubble.peach_juice": {
-			"loop": true,
-			"animation_length": 1,
-			"particle_effects": {
-				"0.0": {
-					"effect": "peach_juice",
-					"locator": "bar"
-				}
-			}
-		},
-		"animation.customer.sit": {
-			"loop": true,
-			"bones": {
-				"body": {
-					"position": [0, -8, 0]
-				},
-				"leg0": {
-					"rotation": [-65, 0, 0]
-				},
-				"leg1": {
-					"rotation": [-65, 0, 0]
-				}
-			}
-		}
-	}
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.display.npc": {
+            "loop": true,
+            "animation_length": 1,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "name",
+                    "locator": "name"
+                }
+            }
+        },
+        "animation.display.bubble": {
+            "loop": true,
+            "animation_length": 2,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "bubble",
+                    "locator": "bubble"
+                }
+            }
+        },
+        "animation.bubble.apple_juice": {
+            "loop": true,
+            "animation_length": 1,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "apple_juice",
+                    "locator": "bar"
+                }
+            }
+        },
+        "animation.bubble.coconut_juice": {
+            "loop": true,
+            "animation_length": 1,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "coconut_juice",
+                    "locator": "bar"
+                }
+            }
+        },
+        "animation.bubble.coconut_water": {
+            "loop": true,
+            "animation_length": 1,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "coconut_water",
+                    "locator": "bar"
+                }
+            }
+        },
+        "animation.bubble.lemonade": {
+            "loop": true,
+            "animation_length": 1,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "lemonade",
+                    "locator": "bar"
+                }
+            }
+        },
+        "animation.bubble.mango_juice": {
+            "loop": true,
+            "animation_length": 1,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "mango_juice",
+                    "locator": "bar"
+                }
+            }
+        },
+        "animation.bubble.mixed_lemonade": {
+            "loop": true,
+            "animation_length": 1,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "mixed_lemonade",
+                    "locator": "bar"
+                }
+            }
+        },
+        "animation.bubble.orange_juice": {
+            "loop": true,
+            "animation_length": 1,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "orange_juice",
+                    "locator": "bar"
+                }
+            }
+        },
+        "animation.bubble.peach_juice": {
+            "loop": true,
+            "animation_length": 1,
+            "particle_effects": {
+                "0.0": {
+                    "effect": "peach_juice",
+                    "locator": "bar"
+                }
+            }
+        }
+    }
 }

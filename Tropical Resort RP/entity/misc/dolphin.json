@@ -1,0 +1,32 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:dolphin",
+            "materials": { "default": "dolphin" },
+            "textures": {
+                "default": "textures/entity/dolphin"
+            },
+            "geometry": {
+                "default": "geometry.dolphin"
+            },
+            "animations": {
+                "move": "animation.dolphin.move",
+                "general": "controller.animation.dolphin.general",
+                "con": "controller.animation.two_states",
+                "on": "animation.dolphin.complete"
+            },
+            "scripts": {
+                "animate": [
+                    "general",
+                    "con"
+                ]
+            },
+            "render_controllers": ["controller.render.dolphin"],
+            "spawn_egg": {
+                "texture": "spawn_egg",
+                "texture_index": 49
+            }
+        }
+    }
+}

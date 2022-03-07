@@ -9,16 +9,23 @@
             "scripts": {
                 "animate": [
                     "consumable",
+                    "con",
+                    { "daily": "query.is_sheared" },
                     { "basement_spook_respawn": "query.variant == 1" }
                 ]
             },
             "animations": {
+                "daily": "animation.daily",
+
+                "con": "controller.animation.riding",
                 "consumable": "controller.animation.consumable",
                 "basement_spook_respawn": "animation.basement_spook_respawn"
             }
         },
-
         "component_groups": {
+            "minecraft:daily": {
+                "minecraft:is_sheared": {}
+            },
             "minecraft:add_bad_omen": {
                 "minecraft:spell_effects": {
                     "add_effects": [{
@@ -84,10 +91,16 @@
                         "event": "minecraft:basement_spook_respawn",
                         "filters": {
                             "all_of": [{
-                                "test": "is_family",
-                                "subject": "other",
-                                "value": "ghost"
-                            }]
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "ghost"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "subject": "self",
+                                    "value": "basement_spook"
+                                }
+                            ]
                         }
                     },
                     "deals_damage": true
@@ -106,6 +119,17 @@
             },
             "minecraft:environment_sensor": {
                 "triggers": [{
+                        "filters": {
+                            "all_of": [{
+                                "any_of": [{
+                                    "test": "hourly_clock_time",
+                                    "value": 12500
+                                }]
+                            }]
+                        },
+                        "event": "minecraft:add_daily"
+                    },
+                    {
                         "filters": {
                             "test": "is_riding",
                             "subject": "self",
@@ -217,6 +241,20 @@
         },
 
         "events": {
+            "minecraft:add_daily": {
+                "add": {
+                    "component_groups": [
+                        "minecraft:daily"
+                    ]
+                }
+            },
+            "minecraft:remove_daily": {
+                "remove": {
+                    "component_groups": [
+                        "minecraft:daily"
+                    ]
+                }
+            },
             "minecraft:gain_bad_omen": {
                 "add": {
                     "component_groups": [
