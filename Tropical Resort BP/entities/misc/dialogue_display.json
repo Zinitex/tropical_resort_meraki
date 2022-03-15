@@ -41,11 +41,6 @@
                     ]
                 }
             },
-            "minecraft:type_family": {
-                "family": [
-                    "npc"
-                ]
-            },
             "minecraft:collision_box": {
                 "width": 0.8,
                 "height": 1.8

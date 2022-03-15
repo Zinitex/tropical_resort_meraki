@@ -10,6 +10,8 @@ scoreboard objectives add seashells dummy
 scoreboard objectives add random dummy
 scoreboard objectives add bar_quest dummy
 scoreboard objectives add bar_customer dummy
+scoreboard objectives add coins dummy
+scoreboard objectives add reset dummy
 scoreboard objectives add fuel dummy
 scoreboard objectives add q1 dummy
 scoreboard objectives add q2 dummy

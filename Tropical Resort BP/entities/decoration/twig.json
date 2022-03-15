@@ -48,6 +48,11 @@
             "minecraft:pushable": {
                 "is_pushable": false
             },
+            "minecraft:type_family": {
+                "family": [
+                    "collectable"
+                ]
+            },
             "minecraft:physics": {},
             "minecraft:damage_sensor": {
                 "triggers": [{

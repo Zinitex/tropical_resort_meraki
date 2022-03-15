@@ -1,0 +1,72 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:cavern_guard",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:npc": {
+                "npc_data": {
+                    "portrait_offsets": {
+                        "translate": [-7, 50, 0],
+                        "scale": [1.75, 1.75, 1.75]
+                    },
+                    "picker_offsets": {
+                        "translate": [0, 20, 0],
+                        "scale": [1.7, 1.7, 1.7]
+                    }
+                }
+            },
+            "minecraft:collision_box": {
+                "width": 0.5,
+                "height": 1.8
+            },
+            "minecraft:scale": {
+                "value": 1.0
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1,
+                "min": 1
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 7,
+                "look_distance": 6.0,
+                "probability": 100.0
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:navigation.generic": {},
+            "minecraft:nameable": {
+                "allow_name_tag_renaming": true,
+                "always_show": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            }
+        },
+        "events": {
+            "minecraft:despawn": {
+                "add": { "component_groups": ["minecraft:despawn"] }
+            }
+        }
+    }
+}

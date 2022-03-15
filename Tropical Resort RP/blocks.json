@@ -136,9 +136,5 @@
     "crimson_button": {
         "textures": "gold_block",
         "sound": "glass"
-    },
-    "stone_button": {
-        "textures": "gold_block",
-        "sound": "glass"
     }
 }

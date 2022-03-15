@@ -1,4 +1,4 @@
-execute @e[type=meraki:main,scores={quest_id=0}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §8None\n\n §fObjectives\n §8None \n\n"}]}
+execute @e[type=meraki:main,scores={quest_id=0}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §8None\n\n §fObjectives\n §8None \n\n §fTips\n §7Check a quest in the\n Quest Book and find\n npc with exclamation\n mark above their head \n\n"}]}
 execute @e[type=meraki:main,scores={quest_id=1}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §6A Warm Welcome\n\n §fObjectives\n§6 Talk to Ricky! \n\n"}]}
 execute @e[type=meraki:main,scores={quest_id=2}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §6A Warm Welcome§f\n\n Objectives\n§6 Talk to the receptionist\n in the reception area. \n\n"}]}
 execute @e[type=meraki:main,scores={quest_id=3}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §6A Warm Welcome§f\n\n Objectives\n§6 Talk to questmaster\n in the lobby \n\n"}]}
@@ -41,12 +41,12 @@ execute @e[type=meraki:main,scores={quest_id=25}] ~~~ execute @a ~~~ /titleraw @
 
 
 execute @e[type=meraki:main,scores={quest_id=26}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §6Ring Surfing§f\n\n Objectives\n§6 Talk to Surfer Sam, who\n is standing near the\n ocean.\n\n"}]}
-execute @e[type=meraki:main,scores={quest_id=27}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §6Ring Surfing§f\n\n Objectives\n§6 Pick a board.\n\n"}]}
-execute @e[type=meraki:main,scores={quest_id=28}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §6Ring Surfing§f\n\n Objectives\n§6 Pass through each of\n these 8 rings\n\n"}]}
+execute @e[type=meraki:main,scores={quest_id=27}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §6Ring Surfing§f\n\n Objectives\n§6 Pick a surfboard near\n Sarah\n\n"}]}
+execute @e[type=meraki:main,scores={quest_id=28}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §6Ring Surfing§f\n\n Objectives\n§6 Ride the surfboard near\n Sam and Pass through\n each of these 8 rings\n\n"}]}
 
 
 execute @e[type=meraki:main,scores={quest_id=29}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §eJetski Tutorial§f\n\n Objectives\n§e Talk to the Beach Boy.\n\n"}]}
-execute @e[type=meraki:main,scores={quest_id=30}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §eJetski Tutorial§f\n\n Objectives\n§e Ride the jetski to start\n driving it around the ocean\n for 2 Minutes.\n\n"}]}
+execute @e[type=meraki:main,scores={quest_id=30}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §eJetski Tutorial§f\n\n Objectives\n§e Ride the jetski to start\n driving it around the ocean\n until the fuel runs out.\n\n"}]}
 
 
 execute @e[type=meraki:main,scores={quest_id=31}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §bDeep Dive§f\n\n Objectives\n§b Talk to Barman at\n the bottom of the ocean.\n\n"}]}
@@ -64,3 +64,5 @@ execute @e[type=meraki:main,scores={quest_id=39}] ~~~ execute @a ~~~ /titleraw @
 execute @e[type=meraki:main,scores={quest_id=40}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Go back to Herman at\n the helipad and give \n the Helicopter Key.\n\n"}]}
 execute @e[type=meraki:main,scores={quest_id=41}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Fill the Helicopter with\n fuel or Get a fuel\n from basement.\n\n"}]}
 execute @e[type=meraki:main,scores={quest_id=42}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §cHow to Fly A Helicopter§f\n\n Objectives\n§c Fly the Helicopter and\n get out from the resort\n\n"}]}
+
+execute @e[type=meraki:main,scores={quest_id=43}] ~~~ execute @a ~~~ /titleraw @s title {"rawtext":[{"text":"§l§e    Tropical Resort    §r§f\n\n Player:§e "},{"selector":"@s"},{"text":" §f\n\n Quest\n §8You have completed all\n quests§f\n\n §fObjectives\n §8None \n\n"}]}

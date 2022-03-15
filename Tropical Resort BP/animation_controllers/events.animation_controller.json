@@ -15,6 +15,7 @@
                 },
                 "light_off": {
                     "on_entry": [
+                        "/scoreboard players remove @e[type=meraki:main] geogebra 1",
                         "/fill ~1~2~1~-1~3~-1 air",
                         "/setblock ~~3~ concrete 8",
                         "/setblock ~-1~3~ meraki:silver_1",
@@ -32,6 +33,7 @@
                 },
                 "light_on": {
                     "on_entry": [
+                        "/scoreboard players add @e[type=meraki:main] geogebra 1",
                         "/fill ~1~2~1~-1~3~-1 stone",
                         "/setblock ~~3~ concrete 7",
                         "/setblock ~-1~3~ meraki:black_1",
@@ -69,7 +71,7 @@
                         "/event entity @e[type=meraki:lamp] switch_off",
                         "/event entity @e[type=meraki:ghost] minecraft:to_attack",
                         "/playsound random.click @a ~~~ 1.0 0.5",
-                        "/title @a actionbar §l§cLights Off §r§f- All ghosts will attack the player"
+                        "/execute @a[x=2145,y=71,z=-105,dx=34,dy=10,dz=-35] ~~~ title @s actionbar §l§cLights Off §r§f- All ghosts will attack the player"
                     ],
                     "transitions": [
                         { "default": "query.is_powered" }
@@ -82,7 +84,7 @@
                         "/event entity @e[type=meraki:lamp] switch_on",
                         "/event entity @e[type=meraki:ghost] minecraft:to_scared",
                         "/playsound random.click @a ~~~ 1.0 0.6",
-                        "/title @a actionbar §l§aLights On §r§f- All ghosts will be frozen for 10 seconds"
+                        "/execute @a[x=2145,y=71,z=-105,dx=34,dy=10,dz=-35] ~~~ title @s actionbar §l§aLights On §r§f- All ghosts will be frozen for 10 seconds"
                     ],
                     "transitions": [
                         { "default": "!query.is_powered" }

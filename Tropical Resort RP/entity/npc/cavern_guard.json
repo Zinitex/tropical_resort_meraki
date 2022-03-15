@@ -1,0 +1,36 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:cavern_guard",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/npc/alex/cavern_guard"
+            },
+            "animations": {
+                "move": "animation.humanoid.move",
+                "bob": "animation.humanoid.bob",
+                "look_at_target_default": "animation.humanoid.look_at_target.default",
+                "move_con": "controller.animation.humanoid.move"
+            },
+            "scripts": {
+                "pre_animation": [
+                    "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+                    "variable.tcos1 = -variable.tcos0;"
+                ],
+                "scale": "0.9375",
+                "animate": [
+                    "bob",
+                    "move_con",
+                    "look_at_target_default"
+                ]
+            },
+            "geometry": {
+                "default": "geometry.npc_slim"
+            },
+            "render_controllers": ["controller.render.default"]
+        }
+    }
+}

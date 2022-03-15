@@ -9,12 +9,18 @@
                     ]
                 },
                 "no_fuel": {
+                    "on_entry": [
+                        "/scoreboard players add @s fuel 0"
+                    ],
                     "transitions": [
                         { "fuel": "query.is_powered" }
                     ]
                 },
                 "fuel": {
                     "on_entry": [
+                        "/execute @s[tag=final_quest] ~~~ execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_herman.dialogue_line5\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                        "/execute @s[tag=final_quest] ~~~ execute @a ~~~ playsound mob.villager.idle @s ~~~ 1.0 0.5",
+                        "/execute @s[tag=final_quest] ~~~ scoreboard players set @e[type=meraki:main] quest_id 42",
                         "/tag @s add fuel",
                         "/clear @p[m=!1] meraki:fuel_canister 0 1",
                         "/title @p actionbar §7Fuel §rhas been filled",
@@ -82,7 +88,6 @@
                 },
                 "riding": {
                     "on_exit": [
-                        "/say gak ride",
                         "/tag @s remove is_surfing"
                     ],
                     "transitions": [

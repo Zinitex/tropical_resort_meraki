@@ -1,0 +1,185 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "meraki:party_npc",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "is_experimental": false
+        },
+        "component_groups": {
+            "minecraft:despawn": {
+                "minecraft:instant_despawn": {}
+            },
+            "archie": {
+                "minecraft:skin_id": {
+                    "value": 1
+                }
+            },
+            "barman": {
+                "minecraft:skin_id": {
+                    "value": 2
+                }
+            },
+            "beach_boy": {
+                "minecraft:skin_id": {
+                    "value": 3
+                }
+            },
+            "beach_kid": {
+                "minecraft:skin_id": {
+                    "value": 4
+                }
+            },
+            "billy": {
+                "minecraft:skin_id": {
+                    "value": 5
+                }
+            },
+            "daniella": {
+                "minecraft:skin_id": {
+                    "value": 6
+                }
+            },
+            "herman": {
+                "minecraft:skin_id": {
+                    "value": 7
+                }
+            },
+            "quest_master": {
+                "minecraft:skin_id": {
+                    "value": 8
+                }
+            },
+            "receptionist": {
+                "minecraft:skin_id": {
+                    "value": 9
+                }
+            },
+            "ricky": {
+                "minecraft:skin_id": {
+                    "value": 10
+                }
+            },
+            "sam": {
+                "minecraft:skin_id": {
+                    "value": 11
+                }
+            },
+            "sarah": {
+                "minecraft:skin_id": {
+                    "value": 12
+                }
+            }
+        },
+        "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "npc"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.5,
+                "height": 1.8
+            },
+            "minecraft:scale": {
+                "value": 1.0
+            },
+            "minecraft:physics": {
+                "has_gravity": true,
+                "has_collision": true
+            },
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:movement": {
+                "value": 0.30
+            },
+            "minecraft:annotation.open_door": {},
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+
+            "minecraft:can_climb": {},
+            "minecraft:persistent": {},
+            "minecraft:behavior.random_stroll": {
+                "priority": 5,
+                "speed_multiplier": 1
+            },
+            "minecraft:behavior.look_at_player": {
+                "priority": 6,
+                "look_distance": 8
+            },
+            "minecraft:navigation.walk": {
+                "is_amphibious": true,
+                "can_path_over_water": true,
+                "can_pass_doors": true,
+                "can_open_doors": true,
+                "can_fly": false,
+                "can_climb": true,
+                "can_sneak": true,
+                "can_eat": true,
+                "avoid_damage_blocks": false,
+                "avoid_sun": false,
+                "avoid_water": true
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1,
+                "min": 1
+            },
+            "minecraft:fire_immune": true,
+            "minecraft:nameable": {
+                "allow_name_tag_renaming": true,
+                "always_show": true
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            }
+        },
+        "events": {
+            "minecraft:despawn": {
+                "add": { "component_groups": ["minecraft:despawn"] }
+            },
+            "archie": {
+                "add": { "component_groups": ["archie"] }
+            },
+            "barman": {
+                "add": { "component_groups": ["barman"] }
+            },
+            "beach_boy": {
+                "add": { "component_groups": ["beach_boy"] }
+            },
+            "beach_kid": {
+                "add": { "component_groups": ["beach_kid"] }
+            },
+            "billy": {
+                "add": { "component_groups": ["billy"] }
+            },
+            "daniella": {
+                "add": { "component_groups": ["daniella"] }
+            },
+            "herman": {
+                "add": { "component_groups": ["herman"] }
+            },
+            "quest_master": {
+                "add": { "component_groups": ["quest_master"] }
+            },
+            "receptionist": {
+                "add": { "component_groups": ["receptionist"] }
+            },
+            "ricky": {
+                "add": { "component_groups": ["ricky"] }
+            },
+            "sam": {
+                "add": { "component_groups": ["sam"] }
+            },
+            "sarah": {
+                "add": { "component_groups": ["sarah"] }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "meraki:party_npc",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/tropical_resort/npc/alex/patricia",
+                "archie": "textures/tropical_resort/npc/steve/archie_archer",
+                "barman": "textures/tropical_resort/npc/steve/barman",
+                "beach_boy": "textures/tropical_resort/npc/steve/beach_boy_1",
+                "beach_kid": "textures/tropical_resort/npc/alex/beach_kid",
+                "billy": "textures/tropical_resort/npc/alex/beach_boy_2",
+                "daniella": "textures/tropical_resort/npc/alex/daniella",
+                "herman": "textures/tropical_resort/npc/steve/herman",
+                "quest_master": "textures/tropical_resort/npc/steve/questmaster",
+                "receptionist": "textures/tropical_resort/npc/steve/receptionist",
+                "ricky": "textures/tropical_resort/npc/steve/ricky",
+                "sam": "textures/tropical_resort/npc/alex/sam_surfer",
+                "sarah": "textures/tropical_resort/npc/alex/sarah_sailor"
+            },
+            "geometry": {
+                "default": "geometry.npc_slim",
+                "archie": "geometry.npc_normal",
+                "barman": "geometry.npc_normal",
+                "beach_boy": "geometry.npc_normal",
+                "beach_kid": "geometry.npc_slim",
+                "billy": "geometry.npc_slim",
+                "daniella": "geometry.npc_slim",
+                "herman": "geometry.npc_normal",
+                "quest_master": "geometry.npc_normal",
+                "receptionist": "geometry.npc_normal",
+                "ricky": "geometry.npc_normal",
+                "sam": "geometry.npc_slim",
+                "sarah": "geometry.npc_slim"
+            },
+            "animations": {
+                "small": "animation.npc.kid",
+                "move": "animation.humanoid.move",
+                "bob": "animation.humanoid.bob",
+                "look_at_target_default": "animation.humanoid.look_at_target.default",
+                "move_con": "controller.animation.humanoid.move"
+            },
+            "scripts": {
+                "pre_animation": [
+                    "variable.tcos0 = (Math.cos(query.modified_distance_moved * 38.17) * query.modified_move_speed / variable.gliding_speed_value) * 57.3;",
+                    "variable.tcos1 = -variable.tcos0;"
+                ],
+                "scale": "0.9375",
+                "animate": [
+                    { "small": "query.skin_id == 4" },
+                    "bob",
+                    "move_con",
+                    "look_at_target_default"
+                ]
+            },
+            "particle_effects": {
+                "name": "meraki:archie",
+                "bubble": "meraki:bubble"
+            },
+            "render_controllers": ["controller.render.party_npc"]
+        }
+    }
+}

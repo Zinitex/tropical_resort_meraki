@@ -8,11 +8,12 @@
             "is_experimental": false,
             "scripts": {
                 "animate": [
-                    "config"
+                    "config", "remove_error"
                 ]
             },
             "animations": {
-                "config": "animation.title_sidebar.config"
+                "config": "animation.title_sidebar.config",
+                "remove_error": "animation.remove_error"
             }
         },
         "component_groups": {

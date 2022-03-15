@@ -37,6 +37,11 @@
             }
         },
         "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "door"
+                ]
+            },
             "minecraft:entity_sensor": {
                 "sensor_range": 5,
                 "relative_range": false,

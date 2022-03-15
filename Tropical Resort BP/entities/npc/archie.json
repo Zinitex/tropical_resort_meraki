@@ -202,7 +202,7 @@
                 "add": { "component_groups": ["minecraft:quest_id2"] }
             },
             "minecraft:archery_range3": {
-                "add": { "component_groups": ["minecraft:quest_id3"] }
+                "add": { "component_groups": ["minecraft:quest_id3", "minecraft:quest"] }
             },
             "minecraft:can_do_quest": {
                 "add": { "component_groups": ["minecraft:quest"] }

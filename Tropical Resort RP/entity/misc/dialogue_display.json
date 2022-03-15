@@ -7,7 +7,11 @@
                 "default": "entity_alphatest"
             },
             "textures": {
-                "default": "textures/tropical_resort/npc/steve/questmaster"
+                "skin1": "textures/tropical_resort/npc/steve/questmaster",
+                "skin2": "textures/tropical_resort/npc/steve/barman",
+                "skin3": "textures/tropical_resort/npc/alex/beach_boy_2",
+                "skin4": "textures/tropical_resort/npc/steve/archie_archer",
+                "skin5": "textures/tropical_resort/npc/alex/sam_surfer"
             },
             "animations": {
                 "move": "animation.humanoid.move",
@@ -28,9 +32,13 @@
                 ]
             },
             "geometry": {
-                "default": "geometry.npc_normal"
+                "skin1": "geometry.npc_normal",
+                "skin2": "geometry.npc_normal",
+                "skin3": "geometry.npc_slim",
+                "skin4": "geometry.npc_normal",
+                "skin5": "geometry.npc_slim"
             },
-            "render_controllers": ["controller.render.default"]
+            "render_controllers": ["controller.render.dialogue_display"]
         }
     }
 }

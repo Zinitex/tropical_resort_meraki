@@ -29,6 +29,11 @@
             }
         },
         "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "door"
+                ]
+            },
             "minecraft:collision_box": {
                 "width": 0.0,
                 "height": 0.0

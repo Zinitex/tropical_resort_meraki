@@ -25,6 +25,9 @@
             },
             "geogebra_change": {
                 "minecraft:is_baby": {}
+            },
+            "on_change": {
+                "minecraft:is_charged": {}
             }
         },
         "components": {
@@ -89,6 +92,13 @@
                     ]
                 }
             },
+            "remove_change": {
+                "remove": {
+                    "component_groups": [
+                        "on_change"
+                    ]
+                }
+            },
             "change": {
                 "sequence": [{
                         "filters": {
@@ -103,6 +113,11 @@
                             "component_groups": [
                                 "light"
                             ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "on_change"
+                            ]
                         }
                     },
                     {
@@ -116,7 +131,8 @@
                         },
                         "add": {
                             "component_groups": [
-                                "light"
+                                "light",
+                                "on_change"
                             ]
                         }
                     }

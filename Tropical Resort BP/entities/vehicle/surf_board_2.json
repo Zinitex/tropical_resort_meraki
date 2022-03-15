@@ -59,7 +59,7 @@
             "vehicle": {
                 "minecraft:type_family": {
                     "family": [
-                        "surfboard", "custom_animation"
+                        "surfboard", "custom_animation", "vehicle"
                     ]
                 },
                 "minecraft:environment_sensor": {

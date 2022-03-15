@@ -43,7 +43,7 @@
         "components": {
             "minecraft:type_family": {
                 "family": [
-                    "gatekeeper"
+                    "gatekeeper", "npc"
                 ]
             },
             "minecraft:collision_box": {

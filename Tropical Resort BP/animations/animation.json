@@ -36,6 +36,7 @@
                     "/execute @s[scores={fuel=10..19}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B\\u258B§8\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
                     "/execute @s[scores={fuel=1..9}] ~ ~ ~ titleraw @p actionbar {\"rawtext\":[{\"text\":\"§c\\u258B§8\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\\u258B\"}]}",
                     "/execute @s[scores={fuel=0}] ~ ~ ~ title @p actionbar §c§lOut of fuel",
+
                     "/execute @e[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ title @p actionbar You have successfully completed the jetski test",
                     "/execute @e[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ playsound random.levelup @p",
                     "/execute @s[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ event entity @s minecraft:drop_normal",
@@ -43,6 +44,13 @@
                     "/execute @s[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ scoreboard players set @e[type=meraki:main] q10 1",
                     "/execute @s[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ tag @e[type=meraki:beach_boy] add quest_complete",
                     "/execute @s[scores={fuel=0},tag=jetski_tutorial] ~ ~ ~ function check_quest",
+
+                    "/execute @s[scores={fuel=95},tag=final_quest] ~ ~ ~ scoreboard players set @e[type=meraki:main] quest_id 43",
+                    "/execute @s[scores={fuel=95},tag=final_quest] ~ ~ ~ execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:herman_thanks.dialogue_line\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/execute @s[scores={fuel=95},tag=final_quest] ~ ~ ~ execute @a ~~~ playsound random.levelup @s ~~~ 1.0 0.5",
+                    "/execute @s[scores={fuel=95},tag=final_quest] ~ ~ ~ execute @a ~~~ playsound mob.villager.idle @s ~~~ 1.0 0.5",
+                    "/execute @s[scores={fuel=95},tag=final_quest] ~ ~ ~ tag @s remove final_quest",
+
                     "/execute @s[scores={fuel=0}] ~ ~ ~ event entity @s minecraft:ran_out_fuel",
                     "/execute @s[scores={fuel=..90},tag=fuel] ~ ~ ~ tag @s remove fuel"
                 ]
@@ -167,15 +175,20 @@
                     "/tag @a[r=3] remove checkpoint7",
                     "/stopsound @a[r=10] note.pling",
                     "/playsound random.levelup @a[r=10] ~~~ 10 0.5",
-                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint6] minecraft:despawn"
+                    "/event entity @e[type=meraki:gold_ring,tag=checkpoint6] minecraft:despawn",
+                    "/execute @p[tag=ring_surfing] ~~~ give @s meraki:gold_coin 20",
+                    "/execute @p[tag=ring_surfing] ~~~ title @s actionbar §20 Coins",
+                    "/execute @e[type=meraki:main,tag=!ring_sufing] ~~~ give @p[tag=ring_surfing] meraki:basement_key 1"
                 ],
                 "2.5": [
                     "/event entity @e[type=meraki:gold_ring,tag=checkpoint7] minecraft:despawn",
                     "/event entity @e[family=surfboard_decoration,tag=ring_sufing] minecraft:despawn"
                 ],
                 "10.0": [
+                    "/event entity @e[family=surfboard,tag=ring_surfing] minecraft:despawn",
                     "/scoreboard players set @e[type=meraki:main] quest_id 0",
                     "/scoreboard players set @e[type=meraki:main] q9 1",
+                    "/tag @e[type=meraki:main] add ring_sufing",
                     "/tag @e[type=meraki:sam] add quest_complete",
                     "/tag @a remove ring_surfing",
                     "/function check_quest",

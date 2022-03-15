@@ -39,6 +39,11 @@
             }
         },
         "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "collectable"
+                ]
+            },
             "minecraft:knockback_resistance": {},
             "minecraft:health": {
                 "max": 1,

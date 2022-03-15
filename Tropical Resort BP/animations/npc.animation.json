@@ -28,7 +28,10 @@
 
                     "/scoreboard players set @e[type=meraki:main] quest_id 18",
                     "/execute @e[type=meraki:ground_door] ~~~ playsound tile.piston.out @a[r=14] ~~1~ 1.0 0.5",
+
                     "/event entity @e[type=meraki:ground_door,r=20] minecraft:door_open",
+                    "/tag @e[type=meraki:billy] remove blocked",
+                    "/tag @e[type=meraki:billy] add can_quest",
                     "/event entity @e[type=meraki:billy] minecraft:can_do_quest",
                     "/tag @e[type=meraki:main] add basement_spook",
                     "/tag @s add quest_complete",
@@ -60,9 +63,6 @@
                     "/event entity @e[family=npc] minecraft:remove_quest",
                     "/event entity @e[family=gatekeeper] minecraft:remove_quest",
                     "/tag @e[family=another_quest] add blocked",
-                    "/tag @e[type=meraki:billy] remove blocked",
-                    "/tag @e[type=meraki:billy] add can_quest",
-                    "/event entity @e[type=meraki:billy] minecraft:can_do_quest",
 
                     "/scoreboard players set @e[type=meraki:main] quest_id 20",
                     "/execute @e[type=meraki:wall_door] ~~~ playsound tile.piston.out @a[r=14] ~~1~ 1.0 0.5",
@@ -237,7 +237,7 @@
                     "/scoreboard players set @e[type=meraki:main] quest_id 10",
                     "/scoreboard players set @s twig 0",
                     "/scoreboard players set @s rock 0",
-                    "@s can_do_quest",
+                    "@s minecraft:can_do_quest",
                     "@s minecraft:need_rock",
                     "@s minecraft:need_twig",
                     "@s minecraft:reset_quest",
@@ -286,6 +286,7 @@
             "loop": true,
             "timeline": {
                 "0.0": [
+                    "@s minecraft:remove_quest",
                     "/scoreboard players reset @s twig",
                     "/scoreboard players reset @s rock",
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line4\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
@@ -299,6 +300,10 @@
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line6\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
                     "/scoreboard players set @e[type=meraki:main] quest_id 12",
+                    "/give @p meraki:twig 2",
+                    "/give @p meraki:rock 1",
+                    "@s minecraft:can_do_quest",
+                    "/tag @p add fishing_spear",
                     "@s minecraft:reset_dialogue"
                 ]
             }
@@ -308,6 +313,7 @@
             "loop": true,
             "timeline": {
                 "0.0": [
+                    "/tag @a remove fishing_spear",
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:sarah.dialogue_line7\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.25"
                 ],
@@ -403,6 +409,7 @@
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
                     "/scoreboard players set @e[type=meraki:main] quest_id 0",
                     "/scoreboard players set @e[type=meraki:main] q3 1",
+                    "/event entity @e[family=surfboard_decoration] minecraft:can_take",
                     "/tag @s add quest_complete",
                     "/function check_quest",
                     "@s minecraft:remove_quest",
@@ -427,6 +434,7 @@
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.5",
                     "/scoreboard players set @e[type=meraki:main] quest_id 16",
                     "/scoreboard players set @s seashells 0",
+                    "@s minecraft:can_do_quest",
                     "@s minecraft:reset_quest",
                     "@s minecraft:need_seashells",
                     "@s minecraft:reset_dialogue"
@@ -690,7 +698,7 @@
                     "/tag @e[family=another_quest] add blocked",
 
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_patricia.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
-                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.5",
                     "/event entity @e[type=meraki:sarah] minecraft:can_do_quest",
                     "/tag @e[type=meraki:sarah] add final_quest",
                     "@s minecraft:reset_dialogue"
@@ -708,7 +716,7 @@
                     "/tag @e[family=another_quest] add blocked",
 
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_sarah.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
-                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 1.25",
                     "/event entity @e[type=meraki:barman] minecraft:can_do_quest",
                     "/tag @e[type=meraki:barman] add final_quest",
                     "@s minecraft:reset_dialogue"
@@ -726,7 +734,7 @@
                     "/tag @e[family=another_quest] add blocked",
 
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:final_barman.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
-                    "/playsound mob.villager.idle @a ~~~ 1.0 0.5",
+                    "/playsound mob.villager.idle @a ~~~ 1.0 0.7",
                     "/event entity @e[type=meraki:herman] minecraft:can_do_quest",
                     "/tag @e[type=meraki:herman] add final_quest",
                     "/give @p meraki:helicopter_key",
@@ -740,6 +748,8 @@
             "timeline": {
                 "0.0": [
                     "/scoreboard players set @e[type=meraki:main] quest_id 41",
+                    "/event entity @e[type=meraki:helicopter] minecraft:unlocked",
+                    "/tag @e[type=meraki:helicopter] add final_quest",
                     "/tag @s remove final_quest_2",
                     "/event entity @e[family=npc] minecraft:remove_quest",
                     "/event entity @e[family=gatekeeper] minecraft:remove_quest",

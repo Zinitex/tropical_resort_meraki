@@ -6,7 +6,21 @@
             "animation_length": 1.0,
             "timeline": {
                 "0.0": [
-                    "/function title_sidebar"
+                    "/function title_sidebar",
+                    "/execute @s[scores={geogebra=45},tag=geogebra] ~~~ function geogebra_win"
+                ]
+            }
+        },
+        "animation.remove_error": {
+            "loop": true,
+            "animation_length": 5.0,
+            "timeline": {
+                "0.0": [
+                    "/execute @r ~~~ tp @e[type=meraki:dialogue_display] ~ -66 ~",
+                    "/execute @r[type=meraki:dialogue_display,c=1] ~~~ tickingarea add circle ~~~ 1 §kdialogue§r"
+                ],
+                "4.9": [
+                    "/tickingarea remove §kdialogue§r"
                 ]
             }
         },
@@ -15,8 +29,9 @@
             "animation_length": 1.0,
             "timeline": {
                 "0.0": [
-                    "/execute @s ~~~ execute @p[r=10,tag=dolphin_escort,tag=is_surfing] ~~~ event entity @e[type=meraki:dolphin] minecraft:to_move",
-                    "/execute @s ~~~ execute @p[r=15,rm=10,tag=dolphin_escort,tag=is_surfing] ~~~ function dolphin_run"
+                    "/execute @s[tag=!continue] ~~~ execute @p[r=5,tag=dolphin_escort] ~~~ tag @e[type=meraki:dolphin] add continue",
+                    "/execute @s[tag=continue] ~~~ execute @p[r=10,tag=dolphin_escort] ~~~ event entity @e[type=meraki:dolphin] minecraft:to_move",
+                    "/execute @s[tag=continue] ~~~ execute @p[r=15,rm=10,tag=dolphin_escort] ~~~ function dolphin_run"
                 ]
             }
         },

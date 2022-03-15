@@ -6,7 +6,7 @@
         },
         "tags": ["crafting_table"],
         "ingredients": [{
-                "item": "meraki:apple"
+                "item": "minecraft:apple"
             },
             {
                 "item": "meraki:glass_of_water"

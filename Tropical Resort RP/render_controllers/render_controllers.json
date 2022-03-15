@@ -35,6 +35,76 @@
                 "Array.skins[query.skin_id]"
             ]
         },
+        "controller.render.party_npc": {
+            "arrays": {
+                "textures": {
+                    "Array.variants": [
+                        "Texture.default",
+                        "Texture.archie",
+                        "Texture.barman",
+                        "Texture.beach_boy",
+                        "Texture.beach_kid",
+                        "Texture.billy",
+                        "Texture.daniella",
+                        "Texture.herman",
+                        "Texture.quest_master",
+                        "Texture.receptionist",
+                        "Texture.ricky",
+                        "Texture.sam",
+                        "Texture.sarah"
+                    ]
+                },
+                "geometries": {
+                    "Array.variants": [
+                        "Geometry.default",
+                        "Geometry.archie",
+                        "Geometry.barman",
+                        "Geometry.beach_boy",
+                        "Geometry.beach_kid",
+                        "Geometry.billy",
+                        "Geometry.daniella",
+                        "Geometry.herman",
+                        "Geometry.quest_master",
+                        "Geometry.receptionist",
+                        "Geometry.ricky",
+                        "Geometry.sam",
+                        "Geometry.sarah"
+                    ]
+                }
+            },
+            "geometry": "Array.variants[query.skin_id]",
+            "materials": [{ "*": "Material.default" }],
+            "textures": [
+                "Array.variants[query.skin_id]"
+            ]
+        },
+        "controller.render.dialogue_display": {
+            "arrays": {
+                "textures": {
+                    "Array.variants": [
+                        "Texture.skin1",
+                        "Texture.skin2",
+                        "Texture.skin3",
+                        "Texture.skin4",
+                        "Texture.skin5"
+                    ]
+                },
+                "geometries": {
+                    "Array.variants": [
+                        "Geometry.skin1",
+                        "Geometry.skin2",
+                        "Geometry.skin3",
+                        "Geometry.skin4",
+                        "Geometry.skin5"
+                    ]
+                }
+            },
+            "geometry": "Array.variants[query.variant]",
+            "materials": [{ "*": "Material.default" }],
+            "textures": [
+                "Array.variants[query.variant]"
+            ]
+        },
         "controller.render.villager_skin_base": {
             "arrays": {
                 "textures": {
