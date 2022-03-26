@@ -27,6 +27,11 @@
             }
         },
         "components": {
+            "minecraft:type_family": {
+                "family": [
+                    "chair"
+                ]
+            },
             "minecraft:scale": {
                 "value": 0.8
             },

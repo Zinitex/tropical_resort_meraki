@@ -21,9 +21,7 @@ execute @e[type=meraki:main,scores={q3=1}] ~~~ event entity @e[type=meraki:sam,t
 
 execute @e[type=meraki:main,scores={q3=1,q9=1}] ~~~ event entity @e[type=meraki:beach_boy,tag=!quest_complete] minecraft:can_do_quest
 
-execute @e[type=meraki:main,scores={q7=1,q8=1}] ~~~ execute @e[type=meraki:main,tag=!deep_dive_barman] ~~~ summon meraki:barman_2 2029 67 -138
-execute @e[type=meraki:main,scores={q7=1,q8=1}] ~~~ tag @e[type=meraki:main,tag=!deep_dive_barman] add deep_dive_barman
-execute @e[type=meraki:main,scores={q7=1,q8=1}] ~~~ event entity @e[type=meraki:barman_2,tag=!quest_complete] minecraft:can_do_quest
+execute @e[type=meraki:main,scores={q8=1}] ~~~ event entity @e[type=meraki:barman_2,tag=!quest_complete] minecraft:can_do_quest
 
 execute @e[type=meraki:main,scores={q1=1}] ~~~ tag @e[type=meraki:patricia] add can_quest
 execute @e[type=meraki:main,scores={q8=1}] ~~~ event entity @e[type=meraki:patricia,tag=!quest_complete] minecraft:can_do_quest

@@ -91,10 +91,15 @@
                     "/scoreboard players add @e[type=meraki:main] bar_quest 1",
                     "/ride @r[type=meraki:tall_wooden_bar_stool,x=2145,y=86,z=-86,r=15,c=1] summon_rider meraki:customer",
 
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..}] ~~~ tag @e[type=meraki:main] remove on_quest",
                     "/execute @e[type=meraki:main,scores={bar_quest=..7}] ~~~ /titleraw @p[x=2143,y=85,z=-84,r=10] actionbar {\"rawtext\":[{\"text\":\"Completed Bar services §6\"},{\"score\":{\"name\":\"@s\",\"objective\":\"bar_quest\"}},{\"text\":\"§f/§68\"}]}",
                     "/execute @e[type=meraki:main,scores={bar_quest=8..}] ~~~ execute @p[x=2143,y=85,z=-84,r=10] ~~~ playsound random.levelup @s ~~~ 1.0 0.5",
                     "/execute @e[type=meraki:main,scores={bar_quest=8..}] ~~~ event entity @e[type=meraki:customer] bar:force_complete",
 
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..},tag=!bartender] ~~~ summon meraki:barman_2 2029 67 -138",
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..}] ~~~ tp @a[x=2144,y=86,z=-86,r=15] 2148 85 -91",
+
+                    "/execute @e[type=meraki:main,scores={bar_quest=8..}] ~~~ execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line3\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/execute @e[type=meraki:main,scores={bar_quest=8..},tag=!bartender] ~~~ give @p[x=2143,y=85,z=-84,r=10] meraki:gold_coin 50",
                     "/execute @e[type=meraki:main,scores={bar_quest=8..},tag=!bartender] ~~~ title @p[x=2143,y=85,z=-84,r=10] actionbar §aBartender Services completed | §a+50 Gold Coins ",
                     "/execute @e[type=meraki:main,scores={bar_quest=8..}] ~~~ scoreboard players set @e[type=meraki:main] quest_id 0",

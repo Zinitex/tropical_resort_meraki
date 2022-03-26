@@ -3,7 +3,7 @@
     "minecraft:entity": {
         "description": {
             "identifier": "meraki:target",
-            "is_spawnable": true,
+            "is_spawnable": false,
             "is_summonable": true,
             "scripts": {
                 "animate": [

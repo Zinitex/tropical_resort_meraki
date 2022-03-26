@@ -31,7 +31,7 @@
         "components": {
             "minecraft:type_family": {
                 "family": [
-                    "beach_chair", "custom_animation"
+                    "beach_chair", "custom_animation", "chair"
                 ]
             },
             "minecraft:scale": {

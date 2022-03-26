@@ -1,0 +1,76 @@
+{
+    "format_version": "1.17",
+    "minecraft:npc_dialogue": {
+        "scenes": [{
+                "scene_tag": "basement_spook",
+                "npc_name": "Billy",
+                "text": "It's really scary and dark inside, I don't dare to go in maybe you can try it because you have an adventurous spirit",
+                "buttons": [{
+                        "name": "Go Inside",
+                        "commands": [
+                            "/event entity @e[family=npc] minecraft:remove_quest",
+                            "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                            "/tag @e[family=another_quest] add blocked",
+
+                            "/execute @e[type=meraki:main,tag=basement_spook] ~~~ scoreboard players set @e[type=meraki:main] quest_id 19",
+                            "/tag @e[type=meraki:main] add on_quest",
+                            "/tag @initiator add basement_spook",
+                            "/execute @e[name=checkpoint_basement_spook] ~~~ tp @r[tag=basement_spook] ~~3~ 270",
+                            "/event entity @e[type=meraki:ghost] minecraft:despawn",
+                            "/event entity @e[type=meraki:fuel_canister] minecraft:despawn",
+                            "/summon meraki:ghost 2160 71 -107",
+                            "/summon meraki:ghost 2168 71 -122",
+                            "/summon meraki:ghost 2173 71 -136",
+                            "/summon meraki:ghost 2163 71 -137",
+                            "/summon meraki:ghost 2167 71 -106",
+                            "/summon meraki:ghost 2148 71 -108",
+                            "/summon meraki:fuel_canister 2178 71 -121",
+                            "/title @initiator actionbar Go collect the fuel canister",
+                            "/playsound random.orb @initiator",
+                            "/event entity @e[type=meraki:light_switch] switch_off"
+                        ]
+                    },
+                    {
+                        "name": "How to Play",
+                        "commands": [
+                            "/dialogue open @e[type=meraki:dialogue_display,tag=billy] @initiator basement_spook_rules"
+                        ]
+                    }
+                ]
+            },
+            {
+                "scene_tag": "basement_spook_rules",
+                "npc_name": "Billy",
+                "text": "I will tell you about how to play Basement Spook\n1. Your main Objective is to collect the §cFuel Canister§0.\n2. The §cFuel canister§0 will appear when the light is §aOn§0.\n3. Turn §aOn§0 the light allow you to see the §cFuel Canister§0 on the ground for 10 seconds, and any ghost will be §9frozen§0.\n4. When the light is §aOff§0 Ghost will chase you and send you back to the first Checkpoint\n5. After you collected §cFuel Canister§0 you can restart this game again.",
+                "buttons": [{
+                    "name": "Okay..",
+                    "commands": [
+                        "/dialogue open @e[type=meraki:dialogue_display,tag=billy] @initiator basement_spook"
+                    ]
+                }]
+            },
+            {
+                "scene_tag": "bartender_simulator",
+                "npc_name": "Barman",
+                "text": "Can you help me serve Customers, you need to serve 8 customers in total then I will give you reward",
+                "buttons": [{
+                    "name": "I'll help you",
+                    "commands": [
+                        "/tag @e[type=meraki:main] add on_quest",
+                        "/execute @e[type=meraki:main,tag=!bartender] ~~~ execute @e[type=meraki:barman] ~~~ playsound mob.shulker.teleport @a[r=14] ~~~ 1.0 1.0",
+                        "/execute @e[type=meraki:main,tag=!bartender] ~~~ execute @e[type=meraki:barman] ~~~ particle custom:teleport ~~~",
+                        "/execute @e[type=meraki:main,tag=!bartender] ~~~ execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line6\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                        "/execute @e[type=meraki:main,tag=!bartender] ~~~ execute @e[type=meraki:barman] ~~~ event entity @s minecraft:despawn",
+                        "/event entity @e[family=npc] minecraft:remove_quest",
+                        "/event entity @e[family=gatekeeper] minecraft:remove_quest",
+                        "/playsound random.orb @initiator",
+                        "/tag @e[family=another_quest] add blocked",
+
+                        "/ride @r[type=meraki:tall_wooden_bar_stool,x=2145,y=86,z=-86,r=15,c=4] summon_rider meraki:customer",
+                        "/scoreboard players set @e[type=meraki:main] quest_id 25"
+                    ]
+                }]
+            }
+        ]
+    }
+}

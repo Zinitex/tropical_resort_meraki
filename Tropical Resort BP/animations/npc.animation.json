@@ -157,6 +157,7 @@
                     "/tag @e[family=another_quest] add blocked",
 
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:archie.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/structure load bow 2156 81 -58",
                     "/playsound mob.villager.idle @a"
                 ],
                 "10.0": [
@@ -536,17 +537,16 @@
             "loop": true,
             "timeline": {
                 "0.0": [
-                    "/event entity @e[family=npc] minecraft:remove_quest",
-                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
-                    "/tag @e[family=another_quest] add blocked",
-                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/execute @e[type=meraki:main,tag=bartender] ~~~ execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line7\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/execute @e[type=meraki:main,tag=!bartender] ~~~ execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a ~~~ 1.0 0.7"
                 ],
+                "7.5": [
+                    "/execute @e[type=meraki:main,tag=!bartender] ~~~ execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
+                    "/execute @e[type=meraki:main,tag=!bartender] ~~~ playsound mob.villager.idle @a ~~~ 1.0 0.7"
+                ],
                 "10.0": [
-                    "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:barman.dialogue_line2\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
-                    "/playsound mob.villager.idle @a ~~~ 1.0 0.7",
-                    "/ride @r[type=meraki:tall_wooden_bar_stool,x=2145,y=86,z=-86,r=15,c=4] summon_rider meraki:customer",
-                    "/scoreboard players set @e[type=meraki:main] quest_id 25",
+                    "/dialogue open @e[type=meraki:dialogue_display,tag=barman] @p bartender_simulator",
                     "@s minecraft:reset_dialogue"
                 ]
             }
@@ -633,6 +633,8 @@
                     "/give @p meraki:gold_coin 25"
                 ],
                 "5.0": [
+                    "/summon meraki:barman 2150 85 -91",
+                    "/tag @e[type=meraki:barman] add quest_complete",
                     "/scoreboard players set @e[type=meraki:main] quest_id 0",
                     "/scoreboard players set @e[type=meraki:main] q11 1",
                     "/function check_quest",
@@ -648,10 +650,6 @@
             "loop": true,
             "timeline": {
                 "0.0": [
-                    "/event entity @e[family=npc] minecraft:remove_quest",
-                    "/event entity @e[family=gatekeeper] minecraft:remove_quest",
-                    "/tag @e[family=another_quest] add blocked",
-
                     "/execute @a ~~~ tellraw @s {\"rawtext\":[{\"translate\" : \"meraki:patricia.dialogue_line1\",\"with\":{\"rawtext\":[{ \"selector\" : \"@s\" }]}}]}",
                     "/playsound mob.villager.idle @a ~~~ 1.0 1.5"
                 ],

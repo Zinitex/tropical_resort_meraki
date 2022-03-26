@@ -23,7 +23,6 @@ execute @e[type=meraki:party_npc,tag=!ok] ~~~ particle custom:teleport ~~~
 execute @e[type=meraki:party_npc,tag=!ok] ~~~ playsound mob.shulker.teleport @a[r=14] ~~~ 1.0 1.0
 tag @e[type=meraki:party_npc] add ok
 
-scoreboard players set @e[type=meraki:main] quest_id 0
 scoreboard players set @e[type=meraki:main] q12 1
 tag @e[type=meraki:patricia] add quest_complete
-function check_quest
+event entity @e[type=meraki:patricia] minecraft:remove_quest

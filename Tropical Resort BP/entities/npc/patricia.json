@@ -3,7 +3,7 @@
     "minecraft:entity": {
         "description": {
             "identifier": "meraki:patricia",
-            "is_spawnable": true,
+            "is_spawnable": false,
             "is_summonable": true,
             "is_experimental": false,
             "scripts": {
@@ -103,12 +103,6 @@
                                         "value": "player"
                                     },
                                     {
-                                        "test": "has_component",
-                                        "subject": "self",
-                                        "value": "minecraft:is_baby",
-                                        "operator": "equals"
-                                    },
-                                    {
                                         "test": "has_tag",
                                         "subject": "self",
                                         "value": "can_quest"
@@ -130,7 +124,7 @@
                             "event": "minecraft:dialogue1",
                             "target": "self"
                         },
-                        "cooldown": 0.5,
+                        "cooldown": 15.0,
                         "interact_text": "Click to Talk"
                     },
                     {

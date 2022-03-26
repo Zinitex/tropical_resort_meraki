@@ -7,7 +7,8 @@
             "timeline": {
                 "0.0": [
                     "/function title_sidebar",
-                    "/execute @s[scores={geogebra=45},tag=geogebra] ~~~ function geogebra_win"
+                    "/execute @s[scores={geogebra=45},tag=geogebra] ~~~ function geogebra_win",
+                    "/execute @a ~~~ fill ~10 ~10 ~10 ~-10 ~-10 ~-10 air 0 replace fire"
                 ]
             }
         },

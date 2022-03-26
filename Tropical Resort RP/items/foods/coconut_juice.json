@@ -7,7 +7,8 @@
         },
 
         "components": {
-            "minecraft:icon": "coconut_juice"
+            "minecraft:icon": "coconut_juice",
+            "minecraft:use_animation": "drink"
         }
     }
 }
